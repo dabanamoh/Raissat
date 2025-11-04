@@ -8,9 +8,9 @@ const Map = ({ currentView }) => {
 
   const defaultIcon = L.icon({
     iconUrl: markerIcon,
-    iconSize: [35, 41], // size of the icon
-    iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
-    popupAnchor: [1, -34], // point from which the popup should open relative to the iconAnchor
+    iconSize: [35, 41], 
+    iconAnchor: [12, 41], 
+    popupAnchor: [1, -34],
     shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
     shadowSize: [41, 41],
   });
