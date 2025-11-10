@@ -19,6 +19,7 @@ import josephine from "./Profiles/Josephine.svg";
 import christiana from "./Profiles/Christiana.svg";
 import adejoke from "./Profiles/Adejoke.svg";
 import rightArrow from "./Profiles/right-arrow.svg";
+import Oladayo from './Profiles/Oladayo.png';
 
 // Services
 import agric from "./agric.svg";
@@ -29,6 +30,11 @@ import technology from "./technology.svg";
 import iconConsult from "./iconConsult.svg";
 import iconManagement from "./iconManagement.svg";
 import iconResearch from "./iconResearch.svg";
+import iconKnowledge from "./iconKnowledge.svg";
+import iconTrust from "./iconTrust.svg";
+import iconCollaboration from './iconcollaboration.svg';
+import iconPolicy from './iconPolicy.svg';
+
 import imageConsultancy from "./imageConsultancy.svg";
 import imageManagement from "./imageManagement.svg";
 import imagePolicy from "./imagePolicy.svg";
@@ -88,6 +94,7 @@ export {
   iconBack,
 };
 
+// Profiles
 export {
   elohozino,
   samuel,
@@ -97,6 +104,7 @@ export {
   christiana,
   adejoke,
   rightArrow,
+  Oladayo,
 };
 
 // What we do images
@@ -109,6 +117,10 @@ export {
   iconConsult,
   iconManagement,
   iconResearch,
+  iconKnowledge,
+  iconTrust,
+  iconCollaboration,
+  iconPolicy,
 
   research1,
   research2,

@@ -1,8 +1,14 @@
+import { GiGiftOfKnowledge } from "react-icons/gi";
+
 // services
 import {
   iconConsult,
   iconManagement,
   iconResearch,
+  iconKnowledge,
+  iconTrust,
+  iconCollaboration,
+  iconPolicy,
   imageConsultancy,
   imageManagement,
   imageMentoring,
@@ -38,14 +44,15 @@ import {
   samuel,
   goshen,
   sunday,
-  // josephine,
   christiana,
   adejoke,
-  agric,
-  publicHealth,
-  sustainability,
-  innovation,
-  technology,
+  Oladayo,
+  // josephine,
+  // agric,
+  // publicHealth,
+  // sustainability,
+  // innovation,
+  // technology,
 } from "../assets/assets";
 
 // Media center images
@@ -128,7 +135,7 @@ const services = [
     id: "youth-mentorship-and-knowledge-exchange",
     title: "Youth Mentorship & Knowledge Exchange",
     text: "Cultivating the next generation of innovators and changemakers.",
-    icon: iconResearch,
+    icon: iconKnowledge,
     rationale:
       "Clear, powerful communication that drives policy change and collective action.",
     image: imagePolicy,
@@ -150,7 +157,7 @@ const impact = [
     id: "authenticity-and-trust",
     title: "Authenticity & Trust",
     text: "Neutral, evidence-driven, and community-centered.",
-    icon: iconConsult,
+    icon: iconTrust,
     rationale: "",
     image: "",
   },
@@ -159,7 +166,7 @@ const impact = [
     id: "multidisciplinary-collaboration",
     title: "Multidisciplinary Collaboration",
     text: "Fusing expertise across science, agriculture, and technology.",
-    icon: iconConsult,
+    icon: iconCollaboration,
     rationale: "",
     image: "",
   },
@@ -168,7 +175,7 @@ const impact = [
     id: "policy-translation-speed",
     title: "Policy Translation Speed",
     text: "Accelerating research adoption through clear, influential communication.",
-    icon: iconConsult,
+    icon: iconPolicy,
     rationale: "",
     image: "",
   },
@@ -191,7 +198,8 @@ const faqs = [
 
   {
     question: "What is RAISSAT’s Massive Transformative Purpose (MTP)?",
-    answer: "From evidence to impact. Breaking barriers and shaping sustainable futures.” Our MTP drives everything we do—translating research into real-world transformation through collaboration and innovation.",
+    answer:
+      "From evidence to impact. Breaking barriers and shaping sustainable futures.” Our MTP drives everything we do—translating research into real-world transformation through collaboration and innovation.",
   },
 
   {
@@ -632,15 +640,6 @@ const aboutPage = {
       ),
     },
 
-    // {
-    //   id: crypto.randomUUID(),
-    //   name: "Josephine O. Adebayo",
-    //   role: "Lead Executive, Corporate Administrative Communications",
-    //   image: josephine,
-    //   profile:
-    //     "A pioneering researcher in aquaculture sustainability and nutrigenomics, serving as the Lead Executive for Corporate Administrative Communications at the Research Applied Institute for Sustainability in Science, Agriculture and Technology (RAISSAT).",
-    // },
-
     {
       id: crypto.randomUUID(),
       name: (
@@ -729,6 +728,64 @@ const aboutPage = {
         </>
       ),
     },
+
+    {
+      id: crypto.randomUUID(),
+      name: (
+        <p>
+          <span className="uppercase">Oladayo</span> Timileyin Ebenezer -{" "}
+          <span className="font-normal">Media Resource Officer</span>
+        </p>
+      ),
+      role: "Media Resource Officer",
+      image: Oladayo,
+      profileSummary:
+        "Oladayo Timileyin Ebenezer is a creative storyteller and media strategist passionate about transforming science into stories that inspire change. With a background in Food Technology (B.Sc. & M.Sc., University of Ibadan), he combines scientific insight with creative communication to spotlight RAISSAT’s research and community impact. His work bridges science, sustainability, and storytelling, shaping how RAISSAT’s mission connects with the world.",
+      profileFull: (
+        <>
+          <p className="mb-4">
+            Oladayo Timileyin Ebenezer Media Resource Officer | RAISSAT Oladayo
+            Timileyin Ebenezer is a creative storyteller, researcher, and media
+            strategist dedicated to amplifying the voice and impact of
+            sustainability through powerful communication. As the Media Resource
+            Officer at the Research Applied Institute for Sustainability in
+            Science, Agriculture, and Technology (RAISSAT), he leads the
+            development of compelling narratives, visual content, and digital
+            strategies that highlight the institute’s research breakthroughs,
+            community impact, and global collaborations.
+          </p>
+          <p className="mb-4">
+            With a strong academic background, Oladayo holds both a Bachelor’s
+            and Master’s degree in Food Technology from the University of
+            Ibadan, where he graduated with distinction in his postgraduate
+            studies. His research on bioactive compounds and functional foods
+            has been published in peer-reviewed journals, underscoring his deep
+            connection to science and innovation.
+          </p>
+          <p className="mb-4">
+            Before joining RAISSAT, Oladayo gained professional experience as a
+            Product Manager and Production Supervisor, honing his expertise in
+            leadership, communication, and project management. His
+            multidisciplinary experience bridges science, creativity, and
+            storytelling—an intersection that defines his work at RAISSAT.
+            Driven by a passion for media as a tool for transformation, Oladayo
+            crafts stories that connect people to purpose, turning complex
+            scientific ideas into accessible, engaging, and actionable insights.
+            Through his role, he continues to bridge the gap between science,
+            sustainability, and public engagement, ensuring RAISSAT’s message of
+            impact resonates across diverse audiences.
+          </p>
+        </>
+      ),
+    },
+    // {
+    //   id: crypto.randomUUID(),
+    //   name: "Josephine O. Adebayo",
+    //   role: "Lead Executive, Corporate Administrative Communications",
+    //   image: josephine,
+    //   profile:
+    //     "A pioneering researcher in aquaculture sustainability and nutrigenomics, serving as the Lead Executive for Corporate Administrative Communications at the Research Applied Institute for Sustainability in Science, Agriculture and Technology (RAISSAT).",
+    // },
   ],
 };
 
@@ -743,13 +800,13 @@ const whatWeDo = [
       "We design, coordinate, and manage high-impact research projects that bridge the gap between laboratories and local communities. Our teams work across agriculture, technology, and environmental sustainability to ensure research outputs lead to measurable change. From project design to execution, monitoring, and knowledge dissemination, we ensure that every initiative meets global standards and delivers tangible results.",
     images: [research1, research2, research3, research4],
     flexDirection: "",
-
     focusAreas: [
       "Public Health & One Health Approach",
       "Sustainable Agriculture & Environmental Sustainability",
       "Renewable Energy & Climate Resilience",
       "Biomedical & Bioscience Integration​",
     ],
+    cta: "Partner With Us",
   },
   {
     id: "policy-engagement-communications",
@@ -767,6 +824,7 @@ const whatWeDo = [
       "Advocacy Campaigns",
       "Science Communication​",
     ],
+    cta: "Collaborate on Policy",
   },
 
   {
@@ -785,6 +843,7 @@ const whatWeDo = [
       "Climate-Smart Agriculture & Green Technologies",
       "Data-Driven Impact Assessment",
     ],
+    cta: "Request a Consultation",
   },
 
   {
@@ -803,6 +862,7 @@ const whatWeDo = [
       "Technical Skills for Sustainability",
       "Digital Learning and Knowledge Transfer",
     ],
+    cta: "Explore Training Opportunities",
   },
   {
     id: "youth-mentorship-community-engagement",
@@ -820,6 +880,7 @@ const whatWeDo = [
       "Inclusive Innovation Programs​",
       "Local Empowerment Initiatives",
     ],
+    cta: "Join Our Youth Programs",
   },
 ];
 

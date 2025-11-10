@@ -1,8 +1,5 @@
 deployment:
   tasks:
-    - /bin/rm -rf dist
-    - /home/raisewqd/nodevenv/repositories/Raissat/24/bin/npm install
-    - /home/raisewqd/nodevenv/repositories/Raissat/24/bin/npm run build
     - export DEPLOYPATH=/home/raisewqd/public_html
     - /bin/rm -rf $DEPLOYPATH/*
     - /bin/cp -R dist/* $DEPLOYPATH/

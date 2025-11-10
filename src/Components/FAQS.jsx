@@ -25,7 +25,7 @@ const FAQS = () => {
         </p>
         <button className="btn w-32 bg-midnight-green mx-auto sm:mx-0">More</button>
       </div>
-      <div className="sm:w-[60%] mx-auto">
+      <div className="sm:w-[60%] mx-auto overflow-auto">
         {faqs.slice(0, 8).map((faq, index) => (
           <Accordion
           key={index}

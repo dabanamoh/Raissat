@@ -10,6 +10,7 @@ const contactInfo = [
     infoText:
       "For information about our programs, initiatives, or institutional partnerships.",
     infoIcon: <MessageCircleQuestionMark className="size-8" />,
+    animate: "animate-fadeInLeft",
   },
 
   {
@@ -17,6 +18,7 @@ const contactInfo = [
     infoText:
       "Interested in partnering on applied research or sustainability-focused innovation?",
     infoIcon: <Microscope className="size-8" />,
+    animate: "animate-fadeInBottom",
   },
 
   {
@@ -24,6 +26,7 @@ const contactInfo = [
     infoText:
       "Support our mission to bridge science, agriculture, and technology for a sustainable future",
     infoIcon: <HandCoins className="size-8" />,
+    animate: "animate-fadeInRight",
   },
 ];
 
@@ -53,7 +56,7 @@ const Contact = () => {
               key={index}
               className={`${
                 index === 1 ? "bg-midnight-green" : "bg-rich-black"
-              } rounded-lg text-white font-inter p-4 flex flex-col gap-5 py-8`}
+              } rounded-lg text-white font-inter p-4 flex flex-col gap-5 py-8 ${info.animate}`}
             >
               {/* <img src={info.infoIcon} alt="" /> */}
               <p className="mx-auto text-indian-yellow ">{info.infoIcon}</p>
@@ -64,6 +67,12 @@ const Contact = () => {
               </button>
             </div>
           ))}
+          <div>
+            <h1>General Enquiries</h1>
+            <div>
+              
+            </div>
+          </div>
         </div>
       </div>
 

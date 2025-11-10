@@ -11,14 +11,14 @@ const ServicePage = () => {
   // const service = services.find((service) => service.id === serviceId);
 
   const service = whatWeDo.find((service) => service.id === serviceId);
-  console.log(service)
+  console.log(service);
 
-  const handleNavigate = () => {
-    if (window.history.length > 1) {
-      navigate(-1);
-    } else {
-      navigate("/services");
-    }
+  const handleNavigate = (route) => {
+    navigate(route);
+    // if (window.history.length > 1) {
+    //   navigate(-1);
+    // } else {
+    // }
   };
 
   if (!service) {
@@ -40,20 +40,29 @@ const ServicePage = () => {
           <div className="font-inter w-full md:w-[50%]">
             <h1 className="font-semibold text-2xl mb-4">{service.title}</h1>
             <p className="font-bold p leading-7 mt-4">{service.subTitle}</p>
-            <p className="font-normal p leading-7">{service.detailedDescription}</p>
-            <ul className="">
+            <p className="font-normal p leading-7">
+              {service.detailedDescription}
+            </p>
+            <p className="font-normal p leading-7 mt-4 italic">Focus Areas:</p>
+            <ul className="mb-4">
               {service.focusAreas.map((area, index) => (
                 <li key={index} className="p mt-2 list-disc list-inside">
                   {area}
                 </li>
               ))}
             </ul>
+            <button
+              onClick={() => handleNavigate("/contact")}
+              className="btn bg-midnight-green hover:bg-rich-black mt-4"
+            >
+              {service.cta}
+            </button>
           </div>
         </div>
-        <span className="mx-auto font-inter flex flex-col gap-2 items-center cursor-pointer">
+        <span className="mx-auto font-inter flex flex-col gap-2 items-center cursor-pointer md:mt-6">
           <p className="text-lg">What we Do</p>
           <img
-            onClick={handleNavigate}
+            onClick={() => handleNavigate("/services")}
             className="size-10 "
             src={iconBack}
             alt="Go back button"

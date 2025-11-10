@@ -14,7 +14,7 @@
   }
 }
 
-@keyframes moveInbottom {
+@keyframes fadeInBottom {
   0% {
     opacity: 0;
     transform: translateY(30px);
@@ -24,6 +24,34 @@
     opacity: 1;
     transform: translate(0);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes fadeInLeft{
+  0%{
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80%{
+    transform: translateX(20px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight{
+  0%{
+    opacity: 0;
+    transform: translatex(100px);
+  }
+  80%{
+    transform: translateX(-20px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -61,7 +89,9 @@
   --color-modal-bg: rgba(189, 200, 195, 0.9);
 
   --animate-moveInTop: moveInTop 0.2s ease-in-out;
-  --animate-moveInBottom: moveInbottom 0.2s ease-in-out
+  --animate-fadeInBottom: fadeInBottom 1s ease-in-out;
+  --animate-fadeInLeft: fadeInLeft 1s ease-in-out;
+  --animate-fadeInRight: fadeInRight 1s ease-in-out;
 }
 
 @layer components {
