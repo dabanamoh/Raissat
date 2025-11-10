@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router";
+import { SwiperSlide } from "swiper/react";
 
 import Container from "../Components/Container";
+import Carousel from "../Components/Carousel";
 import { services } from "../constants";
 import { whatWeDo } from "../constants";
 import { iconBack } from "../assets/assets";
@@ -30,12 +32,24 @@ const ServicePage = () => {
       <section className="min-h-screen flex flex-col py-8">
         <div className="py-20 flex flex-col md:flex-row gap-10 justify-center">
           <div className="w-full md:w-[50%] h-80  overflow-hidden">
-            <img
+            <Carousel>
+              {service.images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    className="h-full w-full object-cover"
+                    src={image}
+                    alt="service-image"
+                    loading="eager"
+                  />
+                </SwiperSlide>
+              ))}
+            </Carousel>
+            {/* <img
               className="h-full w-full object-cover"
               src={service.images[0]}
               alt="service-image"
               loading="eager"
-            />
+            /> */}
           </div>
           <div className="font-inter w-full md:w-[50%]">
             <h1 className="font-semibold text-2xl mb-4">{service.title}</h1>

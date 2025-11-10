@@ -159,3 +159,24 @@
 .leaflet-control-attribution a{
   display: none !important;
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #444;
+
+  /* Center slide text vertically */
+  
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 100px;
+  color: var(--color-indian-yellow);
+}
