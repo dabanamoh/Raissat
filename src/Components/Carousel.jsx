@@ -8,7 +8,7 @@ const Carousel = ({ children }) => {
     <Swiper
       navigation={true}
       pagination={{ clickable: true }}
-      autoplay={{ delay: 7000 }}
+      autoplay={{ delay: 5000 }}
       modules={[Navigation, Pagination, Autoplay]}
       className="mySwiper"
     >
