@@ -14,7 +14,7 @@ const FAQS = () => {
   return (
     <Container>
 
-    <section className="py-15 px-8 sm:px-12 flex flex-col sm:flex-row gap-8 w-full sm:h-[70vh]">
+    <section className="py-15  sm:px-12 flex flex-col sm:flex-row gap-8 w-full sm:h-[70vh]">
       <div className="sm:w-[40%] flex flex-col gap-4 text-center sm:text-left mx-auto">
         <h1 className="font-base text-3xl sm:text-4xl md:text-5xl font-inter text-midnight-green">
           FAQs

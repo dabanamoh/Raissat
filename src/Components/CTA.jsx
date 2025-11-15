@@ -12,7 +12,7 @@ const CTA = () => {
   return (
     <section className="bg-rich-black">
       <Container>
-        <div className="p-10 flex flex-col justify-center items-center gap-6">
+        <div className="py-10 sm:p-10 flex flex-col justify-center items-center gap-6">
           <img className="size-22" src={whiteLogoRound} alt="Brand-logo" />
           <h1 className="h1 text-indian-yellow font-medium text-center">
             Why RAISSAT Matters

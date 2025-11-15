@@ -11,8 +11,8 @@ const AboutSummary = () => {
 
   return (
     <Container>
-      <section className="font-inter flex flex-col justify-center items-center gap-8 p-12 ">
-        <h1 className="text-[36px] text-midnight-green font-medium">
+      <section className="font-inter flex flex-col justify-center items-center gap-8 py-12 sm:p-12 ">
+        <h1 className="text-[30px] sm:text-[36px] text-midnight-green font-medium">
           Who We Are
         </h1>
         <p className="text-center p leading-7">
@@ -23,7 +23,7 @@ const AboutSummary = () => {
           intersection of research and real-world impact.
         </p>
 
-        <h1 className="text-[28px] text-midnight-green font-medium">
+        <h1 className="text-[25px] sm:text-[28px] text-midnight-green font-medium">
           Our Mission
         </h1>
         <p className="text-center p leading-7">
@@ -32,7 +32,7 @@ const AboutSummary = () => {
           science, agriculture, and technology.
         </p>
 
-        <h1 className="text-[28px] text-midnight-green font-medium">
+        <h1 className="text-[25px] sm:text-[28px] text-midnight-green font-medium">
           Our Vision
         </h1>
 

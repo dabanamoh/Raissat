@@ -20,7 +20,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-rich-black/40" />
 
       <Container className="z-999">
-        <div className="z-10 flex flex-col gap-6 sm:gap-8 text-center p-3 ">
+        <div className="z-10 flex flex-col gap-6 sm:gap-8 text-center sm:p-3 ">
           <h1 className="font-extrabold animate-fadeInLeft text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-Albert-sans text-white">
             From Evidence to Impact: Translating Research Into Action for a
             Sustainable Future

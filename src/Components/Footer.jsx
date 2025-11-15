@@ -12,9 +12,9 @@ import Container from "./Container";
 const Footer = () => {
   const { linkdin, whiteLogo, instagram, x } = global;
   return (
-    <footer className="bg-rich-black font-inter flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-10 sm:gap-0 py-12 px-8 sm:px-12">
+    <footer className="bg-rich-black font-inter flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-10 sm:gap-0 py-12 px-4 sm:px-12">
       {/* <Container className="flex flex-col sm:flex-row items-center justify-center"> */}
-      <div className="flex flex-col gap-1 w-full sm:w-[50%]">
+      <div className="flex flex-col gap-1 w-full sm:w-[50%] self-end">
         <img className="w-[200px]" src={whiteLogo} alt="Brand Logo" />
         <p className="text-white text-sm ">
           Research Applied Institute for Sustainability in Science, Agriculture
@@ -35,9 +35,9 @@ const Footer = () => {
           </a>
         </span>
       </div>
-      <div className="flex justify-between sm:justify-end gap-12 mt-12 text-white w-full sm:w-[50%]">
+      <div className="flex justify-between self-end sm:justify-end gap-12 mt-12 text-white w-full sm:w-[50%]">
         <span>
-          <h2 className="font-semibold mb-6">Learn more</h2>
+          <h2 className="font-semibold mb-5">Learn more</h2>
           <ul className="text-sm flex flex-col gap-2 footer">
             <Link to={"/"}>Home</Link>
             <Link to={"about"}>Who we are</Link>

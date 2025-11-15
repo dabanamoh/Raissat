@@ -8,23 +8,22 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-rich-black p-16 text-center">
-        <Container>
-
+    <section className="bg-rich-black py-16 sm:p-16 text-center">
+      <Container>
         <div className="flex flex-col gap-5 mb-12">
-          <h1 className="text-[36px] text-white font-medium font-inter">
+          <h1 className="text-[30px] md:text-[36px] text-white font-medium font-inter">
             What We Do
           </h1>
           {/* <h1 className="h1 text-indian-yellow">
           Comprehensive Solutions for <br /> Sustainable Development
         </h1> */}
-          <p className="text-white font-inter">
+          <p className="text-white font-inter leading-7">
             We deliver evidence-based, multidisciplinary solutions that tackle
             the world’s most pressing challenges—climate resilience, food
             security, and technological equity.
           </p>
         </div>
-        <h1 className="text-[28px] mb-8 text-indian-yellow font-medium font-inter">
+        <h1 className="text-[25px] md:text-[28px] mb-8 text-indian-yellow font-medium font-inter">
           Our Core Services Include
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -39,13 +38,13 @@ const Services = () => {
         </div>
 
         <div className="flex flex-col gap-5 my-12">
-          <h1 className="text-[36px] text-white font-medium font-inter">
+          <h1 className="text-[30px] md:text-[36px] text-white font-medium font-inter">
             How We Create Impact
           </h1>
           {/* <h1 className="h1 text-indian-yellow">
           Comprehensive Solutions for <br /> Sustainable Development
         </h1> */}
-          <p className="text-white font-inter">
+          <p className="text-white font-inter leading-7">
             We operate through a unique Integrated Translational Pipeline,
             ensuring that every insight moves seamlessly from research to
             implementation to measurable impact.
@@ -68,12 +67,11 @@ const Services = () => {
         <button
           onClick={() => navigate("contact")}
           className="btn bg-indian-yellow mt-15"
-          >
+        >
           Partner With Us
         </button>
-          </Container>
-      </section>
-    
+      </Container>
+    </section>
   );
 };
 
