@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
 @keyframes moveInTop {
@@ -27,38 +27,37 @@
   }
 }
 
-@keyframes fadeInLeft{
-  0%{
+@keyframes fadeInLeft {
+  0% {
     opacity: 0;
     transform: translateX(-100px);
   }
-  80%{
+  80% {
     transform: translateX(20px);
   }
-  100%{
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-@keyframes fadeInRight{
-  0%{
+@keyframes fadeInRight {
+  0% {
     opacity: 0;
     transform: translatex(100px);
   }
-  80%{
+  80% {
     transform: translateX(-20px);
   }
-  100%{
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-.active{
+.active {
   color: var(--color-indian-yellow);
 }
-
 
 @layer base {
   /* *{
@@ -70,12 +69,11 @@
   /* html{
     font-size: 62.5%;
   } */
-
 }
 
 @theme {
   --font-inter: "Inter";
-  --font-Albert-sans: 'Albert Sans';
+  --font-Albert-sans: "Albert Sans";
 
   --color-midnight-green: #025959;
   --color-rich-black: #013440;
@@ -85,7 +83,7 @@
   --color-slate-gray: #76888799;
   --color-slate-gray-transparent: rgba(118, 136, 135, 0.8);
   --color-midnight-green-transparent: rgba(2, 89, 89, 0.6);
-  --color-prussian-blue: #042D48;
+  --color-prussian-blue: #042d48;
   --color-modal-bg: rgba(189, 200, 195, 0.9);
 
   --animate-moveInTop: moveInTop 0.2s ease-in-out;
@@ -98,7 +96,14 @@
   .nav {
     @apply py-4 px-8 font-medium max-[650px]:px-6 fixed z-20 w-full;
     /* font-weight: 500; */
-    li{
+    li {
+      @apply hover:text-indian-yellow;
+    }
+  }
+
+  .footer {
+    li,
+    a {
       @apply hover:text-indian-yellow;
     }
   }
@@ -112,7 +117,6 @@
       position: absolute;
       right: 0;
       top: 0;
-      
 
       li:not(:first-child) {
         margin-bottom: 0;
@@ -122,33 +126,33 @@
     }
   }
 
-  .card{
+  .card {
     @apply flex flex-col gap-3 text-white font-inter items-center;
 
-    img{
-      @apply w-10
+    img {
+      @apply w-10;
     }
 
-    h2{
-      @apply  font-medium text-xl mb-3
+    h2 {
+      @apply font-medium text-xl mb-3;
     }
   }
 
-  .h1{
+  .h1 {
     @apply font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl font-Albert-sans;
   }
 
-  .main{
+  .main {
     @apply mt-5 px-8;
   }
 
-  .p{
+  .p {
     @apply font-inter leading-6 text-xs sm:text-sm md:text-base lg:text-lg;
   }
-
+  
 }
 
-.link{
+.link {
   @apply bg-midnight-green text-white py-2 px-4 rounded-lg font-medium hover:bg-rich-black transition duration-300 font-inter cursor-pointer;
 }
 
@@ -156,7 +160,7 @@
   border-left: 3px solid var(--color-indian-yellow);
 }
 
-.leaflet-control-attribution a{
+.leaflet-control-attribution a {
   display: none !important;
 }
 
@@ -171,9 +175,7 @@
   background: #444;
 
   /* Center slide text vertically */
-  
 }
-
 
 .swiper-button-next,
 .swiper-button-prev {

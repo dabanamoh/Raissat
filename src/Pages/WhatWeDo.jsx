@@ -1,9 +1,8 @@
-import React from "react";
 import Container from "../Components/Container";
 
 import { Link } from "react-router";
 import { whatWeDo } from "../constants";
-import { services } from "../constants";
+// import { services } from "../constants";
 
 // const Card = ({ title, description, image, direction, to }) => {
 //   const flexDirection =
@@ -21,7 +20,7 @@ import { services } from "../constants";
 //   );
 // };
 
-const Card = ({ title, subTitle, description, image, direction, to }) => {
+const Card = ({ title, subTitle, description, image, to }) => {
   // const flexDirection =
   //   direction === "row-reverse" ? "md:flex-row-reverse" : "md:flex-row";
   return (
@@ -104,7 +103,7 @@ const WhatWeDo = () => {
         </div>
         {whatWeDo.map((whatWeDo, idx) => (
           <Card
-          key={idx}
+            key={idx}
             title={whatWeDo.title}
             subTitle={whatWeDo.subTitle}
             description={whatWeDo.description}

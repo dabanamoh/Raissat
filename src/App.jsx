@@ -1,19 +1,30 @@
-import React from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import WhatWeDo from "./Pages/WhatWeDo";
-import Media from "./Pages/Media";
-import Layout from "./Pages/Layout";
-import ServicePage from "./Pages/ServicePage";
-import Contact from "./Pages/Contact";
 import ScrollTop from "./Components/ScrollTop";
+import Spinner from "./Components/Spinner";
+
+// import Home from "./Pages/Home";
+// import About from "./Pages/About";
+// import WhatWeDo from "./Pages/WhatWeDo";
+// import Media from "./Pages/Media";
+// import Layout from "./Pages/Layout";
+// import ServicePage from "./Pages/ServicePage";
+// import Contact from "./Pages/Contact";
+
+const Home = lazy(() => import("./Pages/Home"));
+const About = lazy(() => import("./Pages/About"));
+const WhatWeDo = lazy(() => import("./Pages/WhatWeDo"));
+const Media = lazy(() => import("./Pages/Media"));
+const Layout = lazy(() => import("./Pages/Layout"));
+const ServicePage = lazy(() => import("./Pages/ServicePage"));
+const Contact = lazy(() => import("./Pages/Contact"));
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollTop />
+      <Suspense fallback={<Spinner />}></Suspense>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />

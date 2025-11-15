@@ -3,24 +3,21 @@ import { SwiperSlide } from "swiper/react";
 
 import Container from "../Components/Container";
 import Carousel from "../Components/Carousel";
-import { services } from "../constants";
+// import { services } from "../constants";
 import { whatWeDo } from "../constants";
-import { iconBack } from "../assets/assets";
+import { global } from "../assets";
 
 const ServicePage = () => {
+  const { iconBack } = global;
   const { serviceId } = useParams();
   const navigate = useNavigate();
   // const service = services.find((service) => service.id === serviceId);
 
   const service = whatWeDo.find((service) => service.id === serviceId);
-  console.log(service);
+  // console.log(service);
 
   const handleNavigate = (route) => {
     navigate(route);
-    // if (window.history.length > 1) {
-    //   navigate(-1);
-    // } else {
-    // }
   };
 
   if (!service) {

@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import markerIcon from '../assets/marker-icon.png';
+
+import { global } from "../assets";
+
+const {markerIcon} = global;
 
 const Map = ({ currentView }) => {
   const mapRef = useRef(null); // this holds the map container div

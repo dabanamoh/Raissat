@@ -1,10 +1,11 @@
 import React, { useLayoutEffect, useState } from "react";
 import { NavLink, Link } from "react-router";
-import { logo, logoMd, hamburger, close } from "../assets/assets";
+import { global } from "../assets";
 
 import { navItems } from "../constants";
 
 const Navbar = () => {
+  const { logo, logoMd, hamburger, close } = global;
   const [toggleNav, setToggleNav] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   // const [toggleDropDown, setToggleDropDown] = useState(false);
@@ -37,7 +38,11 @@ const Navbar = () => {
   return (
     <nav className="nav flex justify-between items-center bg-bright-gray text-midnight-green font-inter z-9999">
       <Link to="/">
-        <img className="hidden min-[990px]:block" src={logo} alt="Logo" />
+        <img
+          className="hidden min-[990px]:block"
+          src={logo}
+          alt="Logo"
+        />
         <img className="hidden max-[990px]:block" src={logoMd} alt="Logo" />
       </Link>
       {/* {toggleNav && ( */}

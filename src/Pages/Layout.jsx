@@ -2,6 +2,7 @@ import { Outlet } from "react-router";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import CTA from "../Components/CTA";
+import EventAdd from "../Components/EventAdd";
 
 const Layout = () => {
   return (
@@ -12,6 +13,7 @@ const Layout = () => {
       <main className="pt-16 bg-bright-gray min-h-[calc(100vh-96px)]">
         <Outlet />
       </main>
+      <EventAdd />
       <CTA />
       {/* <hr className="border-t border-gray-500" /> */}
       <Footer />

@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router";
 
 import { handleCtaClick } from "../utils";
-
-import { hero } from "../assets/assets";
-
 import Container from "./Container";
+import { global } from "../assets";
+
+const { hero } = global;
 
 const Hero = () => {
   const navigate = useNavigate();

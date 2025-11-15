@@ -1,7 +1,10 @@
 import { GiGiftOfKnowledge } from "react-icons/gi";
 
+import { servicesAssets, profiles, mediaAssets } from "../assets";
+
+
 // services
-import {
+const {
   iconConsult,
   iconManagement,
   iconResearch,
@@ -36,34 +39,23 @@ import {
   mentor2,
   mentor3,
   mentor4,
-} from "../assets/assets";
+} = servicesAssets;
 
 // staff Profiles images
-import {
+const {
   elohozino,
   samuel,
   goshen,
   sunday,
   christiana,
   adejoke,
-  Oladayo,
-  // josephine,
-  // agric,
-  // publicHealth,
-  // sustainability,
-  // innovation,
-  // technology,
-} from "../assets/assets";
+  oladayo,
+  // rightArrow,
+} = profiles;
 
 // Media center images
-import {
-  locust,
-  farmConflict,
-  climateFarming,
-  pestManagement,
-  cow,
-  doctor,
-} from "../assets/assets";
+const { locust, farmConflict, climateFarming, pestManagement, cow, doctor } =
+  mediaAssets;
 
 const navItems = [
   {
@@ -78,10 +70,10 @@ const navItems = [
     text: "What We Do",
     route: "/services",
   },
-  // {
-  //   text: "Media center",
-  //   route: "/media",
-  // },
+  {
+    text: "Media center",
+    route: "/media",
+  },
   {
     text: (
       <button className="bg-midnight-green hover:bg-rich-black text-white py-2 px-4 rounded-2xl cursor-pointer">
@@ -738,7 +730,7 @@ const aboutPage = {
         </p>
       ),
       role: "Media Resource Officer",
-      image: Oladayo,
+      image: oladayo,
       profileSummary:
         "Oladayo Timileyin Ebenezer is a creative storyteller and media strategist passionate about transforming science into stories that inspire change. With a background in Food Technology (B.Sc. & M.Sc., University of Ibadan), he combines scientific insight with creative communication to spotlight RAISSAT’s research and community impact. His work bridges science, sustainability, and storytelling, shaping how RAISSAT’s mission connects with the world.",
       profileFull: (
