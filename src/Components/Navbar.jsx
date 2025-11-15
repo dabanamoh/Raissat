@@ -1,5 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
-import { NavLink, Link } from "react-router";
+import { NavLink, Link, useNavigate } from "react-router";
+
+import { handleCtaClick } from "../utils";
+
 import { global } from "../assets";
 
 import { navItems } from "../constants";
@@ -9,6 +12,8 @@ const Navbar = () => {
   const [toggleNav, setToggleNav] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   // const [toggleDropDown, setToggleDropDown] = useState(false);
+
+  const navigate = useNavigate();
 
   // check mobile screen size
   useLayoutEffect(() => {
@@ -38,16 +43,12 @@ const Navbar = () => {
   return (
     <nav className="nav flex justify-between items-center bg-bright-gray text-midnight-green font-inter z-9999">
       <Link to="/">
-        <img
-          className="hidden min-[990px]:block"
-          src={logo}
-          alt="Logo"
-        />
+        <img className="hidden min-[990px]:block" src={logo} alt="Logo" />
         <img className="hidden max-[990px]:block" src={logoMd} alt="Logo" />
       </Link>
       {/* {toggleNav && ( */}
       <ul
-        className={`flex flex-col gap-5 sm:gap-2 sm:flex-row items-center justify-evenly md:w-[60%] z-10 mobile-menu ${
+        className={`flex flex-col gap-5 sm:gap-2 sm:flex-row items-center md:justify-evenly md:w-[80%] z-10 mobile-menu ${
           isMobile && (toggleNav ? "block" : "hidden")
         }`}
       >
@@ -60,10 +61,15 @@ const Navbar = () => {
         />
 
         {navItems.map((item, idx) => (
-          <li key={idx} className="">
+          <li
+            key={idx}
+            className={`${
+              idx === navItems.length - 1 ? "hidden max-[800px]:block" : ""
+            }`}
+          >
             <NavLink
               onClick={handleToggleNav}
-              className={"text-[1rem] md:text-[1.1rem]  text-base"}
+              className={"text-[1rem] md:text-[1.1rem] text-base"}
               to={item.route}
             >
               {item.text}
@@ -71,15 +77,15 @@ const Navbar = () => {
           </li>
         ))}
 
-        {/* <li className=" hidden min-[990px]:block">
-          Education btn
+        <li className=" hidden min-[800px]:block">
+          {/* Education btn */}
           <button
-            onClick={handleToggleDropdown}
-            className="btn w-32 bg-midnight-green"
+            onClick={() => handleCtaClick(navigate, "contact")}
+            className="bg-midnight-green hover:bg-rich-black text-white py-2 px-4 rounded-2xl cursor-pointer"
           >
-            Education
+            Get Involved
           </button>
-        </li> */}
+        </li>
         {/* dropdown link to education route */}
         {/* <li className="hidden max-sm:block">
           <NavLink to="education">Education</NavLink>

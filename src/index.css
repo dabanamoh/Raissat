@@ -121,6 +121,9 @@
       li:not(:first-child) {
         margin-bottom: 0;
       }
+      li:not(:last-child){
+        margin-top: 25px;
+      }
 
       @apply max-sm:w-[70%] h-screen py-10 gap-2 text-bright-gray bg-midnight-green-transparent backdrop-blur-md animate-moveInTop;
     }

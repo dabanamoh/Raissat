@@ -39,7 +39,7 @@ const Team = () => {
         <h1 className=" bg-midnight-green rounded-xl text-bright-gray font-bold text-center  md:w-lg mx-auto  py-3">
           Meet the Team
         </h1>
-        <p className="mt-6 p leading-7 font-bold text-center md:text-left">
+        <p className="mt-6 text-sm md:text-base lg:text-lg leading-7 font-bold text-center md:text-left">
           Our Team & Leadership Philosophy
         </p>
         <p className="mt-6 p leading-7 text-center md:text-left">

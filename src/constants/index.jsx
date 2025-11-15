@@ -75,13 +75,17 @@ const navItems = [
     route: "/media",
   },
   {
-    text: (
-      <button className="bg-midnight-green hover:bg-rich-black text-white py-2 px-4 rounded-2xl cursor-pointer">
-        Get Involved
-      </button>
-    ),
+    text: "Get Involved",
     route: "/contact",
   },
+  // {
+  //   text: (
+  //     <button className="bg-midnight-green hover:bg-rich-black text-white py-2 px-4 rounded-2xl cursor-pointer">
+  //       Get Involved
+  //     </button>
+  //   ),
+  //   route: "/contact",
+  // },
 ];
 
 // For About Section component

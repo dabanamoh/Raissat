@@ -68,15 +68,15 @@ const Contact = () => {
             </div>
           ))}
           <div>
-            <h1>General Enquiries</h1>
+            {/* <h1>General Enquiries</h1>
             <div>
               
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
 
-      <hr className="bg-rich-black h-[1px] border-0 mt-6" />
+      <hr className="bg-rich-black h-[1px] border-0 sm:mt-6" />
       <div className=" py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <h1 className="h1 text-midnight-green mb-6">Our Locations</h1>

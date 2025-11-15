@@ -19,12 +19,13 @@ const Media = lazy(() => import("./Pages/Media"));
 const Layout = lazy(() => import("./Pages/Layout"));
 const ServicePage = lazy(() => import("./Pages/ServicePage"));
 const Contact = lazy(() => import("./Pages/Contact"));
+const PageNotFound = lazy(() => import("./Pages/PageNotFound"))
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollTop />
-      <Suspense fallback={<Spinner />}></Suspense>
+      <Suspense fallback={<Spinner />} />
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
@@ -33,8 +34,8 @@ function App() {
           <Route path="media" element={<Media />} />
           <Route path="contact" element={<Contact />} />
           <Route path="services/:serviceId" element={<ServicePage />} />
-          {/* <Route  */}
         </Route>
+          <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
