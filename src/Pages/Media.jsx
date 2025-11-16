@@ -1,11 +1,15 @@
+import { useState } from "react";
+
 import Nav from "../Components/Media/Nav";
 import CardRow from "../Components/Media/CardRow";
 import Container from "../Components/Container";
 import MediaCard from "../Components/Media/MediaCard";
 
-import { media } from "../constants";
-import { useState } from "react";
+import { media } from "../constants/media";
+import { mediaAssets } from "../assets";
+
 const { blogs, articles } = media;
+const { thumbnail, defaultAvatar } = mediaAssets;
 
 const Media = () => {
   const [activeTab, setActiveTab] = useState("All");
@@ -16,12 +20,15 @@ const Media = () => {
       {activeTab === "All" && (
         <>
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {blogs.map((blog) => (
+            {articles.map((article, idx) => (
               <CardRow
-                title={blog.title}
-                thumbnail={blog.thumbnail}
-                authorProfile={blog.authorProfile}
-                body={blog.body}
+              key={idx}
+                title={article.title}
+                thumbnail={article.thumbnail || thumbnail}
+                author={article.author}
+                authorProfile={article.authorProfile || defaultAvatar}
+                to={`/articles/${article.id}`}
+                // body={article.body}
               />
             ))}
           </section>

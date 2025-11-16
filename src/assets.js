@@ -93,6 +93,12 @@ export const mediaAssets = {
   pestManagement: "/assets/Media/pest-management.jpg",
   doctor: "/assets/Media/doctor.jpg",
   cow: "/assets/Media/cow.jpg",
+  drug1: "/assets/Media/articles/drug1.webp",
+  drug2: "/assets/Media/articles/drug2.webp",
+  drug3: "/assets/Media/articles/drug3.webp",
+  antibody: '/assets/Media/articles/antibody.webp',
+  thumbnail: '/assets/Media/articles/thumbnail.jpg',
+  defaultAvatar: '/assets/Media/articles/defaultAvatar.svg',
 }
 
 export const whatWeDoAssets = {

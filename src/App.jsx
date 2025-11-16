@@ -19,7 +19,8 @@ const Media = lazy(() => import("./Pages/Media"));
 const Layout = lazy(() => import("./Pages/Layout"));
 const ServicePage = lazy(() => import("./Pages/ServicePage"));
 const Contact = lazy(() => import("./Pages/Contact"));
-const PageNotFound = lazy(() => import("./Pages/PageNotFound"))
+const ArticlePage = lazy(() => import("./Pages/ArticlePage"));
+const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="media" element={<Media />} />
           <Route path="contact" element={<Contact />} />
           <Route path="services/:serviceId" element={<ServicePage />} />
+          <Route path="articles/:articleId" element={<ArticlePage />} />
         </Route>
           <Route path="*" element={<PageNotFound />} />
       </Routes>

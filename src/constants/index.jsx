@@ -2,7 +2,6 @@ import { GiGiftOfKnowledge } from "react-icons/gi";
 
 import { servicesAssets, profiles, mediaAssets } from "../assets";
 
-
 // services
 const {
   iconConsult,
@@ -880,65 +879,6 @@ const whatWeDo = [
   },
 ];
 
-const media = {
-  blogs: [
-    {
-      title: "Ethiopia's Battle Against the Locust Invation",
-      body: "RAISSAT has embarked on an inspiring journey to empower smallholder farmers by providing them with extensive training in sustainable soil management techniques and effective water conservation practices. Over the past few ",
-      author: "Elohozino O. Benneth",
-      authorProfile: elohozino,
-      date: "June 10, 2024",
-      thumbnail: locust,
-    },
 
-    {
-      title: "Conflict Between Herdsmen and Farmers in North Central Nigeria",
-      body: "Through the innovative application of cutting-edge science and extensive trials led by dedicated farmers, RAISSAT has successfully introduced a diverse range of natural pest control methods that are revolutionizing the agricultural landscape.",
-      author: "Goshen David Miteu",
-      authorProfile: elohozino,
-      date: "June 10, 2024",
-      thumbnail: farmConflict,
-    },
 
-    {
-      title: "Integrated Pest Management Program - West Africa",
-      body: "AISSAT has embarked on an inspiring journey to empower smallholder farmers by providing them with extensive training in sustainable soil management techniques and effective water conservation practices. Over the past few ",
-      author: "Goshen David Miteu",
-      authorProfile: elohozino,
-      date: "June 10, 2024",
-      thumbnail: pestManagement,
-    },
-  ],
-  articles: [
-    {
-      title: "Understanding Monkey Pox: A Growing Concern in Congo DRC",
-      body: "RAISSAT has embarked on an inspiring journey to empower smallholder farmers by providing them with extensive training in sustainable soil management techniques and effective water conservation practices. Over the past few ",
-      author: "Christianah Oki",
-      authorProfile: christiana,
-      date: "June 10, 2024",
-      thumbnail: doctor,
-    },
-
-    {
-      title: "Mad Cow Disease: A Brief Overview of BSE",
-      body: "Through the innovative application of cutting-edge science and extensive trials led by dedicated farmers, RAISSAT has successfully introduced a diverse range of natural pest control methods that are revolutionizing the agricultural landscape. ",
-      author: "Adejoke A. Ododor",
-      authorProfile: adejoke,
-      date: "June 10, 2024",
-      thumbnail: cow,
-    },
-
-    {
-      title: "Climate-Resilient Farming Initiative - Northern Ghana",
-      body: "RAISSAT has embarked on an inspiring journey to empower smallholder farmers by providing them with extensive training in sustainable soil management techniques and effective water conservation practices. Over the past few  ",
-      author: "Samuel I. Ogah",
-      authorProfile: samuel,
-      date: "June 10, 2024",
-      thumbnail: climateFarming,
-    },
-  ],
-  newsletters: [],
-  resources: [],
-};
-
-export { navItems, about, services, impact, faqs, aboutPage, whatWeDo, media };
+export { navItems, about, services, impact, faqs, aboutPage, whatWeDo };

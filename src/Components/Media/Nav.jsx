@@ -10,10 +10,8 @@ const Nav = ({ activeTab, setActiveTab }) => {
         <ul className="flex justify-between">
           {[
             "All",
-            "Blogs",
+            "Articles",
             "Media",
-            
-            
           ].map((link) => (
             <li onClick={() => setActiveTab(link)}
               className={`font-inter font-medium text-sm md:text-md lg:text-lg ${
