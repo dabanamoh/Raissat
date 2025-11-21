@@ -93,12 +93,16 @@ export const mediaAssets = {
   pestManagement: "/assets/Media/pest-management.jpg",
   doctor: "/assets/Media/doctor.jpg",
   cow: "/assets/Media/cow.jpg",
-  drug1: "/assets/Media/articles/drug1.webp",
-  drug2: "/assets/Media/articles/drug2.webp",
-  drug3: "/assets/Media/articles/drug3.webp",
-  antibody: '/assets/Media/articles/antibody.webp',
+  drug1: "/assets/Media/articles/drug1.png",
+  drug2: "/assets/Media/articles/drug2.png",
+  drug3: "/assets/Media/articles/drug3.png",
+  antibody: '/assets/Media/articles/antibody.png',
   thumbnail: '/assets/Media/articles/thumbnail.jpg',
   defaultAvatar: '/assets/Media/articles/defaultAvatar.svg',
+  ethicalResearch: '/assets/Media/articles/ethicalResearch.webp',
+  drugDesign: '/assets/Media/articles/drugDesign.webp',
+  antimicrobial: '/assets/Media/articles/antimicrobial.webp',
+  bioStrategies: '/assets/Media/articles/bioStrategies.webp',
 }
 
 export const whatWeDoAssets = {

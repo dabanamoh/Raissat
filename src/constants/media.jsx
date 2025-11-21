@@ -1,13 +1,15 @@
 import { mediaAssets, profiles } from "../assets";
 
-const { drug1, drug2, drug3, antibody} = mediaAssets;
+const { drug1, drug2, drug3, antibody, ethicalResearch, drugDesign, antimicrobial, bioStrategies } = mediaAssets;
 const { elohozino, samuel, goshen, sunday, christiana, adejoke, oladayo, rightArrow } = profiles;
 
+
+const hyphenate = (t) => t.toLowerCase().replace(/\s+/g, "-");;
 
 export const media = {
   articles: [
     {
-      id: crypto.randomUUID(),
+      id: hyphenate("Building Trust and Accountability in Science through Ethical Research"),
       title:
         "Building Trust and Accountability in Science through Ethical Research",
       body: (
@@ -58,14 +60,16 @@ export const media = {
       author: "Goshen David Miteu",
       authorProfile: goshen,
       date: "May 10, 2024",
-      thumbnail: "",
+      thumbnail: ethicalResearch,
+      articleBanner: "",
       images: [],
+      imageSrc: "",
       reference: "https://doi.org/10.1097/MS9.0000000000001959",
       publisher: "Annals of Medicine & Surgery (2024), Vol. 86:2395-2398",
     },
 
     {
-      id: crypto.randomUUID(),
+      id: hyphenate("Guarding the Last Line of Defense: Tackling Antimicrobial Resistance through Awareness and Action"),
       title:
         "Guarding the Last Line of Defense: Tackling Antimicrobial Resistance through Awareness and Action",
       body: (
@@ -130,14 +134,16 @@ export const media = {
       author: "Goshen David Miteu",
       authorProfile: goshen,
       date: "May 10, 2023",
-      thumbnail: "",
+      thumbnail: antimicrobial,
+      articleBanner: "",
       images: [drug1, drug2, drug3],
+      imgSrc: "Goshen et al, 2023",
       reference: "https://doi.org/10.1097/MS9.0000000000000760",
       publisher: "Annals of Medicine & Surgery (Vol. 85, 2023)",
     },
 
     {
-      id: crypto.randomUUID(),
+      id: hyphenate("Strengthening Public Health Preparedness through Integrated Biomedical Strategies"),
       title:
         "Strengthening Public Health Preparedness through Integrated Biomedical Strategies",
       body: (
@@ -207,14 +213,16 @@ export const media = {
       author: "Goshen David Miteu",
       authorProfile: goshen,
       date: "May 10, 2025",
-      thumbnail: "",
+      thumbnail: bioStrategies,
+      articleBanner: "",
       images: [],
+      imgSrc: "",
       reference: "https://doi.org/10.1097/MS9.0000000000000760",
       publisher: "Annals of Medicine & Surgery (Vol. 85, 2023)",
     },
 
     {
-      id: crypto.randomUUID(),
+      id: hyphenate("Redefining Drug Design: The Future of Precision Antibody Therapeutics"),
       title:
         "Redefining Drug Design: The Future of Precision Antibody Therapeutics",
       body: (
@@ -293,8 +301,10 @@ export const media = {
       author: "Goshen David Miteu",
       authorProfile: goshen,
       date: "May 10, 2025",
-      thumbnail: "",
+      thumbnail: drugDesign,
+      articleBanner: "",
       images: [antibody],
+      imgSrc: "",
       reference: "https://doi.org/10.1007/s42452-025-07625-7",
       publisher: "Springer Nature",
     },
