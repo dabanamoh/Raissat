@@ -16,7 +16,7 @@ const Team = () => {
   }
 
   return (
-    <div className="relative py-8 font-inter px-4 sm:px-4 md:px-15 lg:px-30">
+    <div className="relative py-8 font-inter px-4 w-full sm:w-[90%] md:w-[90%] mx-auto">
       {/* <h1 className="h1 text-center mb-4">The Board</h1>
       <p className="p leading-6 mb-6 text-center">
         Business Advisor | Legal Advisor | Academic Advisors - Science,
@@ -56,7 +56,7 @@ const Team = () => {
         </p>
       </div>
       {/* cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-8">
         {team.map((member, index) => (
           <Card
             key={index}

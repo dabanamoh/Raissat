@@ -13,21 +13,26 @@ export const handleCtaClick = (navigate, route) => {
 
 export const useEvent = (toggleFunction) => {
   useEffect(() => {
-    const toggleEvent = (event, selector = '') => {
+    const events = ['click', 'keydown'];
+
+    const toggleEvent = (event) => {
       if (event.type === 'keydown' && event.key === 'Escape') {
         toggleFunction();
+        return;
       }
 
-      if (event.type === 'click' && event.target.matches(selector)) {
+      if (event.type === 'click' && event.target.matches('.wrapper')) {
         toggleFunction();
+        return;
       }
     };
 
-    window.addEventListener("keydown", toggleEvent);
+    events.forEach(event => window.addEventListener(event, toggleEvent));
+    
 
     // Cleanup on unmount
     return () => {
-      window.removeEventListener("keydown", toggleEvent);
+      events.forEach(event =>window.removeEventListener(event, toggleEvent));
     };
   }, []); // Dependency array ensures effect re-runs if function reference changes
 };

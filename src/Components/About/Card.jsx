@@ -6,9 +6,9 @@ const Card = ({ name, img, profileSummary, handleToggleModal }) => {
   const { rightArrow } = profiles;
   // console.log(profileSummary)
   return (
-    <div className="bg-white p-3 rounded-xl shadow-2xl">
-      <div className="text-center mb-3 h-[350px] overflow-hidden rounded-xl">
-        <img className="w-full h-full " src={img} alt="profile" />
+    <div className="bg-white p-3 rounded-xl shadow-2xl w-full  mx-auto">
+      <div className="text-center mb-3 h-[330px] overflow-hidden rounded-xl">
+        <img className="w-full h-full" src={img} alt="profile" />
       </div>
       <div>
         <h3 className="font-semibold mb-3">{name}</h3>
