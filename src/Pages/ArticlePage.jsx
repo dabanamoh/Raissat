@@ -27,9 +27,9 @@ const ArticlePage = () => {
             }`}
           </p>
         </header>
-        <img className="rounded-2xl" src={article.thumbnail} alt="hero-image" />
+        <img className="rounded-2xl h-[70vh]" src={article.thumbnail} alt="hero-image" />
         <div className="p leading-7 flex flex-col gap-8">
-          <p>{article.body}</p>
+          <span>{article.body}</span>
           <div
             className={`grid ${
               article.images.length === 1

@@ -48,7 +48,7 @@ const Navbar = () => {
       </Link>
       {/* {toggleNav && ( */}
       <ul
-        className={`flex flex-col gap-5 sm:gap-2 sm:flex-row items-center md:justify-evenly md:w-[80%] z-10 mobile-menu ${
+        className={`flex flex-col gap-5 sm:gap-2 sm:flex-row items-center md:justify-evenly md:w-[80%] lg:w-[60%] z-10 mobile-menu ${
           isMobile && (toggleNav ? "block" : "hidden")
         }`}
       >
@@ -64,7 +64,7 @@ const Navbar = () => {
           <li
             key={idx}
             className={`${
-              idx === navItems.length - 1 ? "hidden max-[800px]:block" : ""
+              idx === navItems.length - 1 ? "hidden max-[639px]:block" : ""
             }`}
           >
             <NavLink
@@ -77,7 +77,7 @@ const Navbar = () => {
           </li>
         ))}
 
-        <li className=" hidden min-[800px]:block">
+        <li className=" hidden min-[639px]:block">
           {/* Education btn */}
           <button
             onClick={() => handleCtaClick(navigate, "contact")}
