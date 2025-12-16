@@ -1,6 +1,6 @@
 import { GiGiftOfKnowledge } from "react-icons/gi";
 
-import { servicesAssets, profiles, mediaAssets } from "../assets";
+import { servicesAssets, profiles, partnerLogos } from "../assets";
 
 // services
 const {
@@ -52,9 +52,18 @@ const {
   // rightArrow,
 } = profiles;
 
-// Media center images
-const { locust, farmConflict, climateFarming, pestManagement, cow, doctor } =
-  mediaAssets;
+// Partner logos
+const {
+  sdg2,
+  sdg3,
+  sdg4,
+  sdg6,
+  sdg15,
+  sdg17,
+  sdg13
+} = partnerLogos;
+
+const partners = [sdg2, sdg3, sdg4, sdg6, sdg15, sdg17, sdg13];
 
 const navItems = [
   {
@@ -881,4 +890,4 @@ const whatWeDo = [
 
 
 
-export { navItems, about, services, impact, faqs, aboutPage, whatWeDo };
+export { navItems, about, services, impact, faqs, aboutPage, whatWeDo, partners };

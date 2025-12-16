@@ -13,19 +13,6 @@ export const global = {
   markerIcon: '/assets/marker-icon.png'
 }
 
-
-// import logo from "./logo.svg";
-// import logoMd from "./logo-tablet.svg";
-// import hamburger from "./hamburger.svg";
-// import close from "./close.svg";
-// import hero from "./hero.png";
-// import whiteLogoRound from "./white-logo-tablet.svg";
-// import whiteLogo from "./white-logo.svg";
-// import x from "./X.svg";
-// import instagram from "./instagram.svg";
-// import linkdin from "./linkdin.svg";
-// import iconBack from "./iconBack.svg";
-
 export const profiles = {
   elohozino: "/assets/Profiles/elohozino.jpg",
   samuel: "/assets/Profiles/samuel.jpg",
@@ -105,6 +92,12 @@ export const mediaAssets = {
   bioStrategies: '/assets/Media/articles/bioStrategies.webp',
 }
 
-export const whatWeDoAssets = {
-  
-}
+export const partnerLogos = {
+  sdg2: '/assets/Partners/zero-hunger.png',
+  sdg3: '/assets/Partners/good-health.png',
+  sdg4: '/assets/Partners/quality-education.png',
+  sdg6: '/assets/Partners/clean-water.png',
+  sdg15: '/assets/Partners/life-on-land.png',
+  sdg17: '/assets/Partners/partnerships.png',
+  sdg13: '/assets/Partners/climate-action.png',
+};
