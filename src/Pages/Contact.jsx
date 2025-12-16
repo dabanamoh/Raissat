@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-
-import { X } from "lucide-react";
+import Form from "../Components/ContactForm";
+import MessageBox from "../Components/MessageBox";
 
 import { MessageCircleQuestionMark, Microscope, HandCoins } from "lucide-react";
 import Container from "../Components/Container";
@@ -14,6 +13,7 @@ const contactInfo = [
       "For information about our programs, initiatives, or institutional partnerships.",
     infoIcon: <MessageCircleQuestionMark className="size-8" />,
     animate: "animate-fadeInLeft",
+    mailRoute: "infoi@raissat.org",
   },
 
   {
@@ -22,6 +22,8 @@ const contactInfo = [
       "Interested in partnering on applied research or sustainability-focused innovation?",
     infoIcon: <Microscope className="size-8" />,
     animate: "animate-fadeInBottom",
+    // mailRoute: "research@raissat.org",
+    mailRoute: "info@raissat.org",
   },
 
   {
@@ -30,124 +32,41 @@ const contactInfo = [
       "Support our mission to bridge science, agriculture, and technology for a sustainable future",
     infoIcon: <HandCoins className="size-8" />,
     animate: "animate-fadeInRight",
+    // mailRoute: "finance@raissat.org",
+    mailRoute: "info@raissat.org",
   },
 ];
 
-const Form = ({ inquiryType }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  console.log(errors);
-
-  return (
-    <div className="fixed inset-0 z-5000 flex justify-center items-center bg-black/30 backdrop-blur-sm wrapper">
-      {/* Backdrop Fade In */}
-      <div
-        className="
-      w-full 
-      max-w-lg sm:max-w-2xl md:max-w-4xl
-      mx-4
-      p-4 sm:p-8
-      bg-white/60 backdrop-blur-3xl
-      rounded-xl
-      flex flex-col sm:flex-row
-      gap-6
-      relative
-      opacity-0 scale-95 
-      animate-[fadeInScale_0.25s_ease-out_forwards]
-      mt-[10%]
-    "
-      >
-        {/* Close Button */}
-        <button className="absolute -top-2 -right-2 bg-midnight-green text-white rounded-full p-2 sm:p-3 shadow-lg cursor-pointer transition-all duration-200 hover:scale-110 active:scale-90">
-          <X className="size-5 sm:size-6" />
-        </button>
-        <form
-          onSubmit={handleSubmit((data) => console.log(data))}
-          className="w-full"
-        >
-          <h1 className="my-8 text-midnight-green text-center h1">
-            Contact Us
-          </h1>
-          <div className="flex flex-col justify-center items-center gap-4 w-[80%] mx-auto">
-            <div className="flex flex-col md:flex-row gap-4">
-              <div>
-                <label className="font-inter font-semibold">
-                  First Name <span className="text-red-600">*</span>
-                </label>
-                <input
-                  className="input"
-                  type="text"
-                  {...register("firstName", {
-                    required: "First name is required",
-                  })}
-                  // placeholder="First name"
-                />
-              </div>
-              <div>
-                <label className="font-inter font-semibold">
-                  Last Name <span className="text-red-600">*</span>
-                </label>
-                <input
-                  className="input"
-                  type="text"
-                  {...register("lastName", {
-                    required: "Last name is required",
-                  })}
-                  // placeholder="Last name"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col md:flex-row gap-4 ">
-              <div>
-                <label className="font-inter font-semibold">
-                  Email Address <span className="text-red-600">*</span>
-                </label>
-                <input
-                  className="input"
-                  type="text"
-                  {...register("firstName", {
-                    required: "First name is required",
-                  })}
-                  // placeholder="First name"
-                />
-              </div>
-              <div>
-                <label className="font-inter font-semibold">
-                  Phone Number
-                </label>
-                <input
-                  className="input"
-                  type="text"
-                  {...register("lastName", {
-                    required: "Last name is required",
-                  })}
-                  // placeholder="Last name"
-                />
-              </div>
-            </div>
-            <div>
-
-            <div className="flex flex-col">
-              <label className="font-inter font-semibold">
-                Message <span className="text-red-600">*</span>
-              </label>
-              <textarea className="input w-full resize-none" rows="3" cols="70" name="" id=""></textarea>
-            </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
-
 const Contact = () => {
   const [address, setAddress] = useState("headquarters");
+  const [showForm, setShowForm] = useState(false);
+  const [message, setMessage] = useState({
+    isVisible: false,
+    content: "",
+  });
+  const [mailData, setMailData] = useState({
+    inquiryType: "",
+    mailRoute: "",
+  });
+
+  const handleToggleForm = (data) => {
+    if (data) {
+      setMailData((prevData) => ({
+        ...prevData,
+        inquiryType: data.infoType,
+        mailRoute: data.mailRoute,
+      }));
+    }
+    setShowForm(prev => !prev);
+  };
+
+  const handleToggleMsg = (msg) => {
+    setMessage((prevMsg) => ({
+      ...prevMsg,
+      isVisible: !prevMsg.isVisible,
+      content: msg ? msg : '',
+    }))
+  }
 
   return (
     <Container>
@@ -180,13 +99,21 @@ const Contact = () => {
               <p className="mx-auto text-indian-yellow ">{info.infoIcon}</p>
               <h3 className="text-xl">{info.infoType}</h3>
               <p>{info.infoText}</p>
-              <button className="btn text-indian-yellow border-indian-yellow border-1 hover:bg-indian-yellow hover:text-white">
+              <button
+                onClick={() => handleToggleForm(info)}
+                className="btn text-indian-yellow border-indian-yellow border-1 hover:bg-indian-yellow hover:text-white"
+              >
                 Contact Us
               </button>
             </div>
           ))}
-          <Form />
         </div>
+        {showForm && (
+          <Form mailData={mailData} handleToggleForm={handleToggleForm} handleToggleMsg={handleToggleMsg} />
+        )}
+        {message.isVisible && (
+          <MessageBox message={message.content} handleToggleMsg={handleToggleMsg} />
+        )}
       </div>
 
       <hr className="bg-rich-black h-[1px] border-0 sm:mt-6" />
