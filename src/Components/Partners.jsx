@@ -3,10 +3,13 @@ import Container from "./Container";
 
 import { partners } from "../constants";
 
-const Marquee = ({ children }) => {
+const SDG = ({ children }) => {
   return (
-    <div className="overflow-hidden whitespace-nowrap">
-      <div className="flex flex-row justify-evenly gap-4 animate-marquee px-4 py-2">{children}</div>
+    // <div className="overflow-hidden whitespace-nowrap">
+    //   <div className="flex flex-col md:flex-row justify-evenly gap-4 px-4 py-2">{children}</div>
+    // </div>
+    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 mx-auto overflow-hidden">
+      {children}
     </div>
   );
 };
@@ -15,11 +18,19 @@ const Partners = () => {
   return (
     <section className="bg-bright-gray pb-5">
       <Container>
-        <Marquee>
+        <h1 className="h1 text-center p-4 text-midnight-green">
+          Our SDG Goals
+        </h1>
+        <SDG>
           {partners.map((partner, idx) => (
-            <img key={idx} className="size-12 md:size-30" src={partner} alt="partners-logo" />
+            <img
+              key={idx}
+              className="w-full md:size-30"
+              src={partner}
+              alt="partners-logo"
+            />
           ))}
-        </Marquee>
+        </SDG>
       </Container>
     </section>
   );

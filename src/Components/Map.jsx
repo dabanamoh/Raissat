@@ -4,15 +4,15 @@ import "leaflet/dist/leaflet.css";
 
 import { global } from "../assets";
 
-const {markerIcon} = global;
+const { markerIcon } = global;
 
 const Map = ({ currentView }) => {
   const mapRef = useRef(null); // this holds the map container div
 
   const defaultIcon = L.icon({
     iconUrl: markerIcon,
-    iconSize: [35, 41], 
-    iconAnchor: [12, 41], 
+    iconSize: [35, 41],
+    iconAnchor: [12, 41],
     popupAnchor: [1, -34],
     shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
     shadowSize: [41, 41],
@@ -20,14 +20,13 @@ const Map = ({ currentView }) => {
 
   // const markerIcon = L.Icon.Default.imagePath = '../assets/marker-icon.png'
   // console.log(L.Icon.Default.imagePath);
-  
+
   const views = {
-    headquarters: [6.59354, 3.36326],
+    headquarters: [6.59517, 3.30319],
     uk: [52.2355, 0.15192],
   };
 
   useEffect(() => {
-    
     if (!mapRef.current) return;
 
     // Initialize the map
@@ -40,7 +39,9 @@ const Map = ({ currentView }) => {
     }).addTo(map);
 
     // Add a marker example
-    const marker = L.marker(views[currentView], {icon: defaultIcon}).addTo(map);
+    const marker = L.marker(views[currentView], { icon: defaultIcon }).addTo(
+      map
+    );
     marker
       .bindPopup(
         `${
@@ -55,7 +56,7 @@ const Map = ({ currentView }) => {
     return () => {
       map.remove();
     };
-  }, [ currentView, views ]);
+  }, [currentView, views]);
 
   return (
     <div
