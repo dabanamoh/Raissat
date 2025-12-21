@@ -28,7 +28,6 @@ export const useEvent = (toggleFunction) => {
     };
 
     events.forEach(event => window.addEventListener(event, toggleEvent));
-    
 
     // Cleanup on unmount
     return () => {

@@ -16,9 +16,9 @@ const SDG = ({ children }) => {
 
 const Partners = () => {
   return (
-    <section className="bg-bright-gray pb-5">
+    <section className="bg-bright-gray py-5">
       <Container>
-        <h1 className="h1 text-center p-4 text-midnight-green">
+        <h1 className="h1 text-center p-8 text-midnight-green">
           Our SDG Goals
         </h1>
         <SDG>

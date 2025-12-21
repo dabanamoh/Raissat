@@ -34,7 +34,7 @@ const Accordion = ({ data, index, isOpen, handleToggle }) => {
           isOpen ? "max-h-40 opacity-100 mt-2 " : "max-h-0 opacity-0 mt-0"
         }`}
       >
-        <p>{data.answer}</p>
+        <p className="p">{data.answer}</p>
       </div>
     </div>
   );

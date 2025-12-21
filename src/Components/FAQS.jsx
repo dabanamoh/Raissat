@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
+import { handleCtaClick } from "../utils";
 
 import { faqs } from "../constants";
 import Accordion from "./Accordion";
 import Container from "./Container";
 
 const FAQS = () => {
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(null);
 
   function handleToggle(index) {
@@ -23,7 +26,7 @@ const FAQS = () => {
           Discover answers to your questions about RAISSAT and how we can assist
           you.
         </p>
-        <button className="btn w-32 bg-midnight-green mx-auto sm:mx-0">More</button>
+        <button onClick={() => handleCtaClick(navigate, 'faqs')} className="btn w-32 bg-midnight-green mx-auto sm:mx-0">More</button>
       </div>
       <div className="sm:w-[60%] mx-auto overflow-auto">
         {faqs.slice(0, 8).map((faq, index) => (

@@ -21,6 +21,7 @@ const ServicePage = lazy(() => import("./Pages/ServicePage"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const ArticlePage = lazy(() => import("./Pages/ArticlePage"));
 const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
+const FAQs = lazy(() => import("./Pages/FAQs"));
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="services" element={<WhatWeDo />} />
           <Route path="media" element={<Media />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="faqs" element={<FAQs />} />
           <Route path="services/:serviceId" element={<ServicePage />} />
           <Route path="articles/:articleId" element={<ArticlePage />} />
         </Route>

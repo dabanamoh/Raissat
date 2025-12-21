@@ -109,10 +109,17 @@ const Contact = () => {
           ))}
         </div>
         {showForm && (
-          <Form mailData={mailData} handleToggleForm={handleToggleForm} handleToggleMsg={handleToggleMsg} />
+          <Form
+            mailData={mailData}
+            handleToggleForm={handleToggleForm}
+            handleToggleMsg={handleToggleMsg}
+          />
         )}
         {message.isVisible && (
-          <MessageBox message={message.content} handleToggleMsg={handleToggleMsg} />
+          <MessageBox
+            message={message.content}
+            handleToggleMsg={handleToggleMsg}
+          />
         )}
       </div>
 
@@ -129,7 +136,7 @@ const Contact = () => {
             </p>
             <p className="p leading-7 mb-8">
               Research Applied Institute for Sustainability in Science,
-              Agriculture & Technology (RAISSAT) 25 Raymond Njoku Street, Ikoyi,
+              Agriculture & Technology (RAISSAT) 117A Shasha Road, Akowonjo,
               Lagos, Nigeria.
             </p>
           </span>

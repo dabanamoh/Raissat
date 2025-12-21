@@ -46,7 +46,7 @@ const Map = ({ currentView }) => {
       .bindPopup(
         `${
           currentView === "headquarters"
-            ? "<b>Raissat Headquarters</b> <br /> 25 Raymond Njoku Street"
+            ? "<b>Raissat Headquarters</b> <br /> 117A Shasha Road, Akowonjo"
             : "<b>UK Office</b> <br /> Global Hub Cambridge Innovation Park"
         }`
       )
