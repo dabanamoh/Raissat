@@ -69,10 +69,10 @@ Other scripts:
 1. Import the GitHub repository into Vercel. Framework preset: Vite. Build command `npm run build`, output `dist`.
 2. Add the environment variables from `.env.example`.
 3. Create a GitHub OAuth App at <https://github.com/settings/developers>:
-   - Homepage URL: `https://raissat.org`
-   - Authorization callback URL: `https://raissat.org/api/callback`
+   - Homepage URL: the site's domain (currently `https://raissat-delta.vercel.app`)
+   - Authorization callback URL: that domain followed by `/api/callback`
    - Copy the Client ID and Client Secret into Vercel as `OAUTH_GITHUB_CLIENT_ID` and `OAUTH_GITHUB_CLIENT_SECRET`.
-4. If the site runs on a different domain, change `base_url`, `site_url` and `display_url` in `public/admin/config.yml`, the `siteUrl` in Site settings, and the sitemap line in `public/robots.txt`.
+4. When the site moves to `https://raissat.org`, update the OAuth App URLs above, `base_url` in `public/admin/config.yml`, and the `siteUrl` in Site settings (`src/content/settings/site.json`). The sitemap and canonical links follow `siteUrl`.
 
 Every push to `main` deploys. Every CMS publish is a push to `main`.
 

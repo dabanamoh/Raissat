@@ -7,7 +7,8 @@ backend:
   branch: main
   # The site's own domain. Login is handled by /api/auth and /api/callback
   # (see api/ folder), so this must be the origin those functions run on.
-  base_url: https://raissat.org
+  # Change to https://raissat.org once that domain points at Vercel.
+  base_url: https://raissat-delta.vercel.app
   auth_endpoint: api/auth
   commit_messages:
     create: "Content: create {{collection}} “{{slug}}”"
