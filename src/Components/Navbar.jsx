@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation, useNavigate } from "react-router";
 
-import { global } from "../assets";
-import { navItems } from "../constants";
+import { site } from "../content";
+
+const HAMBURGER = "/assets/hamburger.svg";
+const CLOSE = "/assets/close.svg";
 
 const Navbar = () => {
-  const { logo, logoMd, hamburger, close } = global;
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -28,9 +29,9 @@ const Navbar = () => {
       className="nav h-16 flex justify-between items-center bg-bright-gray text-midnight-green font-inter"
       aria-label="Main"
     >
-      <Link to="/" aria-label="RAISSAT home" className="shrink-0">
-        <img className="hidden min-[990px]:block h-10 w-auto" src={logo} alt="RAISSAT" />
-        <img className="block min-[990px]:hidden h-10 w-auto" src={logoMd} alt="RAISSAT" />
+      <Link to="/" aria-label={`${site.siteName} home`} className="shrink-0">
+        <img className="hidden min-[990px]:block h-10 w-auto" src={site.logo} alt={site.siteName} />
+        <img className="block min-[990px]:hidden h-10 w-auto" src={site.logoCompact} alt={site.siteName} />
       </Link>
 
       {open && (
@@ -56,14 +57,14 @@ const Navbar = () => {
             aria-label="Close menu"
             className="p-2 cursor-pointer"
           >
-            <img className="size-6" src={close} alt="" />
+            <img className="size-6" src={CLOSE} alt="" />
           </button>
         </li>
 
-        {navItems.map((item, idx) => (
+        {site.nav.map((item, idx) => (
           <li
             key={item.route}
-            className={idx === navItems.length - 1 ? "sm:hidden" : ""}
+            className={idx === site.nav.length - 1 ? "sm:hidden" : ""}
           >
             <NavLink
               className="inline-block py-2 px-1 text-[1rem] md:text-[1.1rem]"
@@ -78,10 +79,10 @@ const Navbar = () => {
         <li className="hidden sm:block">
           <button
             type="button"
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate(site.navButton.route)}
             className="bg-midnight-green hover:bg-rich-black text-white py-2 px-4 rounded-2xl cursor-pointer"
           >
-            Get Involved
+            {site.navButton.label}
           </button>
         </li>
       </ul>
@@ -94,7 +95,7 @@ const Navbar = () => {
         aria-label="Open menu"
         className={`sm:hidden p-2 -mr-2 cursor-pointer ${open ? "invisible" : ""}`}
       >
-        <img className="size-8" src={hamburger} alt="" />
+        <img className="size-8" src={HAMBURGER} alt="" />
       </button>
     </nav>
   );

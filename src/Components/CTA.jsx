@@ -1,35 +1,26 @@
 import { useNavigate } from "react-router";
-import { handleCtaClick } from "../utils";
 
-import { global } from "../assets";
 import Container from "./Container";
+import { site } from "../content";
 
 const CTA = () => {
-  const { whiteLogoRound } = global;
   const navigate = useNavigate();
+  const { cta } = site;
 
   return (
     <section className="bg-rich-black">
       <Container>
         <div className="py-10 sm:p-10 flex flex-col justify-center items-center gap-6">
-          <img className="size-22" src={whiteLogoRound} alt="" />
-          <h2 className="h1 text-indian-yellow font-medium text-center">
-            Why RAISSAT Matters
-          </h2>
-          <p className="p text-white text-center max-w-[65ch]">
-            We exist to close the global gap between discovery and deployment.
-            Every project we lead, every partnership we form, and every policy
-            we shape is grounded in a single belief:
-          </p>
-          <p className="p text-indian-yellow text-center font-bold">
-            Research should change lives
-          </p>
+          <img className="size-22" src={site.logoWhiteRound} alt="" />
+          <h2 className="h1 text-indian-yellow font-medium text-center">{cta.title}</h2>
+          <p className="p text-white text-center max-w-[65ch]">{cta.text}</p>
+          <p className="p text-indian-yellow text-center font-bold">{cta.tagline}</p>
           <button
             type="button"
-            onClick={() => handleCtaClick(navigate, "contact")}
+            onClick={() => navigate(cta.buttonRoute)}
             className="btn bg-indian-yellow"
           >
-            Partner With Us
+            {cta.buttonLabel}
           </button>
         </div>
       </Container>

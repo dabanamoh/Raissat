@@ -1,0 +1,46 @@
+{
+  "siteName": "RAISSAT",
+  "siteUrl": "https://raissat.org",
+  "tagline": "Research Applied Institute for Sustainability in Science, Agriculture and Technology",
+  "description": "RAISSAT, the Research Applied Institute for Sustainability in Science, Agriculture and Technology, turns research into real-world impact through applied projects, policy engagement, consultancy, capacity building and youth mentorship.",
+  "ogImage": "/assets/hero.webp",
+  "logo": "/assets/logo.svg",
+  "logoCompact": "/assets/logo-tablet.svg",
+  "logoWhite": "/assets/white-logo.svg",
+  "logoWhiteRound": "/assets/white-logo-tablet.svg",
+  "nav": [
+    { "text": "Home", "route": "/" },
+    { "text": "Who We Are", "route": "/about" },
+    { "text": "What We Do", "route": "/services" },
+    { "text": "Media Center", "route": "/media" },
+    { "text": "Get Involved", "route": "/contact" }
+  ],
+  "navButton": { "label": "Get Involved", "route": "/contact" },
+  "socials": [
+    { "network": "instagram", "label": "RAISSAT on Instagram", "url": "https://www.instagram.com/official_raissat" },
+    { "network": "linkedin", "label": "RAISSAT on LinkedIn", "url": "https://www.linkedin.com/company/raissat" },
+    { "network": "x", "label": "RAISSAT on X", "url": "https://x.com/officialraissat" }
+  ],
+  "contactEmail": "info@raissat.org",
+  "footerSupportLinks": [
+    { "text": "Contact", "route": "/contact" },
+    { "text": "FAQs", "route": "/faqs" }
+  ],
+  "sdgHeading": "Our SDG Goals",
+  "sdgs": [
+    { "label": "SDG 2: Zero Hunger", "image": "/assets/Partners/zero-hunger.webp" },
+    { "label": "SDG 3: Good Health and Well-being", "image": "/assets/Partners/good-health.webp" },
+    { "label": "SDG 4: Quality Education", "image": "/assets/Partners/quality-education.webp" },
+    { "label": "SDG 6: Clean Water and Sanitation", "image": "/assets/Partners/clean-water.webp" },
+    { "label": "SDG 13: Climate Action", "image": "/assets/Partners/climate-action.webp" },
+    { "label": "SDG 15: Life on Land", "image": "/assets/Partners/life-on-land.webp" },
+    { "label": "SDG 17: Partnerships for the Goals", "image": "/assets/Partners/partnerships.webp" }
+  ],
+  "cta": {
+    "title": "Why RAISSAT Matters",
+    "text": "We exist to close the global gap between discovery and deployment. Every project we lead, every partnership we form, and every policy we shape is grounded in a single belief:",
+    "tagline": "Research should change lives",
+    "buttonLabel": "Partner With Us",
+    "buttonRoute": "/contact"
+  }
+}

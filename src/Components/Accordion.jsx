@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import Markdown from "./Markdown";
 
 const Accordion = ({ data, index, isOpen, handleToggle }) => {
   const panelId = `faq-panel-${index}`;
@@ -31,7 +32,7 @@ const Accordion = ({ data, index, isOpen, handleToggle }) => {
         }`}
       >
         <div className="overflow-hidden">
-          <div className="p pt-3">{data.answer}</div>
+          <Markdown className="p pt-3">{data.answer}</Markdown>
         </div>
       </div>
     </div>

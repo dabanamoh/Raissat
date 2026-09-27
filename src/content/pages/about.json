@@ -1,0 +1,22 @@
+{
+  "title": "About Us",
+  "metaDescription": "RAISSAT is a multidisciplinary institute bridging research, innovation and policy. Meet the leadership team and read our impact philosophy.",
+  "intro": "RAISSAT — the Research Applied Institute for Sustainability in Science, Agriculture, and Technology — exists to turn knowledge into impact. We are a multidisciplinary institute that bridges research, innovation, and policy to solve real-world challenges at the nexus of science, agriculture, and technology. Our philosophy is simple yet powerful: sustainable progress happens when evidence meets execution. From the laboratory to the field, from policymakers to farmers, we connect people, data, and systems to deliver transformative solutions that advance sustainability and equity.\n\n### Why\n\nEvery challenge facing our world - from food insecurity to climate change - demands more than research; it requires collaboration, courage, and continuity. RAISSAT was founded to bridge these systemic gaps through evidence-based programs, capacity building, and policy translation that ensure ideas don’t just remain on paper, they make a difference in people’s lives. We believe in **integrity, inclusivity, and impact.** Our work empowers governments, institutions, and communities to co-create sustainable futures, rooted in science and guided by compassion.",
+  "philosophy": {
+    "title": "Our Impact Philosophy",
+    "text": "At RAISSAT, impact is intentional.\n\nWe measure success not by the number of reports written but by the lives improved, the systems strengthened, and the policies changed.",
+    "pillarsIntro": "Every project we undertake is built on five core pillars that define our approach:",
+    "pillars": [
+      { "title": "Evidence-Based Action", "text": "Science that informs and transforms." },
+      { "title": "Collaborative Innovation", "text": "Partnerships that amplify reach and relevance." },
+      { "title": "Capacity Development", "text": "Building people before programs." },
+      { "title": "Policy Integration", "text": "Embedding science into governance." },
+      { "title": "Sustainability First", "text": "Ensuring progress lasts beyond projects." }
+    ]
+  },
+  "team": {
+    "heading": "Meet the Team",
+    "philosophyTitle": "Our Team & Leadership Philosophy",
+    "philosophyText": "Led by visionary experts across science, business, and public policy, for RAISSAT’s leadership it is more than governance, it’s collaboration in action. Our executive team brings together diverse expertise in science, agriculture, and technology, united by a shared vision: to turn evidence into sustainable impact. Each leader embodies the institute’s core values of integrity, innovation, and inclusion, working collectively to bridge the gap between research and real-world solutions. Together, they inspire a culture of purpose-driven excellence where bold ideas become transformative outcomes for communities and the planet."
+  }
+}

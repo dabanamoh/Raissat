@@ -1,14 +1,12 @@
 import AboutFull from "../Components/About/AboutFull";
 import Team from "../Components/About/Team";
 import PageMeta from "../Components/PageMeta";
+import { about } from "../content";
 
 const About = () => {
   return (
     <div className="bg-bright-gray">
-      <PageMeta
-        title="Who We Are"
-        description="RAISSAT is a multidisciplinary institute bridging research, innovation and policy. Meet the leadership team and read our impact philosophy."
-      />
+      <PageMeta title="Who We Are" description={about.metaDescription} />
       <AboutFull />
       <Team />
     </div>

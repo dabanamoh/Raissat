@@ -2,50 +2,40 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-import { global } from "../assets";
+const MARKER = "/assets/marker-icon.png";
+const SHADOW = "/assets/marker-shadow.png";
 
-const { markerIcon, markerShadow } = global;
-
-const views = {
-  headquarters: {
-    coords: [6.59517, 3.30319],
-    popup: "<b>RAISSAT Headquarters</b><br />117A Shasha Road, Akowonjo, Lagos",
-  },
-  uk: {
-    coords: [52.2355, 0.15192],
-    popup: "<b>UK Office</b><br />Global Hub, Cambridge Innovation Park",
-  },
-};
-
-const Map = ({ currentView }) => {
+const Map = ({ location }) => {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    if (!mapRef.current) return;
-    const view = views[currentView] ?? views.headquarters;
+    if (!mapRef.current || !location) return;
+    const coords = [Number(location.lat), Number(location.lng)];
 
     const icon = L.icon({
-      iconUrl: markerIcon,
+      iconUrl: MARKER,
       iconSize: [35, 41],
       iconAnchor: [17, 41],
       popupAnchor: [1, -34],
-      shadowUrl: markerShadow,
+      shadowUrl: SHADOW,
       shadowSize: [41, 41],
     });
 
-    const map = L.map(mapRef.current).setView(view.coords, 13);
+    const map = L.map(mapRef.current).setView(coords, 13);
 
     L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: "© OpenStreetMap contributors",
     }).addTo(map);
 
-    L.marker(view.coords, { icon }).addTo(map).bindPopup(view.popup).openPopup();
+    const popup = document.createElement("div");
+    popup.textContent = location.popup || location.title;
+    L.marker(coords, { icon }).addTo(map).bindPopup(popup).openPopup();
 
     return () => {
       map.remove();
     };
-  }, [currentView]);
+  }, [location]);
 
   return (
     <div

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 
 import Dialog from "./Dialog";
 import Spinner from "./Spinner";
+import { site } from "../content";
 
 const accessKey = import.meta.env.VITE_HOOKFORM_ACCESS_KEY;
 
@@ -29,8 +30,7 @@ const Field = ({ id, label, required, error, className = "", children }) => (
 const inputClass = (error) =>
   `input ${error ? "focus:ring-red-500 border-red-500" : ""}`;
 
-const Form = ({ mailData, onClose, onSuccess }) => {
-  const { inquiryType } = mailData;
+const Form = ({ inquiry, onClose, onSuccess }) => {
   const [submitError, setSubmitError] = useState("");
 
   const {
@@ -46,8 +46,11 @@ const Form = ({ mailData, onClose, onSuccess }) => {
     formData.append("access_key", accessKey ?? "");
     formData.append(
       "subject",
-      `New ${inquiryType.split(" ")[0]} Inquiry from Raissat Website`
+      `New ${inquiry.type} inquiry from the ${site.siteName} website`
     );
+    formData.append("inquiry_type", inquiry.type);
+    if (inquiry.email) formData.append("route_to", inquiry.email);
+    formData.append("from_name", `${data.firstName} ${data.lastName}`);
     Object.keys(data).forEach((key) => formData.append(key, data[key]));
 
     try {
@@ -62,7 +65,7 @@ const Form = ({ mailData, onClose, onSuccess }) => {
     } catch (err) {
       setSubmitError(
         err.message ||
-          "We couldn't send your message. Please try again or email info@raissat.org."
+          `We couldn't send your message. Please try again or email ${site.contactEmail}.`
       );
     }
   };
@@ -75,8 +78,8 @@ const Form = ({ mailData, onClose, onSuccess }) => {
     >
       <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
         <h2 className="mb-2 text-midnight-green text-center h1">Contact Us</h2>
-        {inquiryType && (
-          <p className="text-center font-inter text-slate-600 mb-6">{inquiryType}</p>
+        {inquiry?.type && (
+          <p className="text-center font-inter text-slate-600 mb-6">{inquiry.type}</p>
         )}
 
         <div className="grid sm:grid-cols-2 gap-4">
@@ -142,7 +145,13 @@ const Form = ({ mailData, onClose, onSuccess }) => {
             />
           </Field>
 
-          <Field id="message" label="Message" required error={errors.message} className="sm:col-span-2">
+          <Field
+            id="message"
+            label="Message"
+            required
+            error={errors.message}
+            className="sm:col-span-2"
+          >
             <textarea
               id="message"
               className={inputClass(errors.message)}

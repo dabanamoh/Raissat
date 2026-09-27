@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "image": "/assets/hero.webp",
+    "title": "From Evidence to Impact: Translating Research Into Action for a Sustainable Future",
+    "text": "At RAISSAT, we bridge the worlds of science, agriculture, and technology to turn knowledge into real-world transformation. Through research, policy innovation, and capacity building, we empower people and systems to thrive sustainably.",
+    "primaryLabel": "Explore Our Impact",
+    "primaryRoute": "/services",
+    "secondaryLabel": "Partner With Us",
+    "secondaryRoute": "/contact"
+  },
+  "who": {
+    "title": "Who We Are",
+    "text": "RAISSAT (Research Applied Institute for Sustainability in Science Agriculture and Technology) is a global think-and-do alliance transforming evidence into action. We unite scientists, policymakers, innovators, and communities to create lasting change at the intersection of research and real-world impact.",
+    "missionTitle": "Our Mission",
+    "missionText": "To turn knowledge into impact by transforming research into real-world solutions, building human capacity, and advancing policy across science, agriculture, and technology.",
+    "visionTitle": "Our Vision",
+    "visionText": "A world where science, technology, and integrity unite to secure prosperity, nourish communities, and safeguard the planet for generations to come.",
+    "buttonLabel": "Learn More",
+    "buttonRoute": "/about"
+  },
+  "services": {
+    "title": "What We Do",
+    "intro": "We deliver evidence-based, multidisciplinary solutions that tackle the world’s most pressing challenges: climate resilience, food security, and technological equity.",
+    "coreTitle": "Our Core Services Include",
+    "coreServices": [
+      {
+        "icon": "/assets/iconConsult.svg",
+        "title": "Research & Project Management",
+        "text": "Coordinating high-impact, cross-sector projects that translate science into sustainable action."
+      },
+      {
+        "icon": "/assets/iconManagement.svg",
+        "title": "Policy Engagement & Advocacy",
+        "text": "Turning complex data into actionable policies and stakeholder dialogue."
+      },
+      {
+        "icon": "/assets/iconResearch.svg",
+        "title": "Consultancy & Capacity Building",
+        "text": "Empowering professionals, communities, and governments with tools for sustainable growth."
+      },
+      {
+        "icon": "/assets/iconKnowledge.svg",
+        "title": "Youth Mentorship & Knowledge Exchange",
+        "text": "Cultivating the next generation of innovators and changemakers."
+      }
+    ],
+    "impactTitle": "How We Create Impact",
+    "impactIntro": "We operate through a unique Integrated Translational Pipeline, ensuring that every insight moves seamlessly from research to implementation to measurable impact.",
+    "approachTitle": "Our approach emphasizes",
+    "approach": [
+      {
+        "icon": "/assets/iconTrust.svg",
+        "title": "Authenticity & Trust",
+        "text": "Neutral, evidence-driven, and community-centered."
+      },
+      {
+        "icon": "/assets/iconcollaboration.svg",
+        "title": "Multidisciplinary Collaboration",
+        "text": "Fusing expertise across science, agriculture, and technology."
+      },
+      {
+        "icon": "/assets/iconPolicy.svg",
+        "title": "Policy Translation Speed",
+        "text": "Accelerating research adoption through clear, influential communication."
+      }
+    ],
+    "buttonLabel": "Partner With Us",
+    "buttonRoute": "/contact"
+  },
+  "faqs": {
+    "title": "FAQs",
+    "text": "Discover answers to your questions about RAISSAT and how we can assist you.",
+    "buttonLabel": "More",
+    "count": 6
+  }
+}

@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-sitemap.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cms": "decap-server",
+    "images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
@@ -17,7 +19,9 @@
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.68.0",
     "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
     "react-router": "^7.8.2",
+    "remark-gfm": "^4.0.1",
     "swiper": "^12.0.3",
     "tailwindcss": "^4.1.12"
   },
@@ -26,10 +30,13 @@
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
+    "decap-server": "^3.11.3",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "sharp": "^0.35.5",
+    "svgo": "^4.1.0",
     "vite": "^7.1.2"
   }
 }

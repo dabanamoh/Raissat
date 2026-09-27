@@ -3,7 +3,7 @@ import { useState } from "react";
 import Container from "../Components/Container";
 import PageMeta from "../Components/PageMeta";
 import Accordion from "../Components/Accordion";
-import { faqs } from "../constants";
+import { faqs, faqsPage } from "../content";
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -14,18 +14,13 @@ const FAQs = () => {
 
   return (
     <Container>
-      <PageMeta
-        title="FAQs"
-        description="Answers to common questions about RAISSAT: who we are, what we do, where we work, and how to partner with us."
-      />
+      <PageMeta title="FAQs" description={faqsPage.metaDescription} />
       <section className="py-16">
-        <h1 className="h1 text-midnight-green mb-6">
-          Frequently Asked Questions
-        </h1>
+        <h1 className="h1 text-midnight-green mb-6">{faqsPage.title}</h1>
         <div className="flex flex-col gap-3">
           {faqs.map((faq, index) => (
             <Accordion
-              key={index}
+              key={faq.question}
               data={faq}
               index={index}
               handleToggle={handleToggle}

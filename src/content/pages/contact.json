@@ -1,0 +1,47 @@
+{
+  "title": "Contact Us",
+  "subtitle": "Let’s Build Sustainable Futures, Together",
+  "metaDescription": "Get in touch with RAISSAT for general enquiries, research collaborations, or donations. Offices in Lagos, Nigeria and Cambridge, United Kingdom.",
+  "intro": "At RAISSAT, collaboration drives transformation. Whether you’re an individual, organization, or institution seeking to partner, support, or learn from our work, we’d love to hear from you. Our team of experts is ready to connect, collaborate, and co-create solutions that bridge research and real-world impact.",
+  "cardsHeading": "Reach out to the right Team",
+  "cards": [
+    {
+      "type": "General Enquiries",
+      "text": "For information about our programs, initiatives, or institutional partnerships.",
+      "icon": "question",
+      "email": "info@raissat.org",
+      "buttonLabel": "Contact Us"
+    },
+    {
+      "type": "Research Projects & Collaborations",
+      "text": "Interested in partnering on applied research or sustainability-focused innovation?",
+      "icon": "microscope",
+      "email": "research@raissat.org",
+      "buttonLabel": "Contact Us"
+    },
+    {
+      "type": "Donations & Support",
+      "text": "Support our mission to bridge science, agriculture, and technology for a sustainable future.",
+      "icon": "coins",
+      "email": "finance@raissat.org",
+      "buttonLabel": "Contact Us"
+    }
+  ],
+  "locationsHeading": "Our Locations",
+  "locations": [
+    {
+      "title": "Nigeria Headquarters",
+      "text": "Research Applied Institute for Sustainability in Science, Agriculture & Technology (RAISSAT), 117A Shasha Road, Akowonjo, Lagos, Nigeria.",
+      "popup": "RAISSAT Headquarters, 117A Shasha Road, Akowonjo, Lagos",
+      "lat": 6.59517,
+      "lng": 3.30319
+    },
+    {
+      "title": "United Kingdom Office",
+      "text": "RAISSAT Global Hub, Cambridge Innovation Park, Cambridge, United Kingdom.",
+      "popup": "UK Office, Global Hub, Cambridge Innovation Park",
+      "lat": 52.2355,
+      "lng": 0.15192
+    }
+  ]
+}
