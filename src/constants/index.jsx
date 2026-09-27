@@ -63,7 +63,15 @@ const {
   sdg13
 } = partnerLogos;
 
-const partners = [sdg2, sdg3, sdg4, sdg6, sdg15, sdg17, sdg13];
+const partners = [
+  { src: sdg2, label: "SDG 2: Zero Hunger" },
+  { src: sdg3, label: "SDG 3: Good Health and Well-being" },
+  { src: sdg4, label: "SDG 4: Quality Education" },
+  { src: sdg6, label: "SDG 6: Clean Water and Sanitation" },
+  { src: sdg13, label: "SDG 13: Climate Action" },
+  { src: sdg15, label: "SDG 15: Life on Land" },
+  { src: sdg17, label: "SDG 17: Partnerships for the Goals" },
+];
 
 const navItems = [
   {
@@ -79,7 +87,7 @@ const navItems = [
     route: "/services",
   },
   {
-    text: "Media center",
+    text: "Media Center",
     route: "/media",
   },
   {
@@ -209,7 +217,7 @@ const faqs = [
   {
     question: "What is RAISSAT’s mission?",
     answer:
-      "A world where science, technology, and integrity unite to secure prosperity, nourish communities, and safeguard the planet for generations to come.",
+      "To turn knowledge into impact by transforming research into real-world solutions, building human capacity, and advancing policy across science, agriculture, and technology.",
   },
 
   {
@@ -405,7 +413,8 @@ const aboutPage = {
 
   team: [
     {
-      id: crypto.randomUUID(),
+      id: "elohozino-benneth",
+      plainName: "Elohozino O. Benneth",
       name: (
         <p>
           <span className="uppercase">Elohozino</span> O. Benneth -{" "}
@@ -486,8 +495,8 @@ const aboutPage = {
     },
 
     {
-      id: crypto.randomUUID(),
-
+      id: "samuel-ogah",
+      plainName: "Samuel Ogah",
       name: (
         <p>
           <span className="uppercase">Samuel</span> Ogah -{" "}
@@ -538,7 +547,8 @@ const aboutPage = {
     },
 
     {
-      id: crypto.randomUUID(),
+      id: "goshen-david-miteu",
+      plainName: "Goshen David Miteu",
       name: (
         <p>
           <span className="uppercase">Goshen</span> David Miteu -{" "}
@@ -594,7 +604,8 @@ const aboutPage = {
     },
 
     {
-      id: crypto.randomUUID(),
+      id: "sunday-godwin-james",
+      plainName: "Sunday Godwin James",
       name: (
         <p>
           <span className="uppercase">Sunday</span> Godwin James -{" "}
@@ -645,7 +656,8 @@ const aboutPage = {
     },
 
     {
-      id: crypto.randomUUID(),
+      id: "christianah-oki",
+      plainName: "Christianah Oki",
       name: (
         <p>
           <span className="uppercase">Christianah</span> Oki -{" "}
@@ -691,7 +703,8 @@ const aboutPage = {
     },
 
     {
-      id: crypto.randomUUID(),
+      id: "adejoke-ododor",
+      plainName: "Adejoke A. Ododor",
       name: (
         <p>
           <span className="uppercase">Adejoke</span> A. Ododor -{" "}
@@ -734,7 +747,8 @@ const aboutPage = {
     },
 
     {
-      id: crypto.randomUUID(),
+      id: "oladayo-timileyin-ebenezer",
+      plainName: "Oladayo Timileyin Ebenezer",
       name: (
         <p>
           <span className="uppercase">Oladayo</span> Timileyin Ebenezer -{" "}

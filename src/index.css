@@ -73,18 +73,6 @@
   color: var(--color-indian-yellow);
 }
 
-@layer base {
-  /* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } */
-
-  /* html{
-    font-size: 62.5%;
-  } */
-}
-
 @theme {
   --font-inter: "Inter";
   --font-Albert-sans: "Albert Sans";
@@ -104,14 +92,24 @@
   --animate-fadeInBottom: fadeInBottom 1s ease-in-out;
   --animate-fadeInLeft: fadeInLeft 1s ease-in-out;
   --animate-fadeInRight: fadeInRight 1s ease-in-out;
-  --animate-fadeInScale: fadeInScale 0.3s ease-in-out;
+  --animate-fadeInScale: fadeInScale 0.25s ease-out;
   --animate-marquee: marquee 40s linear infinite;
+}
+
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-indian-yellow);
+    outline-offset: 2px;
+  }
 }
 
 @layer components {
   .nav {
-    @apply py-4 px-8 font-medium max-[650px]:px-6 fixed z-20 w-full;
-    /* font-weight: 500; */
+    @apply px-6 sm:px-8 font-medium fixed top-0 left-0 z-40 w-full;
+
     li {
       @apply hover:text-indian-yellow;
     }
@@ -125,24 +123,7 @@
   }
 
   .btn {
-    @apply rounded-xl text-white  py-2 px-4 cursor-pointer font-medium font-inter;
-  }
-
-  .mobile-menu {
-    @media (width <= 639px) {
-      position: absolute;
-      right: 0;
-      top: 0;
-
-      li:not(:first-child) {
-        margin-bottom: 0;
-      }
-      li:not(:last-child){
-        margin-top: 25px;
-      }
-
-      @apply max-sm:w-[70%] h-screen py-10 gap-2 text-bright-gray bg-midnight-green-transparent backdrop-blur-md animate-moveInTop;
-    }
+    @apply rounded-xl text-white py-2 px-4 cursor-pointer font-medium font-inter;
   }
 
   .card {
@@ -152,31 +133,35 @@
       @apply w-10;
     }
 
-    h2 {
+    h3 {
       @apply font-medium text-xl mb-3;
     }
   }
 
   .h1 {
-    @apply font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl font-inter;
+    @apply font-bold text-2xl sm:text-3xl md:text-4xl font-inter;
   }
 
   .main {
     @apply mt-5 px-8;
   }
 
+  /* Body copy. Never below 16px; browsers default to 16px for a reason. */
   .p {
-    @apply font-inter leading-6 text-xs sm:text-sm md:text-base lg:text-lg;
+    @apply font-inter leading-relaxed text-base md:text-[17px] lg:text-lg;
   }
 
   .input {
-    @apply mt-3 w-full border border-slate-gray rounded-lg py-2 px-3 font-inter focus:outline-none focus:ring-2 focus:ring-midnight-green transition duration-300;
+    @apply mt-2 w-full border border-slate-gray rounded-lg py-2 px-3 font-inter focus:outline-none focus:ring-2 focus:ring-midnight-green transition duration-300;
   }
-  
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-indian-yellow focus:text-rich-black focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold;
+  }
 }
 
 .link {
-  @apply bg-midnight-green text-white py-2 px-4 rounded-lg font-medium hover:bg-rich-black transition duration-300 font-inter cursor-pointer;
+  @apply bg-midnight-green text-white py-2 px-4 rounded-lg font-medium hover:bg-rich-black transition duration-300 font-inter cursor-pointer inline-block;
 }
 
 .leaflet-popup-content-wrapper {
@@ -194,14 +179,24 @@
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
-  background: #444;
-
-  /* Center slide text vertically */
+  background: var(--color-bright-gray);
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  width: 100px;
-  color: var(--color-indian-yellow);
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: rgba(1, 52, 64, 0.55);
+  color: #fff;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-indian-yellow);
 }

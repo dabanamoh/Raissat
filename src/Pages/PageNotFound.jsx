@@ -1,25 +1,18 @@
-import React from "react";
-import { useNavigate } from "react-router";
-import { handleCtaClick } from "../utils";
+import { Link } from "react-router";
+import PageMeta from "../Components/PageMeta";
 
 const PageNotFound = () => {
-  const navigate = useNavigate();
   return (
-    <div className="text-center h-screen bg-bright-gray flex flex-col items-center">
-      {/* <span className="w-full p-12">
-        <img
-          className="max-sm:size-8"
-          src="/public/assets/iconBack.svg"
-          alt=""
-        />
-      </span> */}
-      <div className="mt-[28%]">
-        <h1 className="text-red-600 text-6xl font-inter font-bold ">404</h1>
-        <p className="text-2xl font-inter text-gray-500">Page not found 🥲</p>
-        <button onClick={() => handleCtaClick(navigate, '/')} className="mt-4 bg-midnight-green hover:bg-rich-black text-white py-1 px-3 rounded-xl cursor-pointer btn">
-          Go Back
-        </button>
-      </div>
+    <div className="text-center bg-bright-gray min-h-[60vh] flex flex-col items-center justify-center py-24 px-5">
+      <PageMeta title="Page not found" />
+      <h1 className="text-red-600 text-6xl font-inter font-bold">404</h1>
+      <p className="text-2xl font-inter text-gray-600 mt-2">Page not found</p>
+      <p className="p mt-2 text-gray-600">
+        The link may be out of date or the page may have moved.
+      </p>
+      <Link to="/" className="btn mt-6 bg-midnight-green hover:bg-rich-black">
+        Go to the home page
+      </Link>
     </div>
   );
 };

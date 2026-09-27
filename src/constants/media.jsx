@@ -1,10 +1,14 @@
 import { mediaAssets, profiles } from "../assets";
 
 const { drug1, drug2, drug3, antibody, ethicalResearch, drugDesign, antimicrobial, bioStrategies } = mediaAssets;
-const { elohozino, samuel, goshen, sunday, christiana, adejoke, oladayo, rightArrow } = profiles;
+const { goshen } = profiles;
 
-
-const hyphenate = (t) => t.toLowerCase().replace(/\s+/g, "-");;
+const hyphenate = (t) =>
+  t
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
 
 export const media = {
   articles: [
@@ -26,11 +30,11 @@ export const media = {
             <span className="font-bold"> Goshen David Miteu,</span> who also
             serves as the Lead Executive for Research Innovation &
             Implementation, published an influential and widely cited article in
-            2024 titled
+            2024 titled{" "}
             <span>
               “Ethics in Scientific Research: A Lens into Its Importance,
               History, and Future”
-            </span>
+            </span>{" "}
             in the Annals of Medicine and Surgery (Impact Factor 1.7).
           </p>
           <p>
@@ -155,7 +159,7 @@ export const media = {
             discovery and the{" "}
             <span className="font-bold">
               integration of science, policy, and practice.
-            </span>
+            </span>{" "}
             Building resilient health systems requires a proactive approach; one
             that unites disease prevention, rapid response, and equitable access
             to biomedical tools. In this spirit, we draw inspiration from a
@@ -180,7 +184,7 @@ export const media = {
           <p>
             Drawing on real case scenarios from{" "}
             <span className="font-bold">measles </span>and
-            <span className="font-bold"> Ebola</span>
+            <span className="font-bold"> Ebola</span>{" "}
             to <span className="font-bold">COVID-19</span>, the paper
             demonstrates how each intervention addresses unique phases of
             disease prevention and control. Vaccines act as the first line of
@@ -217,8 +221,8 @@ export const media = {
       articleBanner: "",
       images: [],
       imgSrc: "",
-      reference: "https://doi.org/10.1097/MS9.0000000000000760",
-      publisher: "Annals of Medicine & Surgery (Vol. 85, 2023)",
+      reference: "",
+      publisher: "Discover Public Health (2025), 22:647, Springer Nature",
     },
 
     {
@@ -231,7 +235,7 @@ export const media = {
             At <span className="font-bold">RAISSAT, </span>we like to think
             about sustainability in three-folds. I.e via science, agriculture
             and technology. In science, it means to us in part by creating
-            <span className="font-bold"> lasting biomedical innovations</span>
+            <span className="font-bold"> lasting biomedical innovations</span>{" "}
             that strengthen health systems and improve lives. This is why in all
             our cores, our mission is in applied research. For example, in
             biomedical research that spins around developing smarter, more
@@ -244,7 +248,7 @@ export const media = {
             level.
           </p>
           <p>
-            The paper, authored by one of our directors
+            The paper, authored by one of our directors{" "}
             <span className="font-bold">Goshen David Miteu</span>, explores how{" "}
             <span className="font-bold">
               structural variations in human Immunoglobulin subclasses

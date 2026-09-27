@@ -10,7 +10,8 @@ export const global = {
   instagram: '/assets/instagram.svg',
   linkdin: '/assets/linkdin.svg',
   iconBack: '/assets/iconBack.svg',
-  markerIcon: '/assets/marker-icon.png'
+  markerIcon: '/assets/marker-icon.png',
+  markerShadow: '/assets/marker-shadow.png',
 }
 
 export const profiles = {

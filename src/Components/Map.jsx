@@ -4,63 +4,54 @@ import "leaflet/dist/leaflet.css";
 
 import { global } from "../assets";
 
-const { markerIcon } = global;
+const { markerIcon, markerShadow } = global;
+
+const views = {
+  headquarters: {
+    coords: [6.59517, 3.30319],
+    popup: "<b>RAISSAT Headquarters</b><br />117A Shasha Road, Akowonjo, Lagos",
+  },
+  uk: {
+    coords: [52.2355, 0.15192],
+    popup: "<b>UK Office</b><br />Global Hub, Cambridge Innovation Park",
+  },
+};
 
 const Map = ({ currentView }) => {
-  const mapRef = useRef(null); // this holds the map container div
-
-  const defaultIcon = L.icon({
-    iconUrl: markerIcon,
-    iconSize: [35, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-    shadowSize: [41, 41],
-  });
-
-  // const markerIcon = L.Icon.Default.imagePath = '../assets/marker-icon.png'
-  // console.log(L.Icon.Default.imagePath);
-
-  const views = {
-    headquarters: [6.59517, 3.30319],
-    uk: [52.2355, 0.15192],
-  };
+  const mapRef = useRef(null);
 
   useEffect(() => {
     if (!mapRef.current) return;
+    const view = views[currentView] ?? views.headquarters;
 
-    // Initialize the map
-    const map = L.map(mapRef.current).setView(views[currentView], 13);
+    const icon = L.icon({
+      iconUrl: markerIcon,
+      iconSize: [35, 41],
+      iconAnchor: [17, 41],
+      popupAnchor: [1, -34],
+      shadowUrl: markerShadow,
+      shadowSize: [41, 41],
+    });
 
-    // Add a tile layer (OpenStreetMap)
+    const map = L.map(mapRef.current).setView(view.coords, 13);
+
     L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
       maxZoom: 19,
-      // attribution: "© OpenStreetMap contributors",
+      attribution: "© OpenStreetMap contributors",
     }).addTo(map);
 
-    // Add a marker example
-    const marker = L.marker(views[currentView], { icon: defaultIcon }).addTo(
-      map
-    );
-    marker
-      .bindPopup(
-        `${
-          currentView === "headquarters"
-            ? "<b>Raissat Headquarters</b> <br /> 117A Shasha Road, Akowonjo"
-            : "<b>UK Office</b> <br /> Global Hub Cambridge Innovation Park"
-        }`
-      )
-      .openPopup();
+    L.marker(view.coords, { icon }).addTo(map).bindPopup(view.popup).openPopup();
 
-    // Cleanup on unmount
     return () => {
       map.remove();
     };
-  }, [currentView, views]);
+  }, [currentView]);
 
   return (
     <div
       ref={mapRef}
+      role="region"
+      aria-label="Office location map"
       className="h-[400px] w-full rounded-lg overflow-hidden"
     ></div>
   );

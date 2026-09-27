@@ -4,14 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import ScrollTop from "./Components/ScrollTop";
 import Spinner from "./Components/Spinner";
 
-// import Home from "./Pages/Home";
-// import About from "./Pages/About";
-// import WhatWeDo from "./Pages/WhatWeDo";
-// import Media from "./Pages/Media";
-// import Layout from "./Pages/Layout";
-// import ServicePage from "./Pages/ServicePage";
-// import Contact from "./Pages/Contact";
-
 const Home = lazy(() => import("./Pages/Home"));
 const About = lazy(() => import("./Pages/About"));
 const WhatWeDo = lazy(() => import("./Pages/WhatWeDo"));
@@ -23,24 +15,31 @@ const ArticlePage = lazy(() => import("./Pages/ArticlePage"));
 const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
 const FAQs = lazy(() => import("./Pages/FAQs"));
 
+const Fallback = () => (
+  <div className="min-h-screen flex items-center justify-center bg-bright-gray">
+    <Spinner />
+  </div>
+);
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollTop />
-      <Suspense fallback={<Spinner />} />
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="services" element={<WhatWeDo />} />
-          <Route path="media" element={<Media />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="faqs" element={<FAQs />} />
-          <Route path="services/:serviceId" element={<ServicePage />} />
-          <Route path="articles/:articleId" element={<ArticlePage />} />
-        </Route>
-          <Route path="*" element={<PageNotFound />} />
-      </Routes>
+      <Suspense fallback={<Fallback />}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="services" element={<WhatWeDo />} />
+            <Route path="services/:serviceId" element={<ServicePage />} />
+            <Route path="media" element={<Media />} />
+            <Route path="articles/:articleId" element={<ArticlePage />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="faqs" element={<FAQs />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

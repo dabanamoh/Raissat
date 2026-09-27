@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router";
 
 import { handleCtaClick } from "../utils";
@@ -11,27 +10,26 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    // <Container></Container>
     <section
-      style={{ backgroundImage: `url(${hero}` }}
-      className="w-full h-lvh bg-cover bg-top bg-no-repeat flex flex-col items-center justify-center relative"
+      style={{ backgroundImage: `url(${hero})` }}
+      className="w-full min-h-[calc(100svh-4rem)] bg-cover bg-top bg-no-repeat flex flex-col items-center justify-center relative py-16"
     >
       {/* overlay */}
-      <div className="absolute inset-0 bg-rich-black/40" />
+      <div className="absolute inset-0 bg-rich-black/40" aria-hidden="true" />
 
-      <Container className="z-999">
-        <div className="z-10 flex flex-col gap-6 sm:gap-8 text-center sm:p-3 ">
-          <h1 className="font-extrabold animate-fadeInLeft text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-Albert-sans text-white">
+      <Container className="relative z-10">
+        <div className="flex flex-col gap-6 sm:gap-8 text-center sm:p-3">
+          <h1 className="font-extrabold motion-safe:animate-fadeInLeft text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-Albert-sans text-white text-balance">
             From Evidence to Impact: Translating Research Into Action for a
             Sustainable Future
           </h1>
-          <p className="text-md md:text-xl text-white font-inter sm:w-[70%] mx-auto animate-fadeInRight">
+          <p className="text-base md:text-xl text-white font-inter sm:w-[70%] mx-auto motion-safe:animate-fadeInRight">
             At RAISSAT, we bridge the worlds of science, agriculture, and
             technology to turn knowledge into real-world transformation. Through
             research, policy innovation, and capacity building, we empower
             people and systems to thrive sustainably.
           </p>
-          <span className="w-full flex justify-center flex-col sm:flex-row gap-4 animate-fadeInBottom">
+          <span className="w-full flex justify-center flex-col sm:flex-row gap-4 motion-safe:animate-fadeInBottom">
             <button
               onClick={() => handleCtaClick(navigate, "services")}
               className="btn bg-indian-yellow hover:bg-indian-yellow/90 max-sm:w-[70%] max-sm:mx-auto"

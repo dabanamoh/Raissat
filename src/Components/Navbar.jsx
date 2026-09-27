@@ -1,127 +1,101 @@
-import React, { useLayoutEffect, useState } from "react";
-import { NavLink, Link, useNavigate } from "react-router";
-
-import { handleCtaClick } from "../utils";
+import { useEffect, useState } from "react";
+import { NavLink, Link, useLocation, useNavigate } from "react-router";
 
 import { global } from "../assets";
-
 import { navItems } from "../constants";
 
 const Navbar = () => {
   const { logo, logoMd, hamburger, close } = global;
-  const [toggleNav, setToggleNav] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  // const [toggleDropDown, setToggleDropDown] = useState(false);
-
+  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
-  // check mobile screen size
-  useLayoutEffect(() => {
-    const isMediumScreen = window.matchMedia("(max-width: 639px)");
+  // Close the drawer on navigation.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
-    const handleScreenSizeChange = (e) => {
-      setIsMobile(e.matches);
+  // Lock page scroll while the drawer is open.
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
     };
-
-    // init screen size state
-    handleScreenSizeChange(isMediumScreen);
-
-    isMediumScreen.addEventListener("change", handleScreenSizeChange);
-
-    return () =>
-      isMediumScreen.removeEventListener("change", handleScreenSizeChange);
-  }, []);
-
-  function handleToggleNav() {
-    setToggleNav((prev) => !prev);
-  }
-
-  // function handleToggleDropdown() {
-  //   setToggleDropDown((prev) => !prev);
-  // }
+  }, [open]);
 
   return (
-    <nav className="nav flex justify-between items-center bg-bright-gray text-midnight-green font-inter z-9999">
-      <Link to="/">
-        <img className="hidden min-[990px]:block" src={logo} alt="Logo" />
-        <img className="hidden max-[990px]:block" src={logoMd} alt="Logo" />
+    <nav
+      className="nav h-16 flex justify-between items-center bg-bright-gray text-midnight-green font-inter"
+      aria-label="Main"
+    >
+      <Link to="/" aria-label="RAISSAT home" className="shrink-0">
+        <img className="hidden min-[990px]:block h-10 w-auto" src={logo} alt="RAISSAT" />
+        <img className="block min-[990px]:hidden h-10 w-auto" src={logoMd} alt="RAISSAT" />
       </Link>
-      {/* {toggleNav && ( */}
-      <ul
-        className={`flex flex-col gap-5 sm:gap-2 sm:flex-row items-center md:justify-evenly md:w-[80%] lg:w-[60%] z-10 mobile-menu ${
-          isMobile && (toggleNav ? "block" : "hidden")
-        }`}
-      >
-        {/* Nav toggler close btn */}
-        <img
-          onClick={handleToggleNav}
-          className="absolute top-7 right-5 sm:hidden"
-          src={close}
-          alt="cose-btn"
+
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/40 sm:hidden"
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
         />
+      )}
+
+      <ul
+        id="site-menu"
+        className={`flex flex-row items-center gap-2 md:justify-evenly md:w-[80%] lg:w-[60%]
+          max-sm:fixed max-sm:top-0 max-sm:right-0 max-sm:h-dvh max-sm:w-[min(80%,320px)]
+          max-sm:flex-col max-sm:items-start max-sm:justify-start max-sm:gap-7
+          max-sm:pt-24 max-sm:px-8 max-sm:bg-midnight-green max-sm:text-bright-gray max-sm:shadow-2xl
+          motion-safe:max-sm:animate-moveInTop ${open ? "" : "max-sm:hidden"}`}
+      >
+        <li className="sm:hidden absolute top-4 right-4">
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+            className="p-2 cursor-pointer"
+          >
+            <img className="size-6" src={close} alt="" />
+          </button>
+        </li>
 
         {navItems.map((item, idx) => (
           <li
-            key={idx}
-            className={`${
-              idx === navItems.length - 1 ? "hidden max-[639px]:block" : ""
-            }`}
+            key={item.route}
+            className={idx === navItems.length - 1 ? "sm:hidden" : ""}
           >
             <NavLink
-              onClick={handleToggleNav}
-              className={"text-[1rem] md:text-[1.1rem] text-base"}
+              className="inline-block py-2 px-1 text-[1rem] md:text-[1.1rem]"
               to={item.route}
+              end={item.route === "/"}
             >
               {item.text}
             </NavLink>
           </li>
         ))}
 
-        <li className=" hidden min-[639px]:block">
-          {/* Education btn */}
+        <li className="hidden sm:block">
           <button
-            onClick={() => handleCtaClick(navigate, "contact")}
+            type="button"
+            onClick={() => navigate("/contact")}
             className="bg-midnight-green hover:bg-rich-black text-white py-2 px-4 rounded-2xl cursor-pointer"
           >
             Get Involved
           </button>
         </li>
-        {/* dropdown link to education route */}
-        {/* <li className="hidden max-sm:block">
-          <NavLink to="education">Education</NavLink>
-        </li> */}
       </ul>
 
-      {/* Education btn */}
-      {/* <button
-        onClick={handleToggleDropdown}
-        className="btn w-32 bg-midnight-green hidden max-[990px]:block max-sm:hidden"
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-expanded={open}
+        aria-controls="site-menu"
+        aria-label="Open menu"
+        className={`sm:hidden p-2 -mr-2 cursor-pointer ${open ? "invisible" : ""}`}
       >
-        Education
-      </button> */}
-      <img
-        onClick={handleToggleNav}
-        className={`size-8 block sm:hidden ${toggleNav ? "hidden" : ""}`}
-        src={hamburger}
-        alt="hamburger"
-      />
-      {/* Dropdown education menu */}
-      {/* {toggleDropDown && (
-        <ul className="flex flex-col justify-center text-base gap-8 p-6 bg-slate-gray-transparent text-bright-gray absolute max-[1025px]:right-8 lg:right-30 top-17 w-[250px] h-[300px] animate-moveInBottom">
-          <li>
-            <Link>School of Science</Link>
-          </li>
-          <li>
-            <Link>School of Agriculture</Link>
-          </li>
-          <li>
-            <Link>School of Technology</Link>
-          </li>
-          <li>
-            <Link>Interdisciplinary Studies</Link>
-          </li>
-        </ul>
-      )} */}
+        <img className="size-8" src={hamburger} alt="" />
+      </button>
     </nav>
   );
 };
