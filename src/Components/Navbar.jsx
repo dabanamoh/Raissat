@@ -95,7 +95,7 @@ const Navbar = () => {
         aria-label="Open menu"
         className={`sm:hidden p-2 -mr-2 cursor-pointer ${open ? "invisible" : ""}`}
       >
-        <img className="size-8" src={HAMBURGER} alt="" />
+        <img className="w-8 h-auto" src={HAMBURGER} alt="" />
       </button>
     </nav>
   );

@@ -117,7 +117,7 @@ const ArticlePage = () => {
         to="/media"
         className="mt-12 mx-auto flex flex-col items-center gap-2 font-inter text-rich-black hover:text-indian-yellow w-max"
       >
-        <img className="size-8" src={BACK_ICON} alt="" />
+        <img className="w-10 h-auto" src={BACK_ICON} alt="" />
         <span className="p">{mediaPage.backLabel}</span>
       </Link>
     </Container>

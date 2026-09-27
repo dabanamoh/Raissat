@@ -14,9 +14,10 @@ const Map = ({ location }) => {
 
     const icon = L.icon({
       iconUrl: MARKER,
-      iconSize: [35, 41],
-      iconAnchor: [17, 41],
-      popupAnchor: [1, -34],
+      // marker-icon.png is square; keep it square so it isn't stretched.
+      iconSize: [40, 40],
+      iconAnchor: [20, 40],
+      popupAnchor: [0, -34],
       shadowUrl: SHADOW,
       shadowSize: [41, 41],
     });
