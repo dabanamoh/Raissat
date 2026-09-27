@@ -64,7 +64,7 @@ Other scripts:
 
 ## Deploying
 
-### Vercel (recommended)
+### Vercel
 
 1. Import the GitHub repository into Vercel. Framework preset: Vite. Build command `npm run build`, output `dist`.
 2. Add the environment variables from `.env.example`.
@@ -75,10 +75,6 @@ Other scripts:
 4. If the site runs on a different domain, change `base_url`, `site_url` and `display_url` in `public/admin/config.yml`, the `siteUrl` in Site settings, and the sitemap line in `public/robots.txt`.
 
 Every push to `main` deploys. Every CMS publish is a push to `main`.
-
-### cPanel
-
-`.cpanel.yml` copies `dist/` into `public_html` on push. The content manager's login needs the two functions in `api/`, which cPanel cannot run, so on cPanel the `/admin` page will only work with the local backend described above. Deploy on Vercel if the team should edit content in the browser.
 
 ## Project layout
 
