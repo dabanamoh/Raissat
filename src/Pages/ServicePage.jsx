@@ -81,7 +81,7 @@ const ServicePage = () => {
 
           <button
             type="button"
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate(service.ctaRoute || "/contact")}
             className="btn bg-midnight-green hover:bg-rich-black"
           >
             {service.cta}

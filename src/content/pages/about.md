@@ -1,5 +1,6 @@
 ---
 title: About Us
+metaTitle: Who We Are
 metaDescription: RAISSAT is a multidisciplinary institute bridging research, innovation and policy. Meet the leadership team and read our impact philosophy.
 philosophy:
   title: Our Impact Philosophy

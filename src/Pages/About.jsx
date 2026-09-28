@@ -6,7 +6,7 @@ import { about } from "../content";
 const About = () => {
   return (
     <div className="bg-bright-gray">
-      <PageMeta title="Who We Are" description={about.metaDescription} />
+      <PageMeta title={about.metaTitle || about.title} description={about.metaDescription} />
       <AboutFull />
       <Team />
     </div>

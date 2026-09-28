@@ -14,6 +14,7 @@ focusAreas:
   - Renewable Energy & Climate Resilience
   - Biomedical & Bioscience Integration
 cta: Partner With Us
+ctaRoute: /contact
 ---
 
 We design, coordinate, and manage high-impact research projects that bridge the gap between laboratories and local communities. Our teams work across agriculture, technology, and environmental sustainability to ensure research outputs lead to measurable change. From project design to execution, monitoring, and knowledge dissemination, we ensure that every initiative meets global standards and delivers tangible results.

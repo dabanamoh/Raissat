@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { site } from "../content";
+import { fill } from "../utils";
 
 const SOCIAL_ICONS = {
   instagram: "/assets/instagram.svg",
@@ -33,7 +34,7 @@ const Footer = () => {
 
         <div className="flex gap-12 sm:justify-end sm:w-1/2">
           <nav aria-label="Footer">
-            <h2 className="font-semibold mb-3">Learn more</h2>
+            <h2 className="font-semibold mb-3">{site.footerLearnHeading}</h2>
             <ul className="text-sm flex flex-col footer list-none m-0 p-0">
               {site.nav.map((item) => (
                 <li key={item.route}>
@@ -45,7 +46,7 @@ const Footer = () => {
             </ul>
           </nav>
           <div>
-            <h2 className="font-semibold mb-3">Support</h2>
+            <h2 className="font-semibold mb-3">{site.footerSupportHeading}</h2>
             <ul className="text-sm flex flex-col footer list-none m-0 p-0">
               {site.footerSupportLinks.map((item) => (
                 <li key={item.route}>
@@ -63,6 +64,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      {site.copyright && (
+        <p className="max-w-6xl mx-auto mt-10 pt-6 border-t border-white/15 text-xs text-white/70">
+          {fill(site.copyright, { year: new Date().getFullYear() })}
+        </p>
+      )}
     </footer>
   );
 };

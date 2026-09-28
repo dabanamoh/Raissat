@@ -14,6 +14,7 @@ focusAreas:
   - Advocacy Campaigns
   - Science Communication
 cta: Collaborate on Policy
+ctaRoute: /contact
 ---
 
 We transform scientific data into actionable insights that drive decision-making. RAISSAT’s policy specialists bridge the gap between researchers and policymakers, producing clear, evidence-based recommendations that guide national and regional reforms. Through advocacy, communication strategies, and stakeholder engagement, we make science understandable, usable, and impactful.

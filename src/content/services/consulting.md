@@ -14,6 +14,7 @@ focusAreas:
   - Climate-Smart Agriculture & Green Technologies
   - Data-Driven Impact Assessment
 cta: Request a Consultation
+ctaRoute: /contact
 ---
 
 RAISSAT provides advisory and consultancy services that help governments, corporations, and institutions adopt sustainable, data-driven strategies. Our experts work at the intersection of policy, technology, and business to deliver ESG-aligned solutions that create long-term value for people and the planet.

@@ -71,6 +71,7 @@
     "title": "FAQs",
     "text": "Discover answers to your questions about RAISSAT and how we can assist you.",
     "buttonLabel": "More",
+    "buttonRoute": "/faqs",
     "count": 6
   }
 }

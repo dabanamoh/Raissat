@@ -14,6 +14,7 @@ focusAreas:
   - Technical Skills for Sustainability
   - Digital Learning and Knowledge Transfer
 cta: Explore Training Opportunities
+ctaRoute: /contact
 ---
 
 RAISSAT believes that lasting transformation begins with people. We deliver high-quality training programs, professional workshops, and mentorship designed to strengthen research skills, leadership capacity, and sustainability knowledge. Our hybrid learning model—spanning physical and digital platforms—ensures accessibility for learners worldwide.

@@ -24,13 +24,13 @@ const ANIMATIONS = [
 const Contact = () => {
   const [locationIndex, setLocationIndex] = useState(0);
   const [inquiry, setInquiry] = useState(null);
-  const [successMessage, setSuccessMessage] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
   const cards = contact.cards || [];
   const locations = contact.locations || [];
 
   return (
     <Container>
-      <PageMeta title="Contact" description={contact.metaDescription} />
+      <PageMeta title={contact.metaTitle || contact.title} description={contact.metaDescription} />
       <div className="pt-16">
         <h1 className="h1 mb-4 text-midnight-green">{contact.title}</h1>
         <p className="p font-bold">{contact.subtitle}</p>
@@ -72,7 +72,7 @@ const Contact = () => {
                   onClick={() => setInquiry(card)}
                   className="btn text-indian-yellow border-indian-yellow border hover:bg-indian-yellow hover:text-white"
                 >
-                  {card.buttonLabel || "Contact Us"}
+                  {card.buttonLabel || contact.form?.heading}
                 </button>
               </div>
             );
@@ -83,15 +83,13 @@ const Contact = () => {
           <Form
             inquiry={inquiry}
             onClose={() => setInquiry(null)}
-            onSuccess={(msg) => {
+            onSuccess={() => {
               setInquiry(null);
-              setSuccessMessage(msg || "Message sent");
+              setShowSuccess(true);
             }}
           />
         )}
-        {successMessage && (
-          <MessageBox message={successMessage} onClose={() => setSuccessMessage("")} />
-        )}
+        {showSuccess && <MessageBox onClose={() => setShowSuccess(false)} />}
       </div>
 
       {locations.length > 0 && (

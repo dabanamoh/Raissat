@@ -14,7 +14,7 @@ const FAQs = () => {
 
   return (
     <Container>
-      <PageMeta title="FAQs" description={faqsPage.metaDescription} />
+      <PageMeta title={faqsPage.metaTitle || faqsPage.title} description={faqsPage.metaDescription} />
       <section className="py-16">
         <h1 className="h1 text-midnight-green mb-6">{faqsPage.title}</h1>
         <div className="flex flex-col gap-3">

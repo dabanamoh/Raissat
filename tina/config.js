@@ -79,7 +79,7 @@ const services = {
     textarea("description", "Summary", { description: "Shown on the What We Do listing." }),
     { type: "image", name: "images", label: "Photos", list: true, description: "The first photo is used on the listing; all photos rotate on the service page." },
     { type: "string", name: "focusAreas", label: "Focus areas", list: true },
-    text("cta", "Button label"),
+    text("cta", "Button label"), link("ctaRoute", "Button link"),
     body("Full description"),
   ],
 };
@@ -150,7 +150,8 @@ const homePage = pageCollection("home", "Home page", "home", [
   {
     type: "object", name: "faqs", label: "FAQ section",
     fields: [
-      text("title", "Heading"), textarea("text", "Text"), text("buttonLabel", "Button label"),
+      text("title", "Heading"), textarea("text", "Text"),
+      text("buttonLabel", "Button label"), link("buttonRoute", "Button link"),
       { type: "number", name: "count", label: "How many questions to show" },
     ],
   },
@@ -158,6 +159,7 @@ const homePage = pageCollection("home", "Home page", "home", [
 
 const aboutPage = pageCollection("about", "Who We Are page", "about", [
   text("title", "Page title"),
+  text("metaTitle", "Browser tab title", { description: "Optional. Falls back to the page title." }),
   textarea("metaDescription", "Search description"),
   {
     type: "object", name: "philosophy", label: "Impact philosophy",
@@ -192,10 +194,16 @@ const mediaPage = pageCollection("mediaPage", "Media Center page", "media", [
   text("allLabel", "All tab label"),
   { type: "string", name: "categories", label: "Categories", list: true, description: "Must match the Type options on articles." },
   text("readLabel", "Read article label"), text("relatedHeading", "Related articles heading"), text("backLabel", "Back link label"),
+  text("emptyText", "Empty state text", { description: "Shown when a category has no articles." }),
+  text("bylineFormat", "Article byline", { description: "Use {date} and {author} where they should appear." }),
+  imageField("defaultThumbnail", "Fallback cover image", { description: "Used when an article has no cover image." }),
+  imageField("defaultAvatar", "Fallback author photo"),
 ]);
 
 const contactPage = pageCollection("contact", "Contact page", "contact", [
-  text("title", "Page title"), text("subtitle", "Subtitle"),
+  text("title", "Page title"),
+  text("metaTitle", "Browser tab title", { description: "Optional. Falls back to the page title." }),
+  text("subtitle", "Subtitle"),
   textarea("metaDescription", "Search description"), textarea("intro", "Introduction"),
   text("cardsHeading", "Cards heading"),
   {
@@ -216,10 +224,36 @@ const contactPage = pageCollection("contact", "Contact page", "contact", [
       { type: "number", name: "lat", label: "Latitude" }, { type: "number", name: "lng", label: "Longitude" },
     ],
   },
+  {
+    type: "object", name: "form", label: "Contact form",
+    fields: [
+      text("heading", "Form heading"),
+      text("firstNameLabel", "First name label"), text("firstNameError", "First name missing message"),
+      text("lastNameLabel", "Last name label"), text("lastNameError", "Last name missing message"),
+      text("emailLabel", "Email label"), text("emailError", "Email missing message"), text("emailInvalidError", "Email invalid message"),
+      text("phoneLabel", "Phone label"), text("phoneError", "Phone too short message"), text("phoneInvalidError", "Phone invalid message"),
+      text("messageLabel", "Message label"), text("messageError", "Message missing message"),
+      text("submitLabel", "Submit button label"),
+      textarea("sendFailed", "Sending failed message", { description: "Use {email} where the contact email should appear." }),
+      text("subject", "Email subject line", { description: "Subject of the email you receive. Use {type} for the inquiry type and {site} for the site name." }),
+    ],
+  },
+  {
+    type: "object", name: "success", label: "Thank-you message",
+    fields: [text("heading", "Heading"), textarea("text", "Text"), text("closeLabel", "Close button label")],
+  },
 ]);
 
 const faqsPage = pageCollection("faqsPage", "FAQs page", "faqs", [
-  text("title", "Page title"), textarea("metaDescription", "Search description"),
+  text("title", "Page title"),
+  text("metaTitle", "Browser tab title", { description: "Optional. Falls back to the page title." }),
+  textarea("metaDescription", "Search description"),
+]);
+
+const notFoundPage = pageCollection("notFoundPage", "Page not found (404)", "not-found", [
+  text("title", "Browser tab title"), text("code", "Big code", { description: "Usually 404." }),
+  text("heading", "Heading"), textarea("text", "Text"),
+  text("buttonLabel", "Button label"), link("buttonRoute", "Button link"),
 ]);
 
 const siteSettings = {
@@ -254,6 +288,9 @@ const siteSettings = {
       ui: { itemProps: (item) => ({ label: item?.text || "Link" }) },
       fields: [text("text", "Label"), link("route", "Link")],
     },
+    text("footerLearnHeading", "Footer heading: site links"),
+    text("footerSupportHeading", "Footer heading: support links"),
+    text("copyright", "Copyright line", { description: "Use {year} for the current year. Leave empty to hide." }),
     text("sdgHeading", "SDG section heading"),
     {
       type: "object", name: "sdgs", label: "SDG badges", list: true,
@@ -293,6 +330,6 @@ export default defineConfig({
   build: { outputFolder: "admin", publicFolder: "public" },
   media: { tina: { mediaRoot: "uploads", publicFolder: "public" } },
   schema: {
-    collections: [articles, team, services, faqs, homePage, aboutPage, servicesPage, mediaPage, contactPage, faqsPage, siteSettings, banner],
+    collections: [articles, team, services, faqs, homePage, aboutPage, servicesPage, mediaPage, contactPage, faqsPage, notFoundPage, siteSettings, banner],
   },
 });

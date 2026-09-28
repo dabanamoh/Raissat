@@ -3,8 +3,16 @@
   "heading": "Featured Articles",
   "metaDescription": "Articles and publications from RAISSAT researchers on ethics, antimicrobial resistance, public health preparedness and drug design.",
   "allLabel": "All",
-  "categories": ["Article", "News", "Resource"],
+  "categories": [
+    "Article",
+    "News",
+    "Resource"
+  ],
   "readLabel": "Read article",
   "relatedHeading": "More articles",
-  "backLabel": "Back to all articles"
+  "backLabel": "Back to all articles",
+  "emptyText": "Nothing published here yet.",
+  "bylineFormat": "Published {date} by {author}",
+  "defaultThumbnail": "/assets/Media/articles/thumbnail.webp",
+  "defaultAvatar": "/assets/Media/articles/defaultAvatar.svg"
 }

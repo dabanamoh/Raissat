@@ -14,6 +14,7 @@ focusAreas:
   - Inclusive Innovation Programs
   - Local Empowerment Initiatives
 cta: Join Our Youth Programs
+ctaRoute: /contact
 ---
 
 We invest in young people as the architects of a sustainable future. Through mentorship, field experience, and innovation challenges, RAISSAT empowers youth to explore research, entrepreneurship, and social impact. We also work directly with communities to co-create inclusive, science-based solutions that improve livelihoods and strengthen resilience.

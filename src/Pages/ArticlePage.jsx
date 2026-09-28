@@ -6,9 +6,8 @@ import Markdown from "../Components/Markdown";
 import CardRow from "../Components/Media/CardRow";
 import PageNotFound from "./PageNotFound";
 import { articles, mediaPage } from "../content";
-import { formatDate } from "../utils";
+import { formatDate, fill } from "../utils";
 
-const DEFAULT_AVATAR = "/assets/Media/articles/defaultAvatar.svg";
 const BACK_ICON = "/assets/iconBack.svg";
 
 const ArticlePage = () => {
@@ -30,7 +29,7 @@ const ArticlePage = () => {
         <header className="text-center">
           <h1 className="h1 text-rich-black">{article.title}</h1>
           <p className="font-inter mt-3 text-sm text-slate-600">
-            Published {formatDate(article.date)} by {article.author}
+            {fill(mediaPage.bylineFormat, { date: formatDate(article.date), author: article.author })}
           </p>
         </header>
 
@@ -51,7 +50,7 @@ const ArticlePage = () => {
         <footer className="font-inter mt-4 flex items-center gap-3 text-sm text-slate-600 border-t border-slate-300 pt-6">
           <img
             className="size-10 rounded-full object-cover"
-            src={article.authorImage || DEFAULT_AVATAR}
+            src={article.authorImage || mediaPage.defaultAvatar}
             alt=""
           />
           <span>

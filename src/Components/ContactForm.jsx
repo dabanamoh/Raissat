@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 
 import Dialog from "./Dialog";
 import Spinner from "./Spinner";
-import { site } from "../content";
+import { site, contact } from "../content";
+import { fill } from "../utils";
 
 const accessKey = import.meta.env.VITE_HOOKFORM_ACCESS_KEY;
 
@@ -31,6 +32,7 @@ const inputClass = (error) =>
   `input ${error ? "focus:ring-red-500 border-red-500" : ""}`;
 
 const Form = ({ inquiry, onClose, onSuccess }) => {
+  const copy = contact.form || {};
   const [submitError, setSubmitError] = useState("");
 
   const {
@@ -44,10 +46,7 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
     setSubmitError("");
     const formData = new FormData();
     formData.append("access_key", accessKey ?? "");
-    formData.append(
-      "subject",
-      `New ${inquiry.type} inquiry from the ${site.siteName} website`
-    );
+    formData.append("subject", fill(copy.subject, { type: inquiry.type, site: site.siteName }));
     formData.append("inquiry_type", inquiry.type);
     if (inquiry.email) formData.append("route_to", inquiry.email);
     formData.append("from_name", `${data.firstName} ${data.lastName}`);
@@ -61,29 +60,27 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
       const result = await res.json();
       if (!result.success) throw new Error(result.message || "Submission failed");
       reset();
-      onSuccess(result.message);
+      onSuccess();
     } catch (err) {
-      setSubmitError(
-        err.message ||
-          `We couldn't send your message. Please try again or email ${site.contactEmail}.`
-      );
+      console.error("Contact form:", err);
+      setSubmitError(fill(copy.sendFailed, { email: site.contactEmail }));
     }
   };
 
   return (
     <Dialog
       onClose={onClose}
-      label="Contact form"
+      label={copy.heading}
       className="max-w-2xl max-h-[90vh] overflow-y-auto p-5 sm:p-8"
     >
       <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
-        <h2 className="mb-2 text-midnight-green text-center h1">Contact Us</h2>
+        <h2 className="mb-2 text-midnight-green text-center h1">{copy.heading}</h2>
         {inquiry?.type && (
           <p className="text-center font-inter text-slate-600 mb-6">{inquiry.type}</p>
         )}
 
         <div className="grid sm:grid-cols-2 gap-4">
-          <Field id="firstName" label="First Name" required error={errors.firstName}>
+          <Field id="firstName" label={copy.firstNameLabel} required error={errors.firstName}>
             <input
               id="firstName"
               className={inputClass(errors.firstName)}
@@ -91,11 +88,11 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
               autoComplete="given-name"
               aria-invalid={!!errors.firstName}
               aria-describedby={errors.firstName ? "firstName-error" : undefined}
-              {...register("firstName", { required: "First name is required" })}
+              {...register("firstName", { required: copy.firstNameError })}
             />
           </Field>
 
-          <Field id="lastName" label="Last Name" required error={errors.lastName}>
+          <Field id="lastName" label={copy.lastNameLabel} required error={errors.lastName}>
             <input
               id="lastName"
               className={inputClass(errors.lastName)}
@@ -103,11 +100,11 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
               autoComplete="family-name"
               aria-invalid={!!errors.lastName}
               aria-describedby={errors.lastName ? "lastName-error" : undefined}
-              {...register("lastName", { required: "Last name is required" })}
+              {...register("lastName", { required: copy.lastNameError })}
             />
           </Field>
 
-          <Field id="email" label="Email Address" required error={errors.email}>
+          <Field id="email" label={copy.emailLabel} required error={errors.email}>
             <input
               id="email"
               className={inputClass(errors.email)}
@@ -117,16 +114,16 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? "email-error" : undefined}
               {...register("email", {
-                required: "Email is required",
+                required: copy.emailError,
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Enter a valid email address",
+                  message: copy.emailInvalidError,
                 },
               })}
             />
           </Field>
 
-          <Field id="phoneNumber" label="Phone Number" error={errors.phoneNumber}>
+          <Field id="phoneNumber" label={copy.phoneLabel} error={errors.phoneNumber}>
             <input
               id="phoneNumber"
               className={inputClass(errors.phoneNumber)}
@@ -136,10 +133,10 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
               aria-invalid={!!errors.phoneNumber}
               aria-describedby={errors.phoneNumber ? "phoneNumber-error" : undefined}
               {...register("phoneNumber", {
-                minLength: { value: 7, message: "Phone number must be at least 7 digits" },
+                minLength: { value: 7, message: copy.phoneError },
                 pattern: {
                   value: /^[0-9()+\-\s]*$/,
-                  message: "Invalid phone number format",
+                  message: copy.phoneInvalidError,
                 },
               })}
             />
@@ -147,7 +144,7 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
 
           <Field
             id="message"
-            label="Message"
+            label={copy.messageLabel}
             required
             error={errors.message}
             className="sm:col-span-2"
@@ -158,7 +155,7 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
               rows="4"
               aria-invalid={!!errors.message}
               aria-describedby={errors.message ? "message-error" : undefined}
-              {...register("message", { required: "Please tell us how we can help" })}
+              {...register("message", { required: copy.messageError })}
             />
           </Field>
         </div>
@@ -174,7 +171,7 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
           className="btn w-full mt-6 bg-midnight-green text-white transition-transform duration-200 hover:scale-[1.01] active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
           disabled={isSubmitting}
         >
-          {isSubmitting ? <Spinner /> : "Submit"}
+          {isSubmitting ? <Spinner /> : copy.submitLabel}
         </button>
       </form>
     </Dialog>

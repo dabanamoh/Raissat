@@ -14,3 +14,7 @@ export const formatDate = (value) =>
     month: "short",
     year: "numeric",
   });
+
+// Fills {placeholders} in editable text, e.g. fill("Published {date}", { date }).
+export const fill = (template, values) =>
+  String(template ?? "").replace(/\{(\w+)\}/g, (_, key) => (values[key] ?? ""));

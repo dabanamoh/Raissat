@@ -24,7 +24,7 @@ const FAQS = () => {
           <p className="p">{section.text}</p>
           <button
             type="button"
-            onClick={() => navigate("/faqs")}
+            onClick={() => navigate(section.buttonRoute || "/faqs")}
             className="btn w-32 bg-midnight-green mx-auto sm:mx-0"
           >
             {section.buttonLabel}

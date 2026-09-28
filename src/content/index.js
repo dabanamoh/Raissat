@@ -11,6 +11,7 @@ import servicesPage from "./pages/services.json";
 import contact from "./pages/contact.json";
 import mediaPage from "./pages/media.json";
 import faqsPage from "./pages/faqs.json";
+import notFound from "./pages/not-found.json";
 
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
 
@@ -52,4 +53,4 @@ export const about = collect(
   byOrder
 )[0];
 
-export { site, banner, home, servicesPage, contact, mediaPage, faqsPage };
+export { site, banner, home, servicesPage, contact, mediaPage, faqsPage, notFound };

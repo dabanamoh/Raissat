@@ -2,9 +2,6 @@ import { Link } from "react-router";
 import { formatDate } from "../../utils";
 import { mediaPage } from "../../content";
 
-const DEFAULT_THUMB = "/assets/Media/articles/thumbnail.webp";
-const DEFAULT_AVATAR = "/assets/Media/articles/defaultAvatar.svg";
-
 const CardRow = ({ article }) => {
   return (
     <Link
@@ -14,7 +11,7 @@ const CardRow = ({ article }) => {
       <div className="aspect-[16/10] overflow-hidden relative">
         <img
           className="w-full h-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
-          src={article.thumbnail || DEFAULT_THUMB}
+          src={article.thumbnail || mediaPage.defaultThumbnail}
           alt=""
           loading="lazy"
         />
@@ -35,7 +32,7 @@ const CardRow = ({ article }) => {
           <div className="flex gap-3 items-center">
             <img
               className="rounded-full size-8 object-cover"
-              src={article.authorImage || DEFAULT_AVATAR}
+              src={article.authorImage || mediaPage.defaultAvatar}
               alt=""
             />
             <span>
