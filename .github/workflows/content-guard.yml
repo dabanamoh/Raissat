@@ -1,0 +1,38 @@
+name: Content guard
+
+# Editors save through the content manager, which commits to main under their
+# own Tina account email. This job undoes any commit by a non-owner that touches
+# files outside the areas editors are allowed to change, and opens an issue so
+# the owner is notified. Owner emails and allowed paths are set below and in
+# .github/scripts/content-guard.sh.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: content-guard
+  cancel-in-progress: false
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Undo changes outside the editor areas
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+          # Comma-separated emails that may change anything. Use the email shown
+          # under the person's name on the Tina Cloud Collaborators page.
+          CONTENT_OWNERS: dabana.mohammed@gmail.com
+          GH_TOKEN: ${{ github.token }}
+          OWNER_LOGIN: ${{ github.repository_owner }}
+        run: bash .github/scripts/content-guard.sh

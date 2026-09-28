@@ -83,3 +83,17 @@ tina/config.js       Content manager schema: which fields each section has
 ```
 
 Content is bundled at build time, so a change to `src/content` always needs a rebuild to appear on the live site. Vercel does this on every push.
+
+## Who may change what
+
+Editors invited on the Tina Cloud Collaborators page can open every section of the
+content manager, but a GitHub Action (`.github/workflows/content-guard.yml`) undoes
+any save by a non-owner outside these areas:
+
+- `src/content/articles/` (Articles: create, edit, delete, mark as draft)
+- `src/content/team/` (Team: create, edit, delete, hide)
+- new image uploads under `public/assets/` (existing images cannot be changed or deleted)
+
+When that happens the site is restored within a couple of minutes and an issue is
+opened on the repository so the owner is emailed. Owner emails are listed in
+`CONTENT_OWNERS` in the workflow file; a person listed there may change anything.
