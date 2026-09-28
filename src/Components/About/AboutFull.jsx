@@ -10,7 +10,7 @@ const AboutFull = () => {
       <Container>
         <div className="py-16">
           <h1 className="h1 mb-4 text-midnight-green">{about.title}</h1>
-          <Markdown className="p max-w-[75ch]">{about.intro}</Markdown>
+          <Markdown className="p max-w-[75ch]">{about.body}</Markdown>
         </div>
       </Container>
 
@@ -20,11 +20,11 @@ const AboutFull = () => {
             <h2 className="mb-5 font-semibold text-xl text-indian-yellow">
               {philosophy.title}
             </h2>
-            <Markdown className="p">{philosophy.text}</Markdown>
+            <p className="p whitespace-pre-line">{philosophy.text}</p>
 
             <p className="p mb-5 mt-8">{philosophy.pillarsIntro}</p>
             <ol className="p space-y-2 list-decimal list-inside">
-              {philosophy.pillars.map((pillar) => (
+              {(philosophy.pillars || []).map((pillar) => (
                 <li key={pillar.title}>
                   <span className="font-bold">{pillar.title} - </span>
                   {pillar.text}

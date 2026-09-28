@@ -32,7 +32,7 @@ const Accordion = ({ data, index, isOpen, handleToggle }) => {
         }`}
       >
         <div className="overflow-hidden">
-          <Markdown className="p pt-3">{data.answer}</Markdown>
+          <Markdown className="p pt-3">{data.body}</Markdown>
         </div>
       </div>
     </div>

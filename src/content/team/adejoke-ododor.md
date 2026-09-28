@@ -1,0 +1,14 @@
+---
+order: 6
+name: Adejoke A. Ododor
+role: Administrative Secretary
+image: /assets/Profiles/adejoke.webp
+email: ododor.adejoke@raissat.org
+summary: Adejoke Ododor anchors RAISSAT’s daily operations with precision and professionalism. She manages communication, documentation, and coordination across teams—ensuring the organization functions seamlessly. Her diligence and organizational acumen uphold the institute’s integrity and efficiency, making her indispensable to RAISSAT’s mission of advancing sustainability through science.
+---
+
+Adejoke A. Ododor serves as the Administrative Secretary at the Research Applied Institute for Sustainability in Science, Agriculture and Technology (RAISSAT), where she provides the operational structure that keeps the institute’s multidisciplinary programs running efficiently. Her role is pivotal in ensuring that RAISSAT’s mission - advancing sustainable, science-driven solutions - translates seamlessly into daily execution.
+
+With a background in administrative management and organizational coordination, Adejoke oversees internal communications, document control, and executive scheduling, while fostering collaboration across departments. Her precision, professionalism, and proactive approach underpin the institute’s commitment to excellence and accountability.
+
+Adejoke’s meticulous attention to process and people ensures that every project at RAISSAT is supported by a strong operational foundation. Dedicated to creating an efficient and collaborative work environment, she helps bridge the gap between science, agriculture, and technology - contributing to a culture of integrity, impact, and sustainability.

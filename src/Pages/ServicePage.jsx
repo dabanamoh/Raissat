@@ -61,7 +61,7 @@ const ServicePage = () => {
         <div className="font-inter w-full md:w-1/2">
           <h1 className="h1 mb-3">{service.title}</h1>
           <p className="font-bold p">{service.subtitle}</p>
-          <Markdown className="p mt-3">{service.detailedDescription}</Markdown>
+          <Markdown className="p mt-3">{service.body}</Markdown>
 
           {service.focusAreas?.length > 0 && (
             <>

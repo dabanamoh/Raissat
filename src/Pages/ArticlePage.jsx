@@ -18,7 +18,6 @@ const ArticlePage = () => {
   if (!article) return <PageNotFound />;
 
   const related = articles.filter((a) => a.id !== articleId).slice(0, 3);
-  const images = article.images || [];
 
   return (
     <Container className="py-16">
@@ -45,36 +44,9 @@ const ArticlePage = () => {
           />
         )}
 
-        <div className="p flex flex-col gap-8">
-          <Markdown>{article.body}</Markdown>
-
-          {images.length > 0 && (
-            <figure className="flex flex-col gap-3">
-              <div
-                className={`grid gap-4 ${
-                  images.length === 1 ? "grid-cols-1" : "grid-cols-1 md:grid-cols-3"
-                }`}
-              >
-                {images.map((img, index) => (
-                  <img
-                    className="mx-auto rounded-lg"
-                    key={img}
-                    src={img}
-                    alt={article.imageCaption || `Figure ${index + 1} from the article`}
-                    loading="lazy"
-                  />
-                ))}
-              </div>
-              {article.imageCaption && (
-                <figcaption className="text-sm text-slate-600 font-inter">
-                  {article.imageCaption}
-                </figcaption>
-              )}
-            </figure>
-          )}
-
-          <Markdown>{article.conclusion}</Markdown>
-        </div>
+        <Markdown className="p [&_img]:mx-auto [&_img]:max-h-[80vh] [&_img]:w-auto [&_em]:text-sm [&_em]:text-slate-600">
+          {article.body}
+        </Markdown>
 
         <footer className="font-inter mt-4 flex items-center gap-3 text-sm text-slate-600 border-t border-slate-300 pt-6">
           <img

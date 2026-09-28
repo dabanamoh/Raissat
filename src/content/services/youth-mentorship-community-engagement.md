@@ -1,0 +1,19 @@
+---
+order: 5
+title: Youth Mentorship & Community Engagement
+subtitle: Inspiring the Next Generation of Innovators
+description: We believe the future belongs to those empowered to shape it. Our youth programs engage young people in research, sustainability projects, and leadership development - providing mentorship, tools, and real-world experience to foster confidence, creativity, and community impact.
+images:
+  - /assets/About/mentorship/mentor1.webp
+  - /assets/About/mentorship/mentor2.webp
+  - /assets/About/mentorship/mentor3.webp
+  - /assets/About/mentorship/mentor4.webp
+focusAreas:
+  - Youth Leadership & Mentorship
+  - Community-Based Research
+  - Inclusive Innovation Programs
+  - Local Empowerment Initiatives
+cta: Join Our Youth Programs
+---
+
+We invest in young people as the architects of a sustainable future. Through mentorship, field experience, and innovation challenges, RAISSAT empowers youth to explore research, entrepreneurship, and social impact. We also work directly with communities to co-create inclusive, science-based solutions that improve livelihoods and strengthen resilience.

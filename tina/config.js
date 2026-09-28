@@ -1,0 +1,298 @@
+import { defineConfig } from "tinacms";
+
+// Content schema for the RAISSAT content manager (TinaCMS).
+// The site reads the same files at build time via src/content/index.js.
+
+const slugify = (text) =>
+  (text || "")
+    .toLowerCase()
+    .replace(/[’'"“”?]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 80);
+
+const single = { allowedActions: { create: false, delete: false } };
+
+const imageField = (name, label, extra = {}) => ({ type: "image", name, label, ...extra });
+const text = (name, label, extra = {}) => ({ type: "string", name, label, ...extra });
+const textarea = (name, label, extra = {}) => ({
+  type: "string",
+  name,
+  label,
+  ui: { component: "textarea" },
+  ...extra,
+});
+const body = (label = "Body") => ({ type: "rich-text", name: "body", label, isBody: true });
+const link = (name, label) => text(name, label, { description: "A path on this site, e.g. /contact" });
+
+const articles = {
+  name: "article",
+  label: "Articles",
+  path: "src/content/articles",
+  format: "md",
+  ui: {
+    filename: { readonly: true, slugify: (v) => slugify(v?.title) },
+    defaultItem: () => ({ date: new Date().toISOString(), category: "Article", draft: false, author: "" }),
+  },
+  fields: [
+    text("title", "Title", { isTitle: true, required: true }),
+    { type: "datetime", name: "date", label: "Publish date", ui: { dateFormat: "D MMM YYYY" }, required: true },
+    text("category", "Type", { options: ["Article", "News", "Resource"] }),
+    { type: "boolean", name: "draft", label: "Draft (hide from the site)" },
+    text("author", "Author", { required: true }),
+    imageField("authorImage", "Author photo", { description: "Optional. A square photo works best." }),
+    imageField("thumbnail", "Cover image", { description: "Landscape, at least 1280×720. Shown on cards and at the top of the article." }),
+    textarea("excerpt", "Short summary", { description: "One or two sentences shown on the card and in search and social previews." }),
+    text("publisher", "Publisher / journal"),
+    text("reference", "Link to the paper (DOI or URL)"),
+    body("Article"),
+  ],
+};
+
+const team = {
+  name: "team",
+  label: "Team",
+  path: "src/content/team",
+  format: "md",
+  ui: { filename: { readonly: true, slugify: (v) => slugify(v?.name) } },
+  fields: [
+    { type: "number", name: "order", label: "Display order", description: "1 appears first.", required: true },
+    text("name", "Full name", { isTitle: true, required: true, description: "The first name is shown in capitals automatically." }),
+    text("role", "Role / title", { required: true }),
+    imageField("image", "Photo", { description: "Portrait orientation, at least 800×1000." }),
+    text("email", "Email"),
+    textarea("summary", "Short summary", { description: "Shown on the card. Two to four sentences." }),
+    body("Full biography"),
+  ],
+};
+
+const services = {
+  name: "service",
+  label: "What We Do",
+  path: "src/content/services",
+  format: "md",
+  ui: { filename: { readonly: true, slugify: (v) => slugify(v?.title) } },
+  fields: [
+    { type: "number", name: "order", label: "Display order", required: true },
+    text("title", "Title", { isTitle: true, required: true }),
+    text("subtitle", "Subtitle"),
+    textarea("description", "Summary", { description: "Shown on the What We Do listing." }),
+    { type: "image", name: "images", label: "Photos", list: true, description: "The first photo is used on the listing; all photos rotate on the service page." },
+    { type: "string", name: "focusAreas", label: "Focus areas", list: true },
+    text("cta", "Button label"),
+    body("Full description"),
+  ],
+};
+
+const faqs = {
+  name: "faq",
+  label: "FAQs",
+  path: "src/content/faqs",
+  format: "md",
+  ui: { filename: { readonly: true, slugify: (v) => slugify(v?.question) } },
+  fields: [
+    { type: "number", name: "order", label: "Display order", required: true },
+    text("question", "Question", { isTitle: true, required: true }),
+    body("Answer"),
+  ],
+};
+
+const pageCollection = (name, label, include, fields, format = "json") => ({
+  name,
+  label,
+  path: "src/content/pages",
+  format,
+  match: { include },
+  ui: single,
+  fields,
+});
+
+const homePage = pageCollection("home", "Home page", "home", [
+  {
+    type: "object", name: "hero", label: "Hero",
+    fields: [
+      imageField("image", "Background image", { description: "Wide photo, at least 1920×1080." }),
+      text("title", "Headline"),
+      textarea("text", "Text"),
+      text("primaryLabel", "Primary button label"), link("primaryRoute", "Primary button link"),
+      text("secondaryLabel", "Secondary button label"), link("secondaryRoute", "Secondary button link"),
+    ],
+  },
+  {
+    type: "object", name: "who", label: "Who We Are section",
+    fields: [
+      text("title", "Heading"), textarea("text", "Text"),
+      text("missionTitle", "Mission heading"), textarea("missionText", "Mission text"),
+      text("visionTitle", "Vision heading"), textarea("visionText", "Vision text"),
+      text("buttonLabel", "Button label"), link("buttonRoute", "Button link"),
+    ],
+  },
+  {
+    type: "object", name: "services", label: "What We Do section",
+    fields: [
+      text("title", "Heading"), textarea("intro", "Intro"),
+      text("coreTitle", "Core services heading"),
+      {
+        type: "object", name: "coreServices", label: "Core services", list: true,
+        ui: { itemProps: (item) => ({ label: item?.title || "Service" }) },
+        fields: [imageField("icon", "Icon", { description: "SVG or PNG, shown at 40px." }), text("title", "Title"), textarea("text", "Text")],
+      },
+      text("impactTitle", "Impact heading"), textarea("impactIntro", "Impact intro"),
+      text("approachTitle", "Approach heading"),
+      {
+        type: "object", name: "approach", label: "Approach items", list: true,
+        ui: { itemProps: (item) => ({ label: item?.title || "Item" }) },
+        fields: [imageField("icon", "Icon"), text("title", "Title"), textarea("text", "Text")],
+      },
+      text("buttonLabel", "Button label"), link("buttonRoute", "Button link"),
+    ],
+  },
+  {
+    type: "object", name: "faqs", label: "FAQ section",
+    fields: [
+      text("title", "Heading"), textarea("text", "Text"), text("buttonLabel", "Button label"),
+      { type: "number", name: "count", label: "How many questions to show" },
+    ],
+  },
+]);
+
+const aboutPage = pageCollection("about", "Who We Are page", "about", [
+  text("title", "Page title"),
+  textarea("metaDescription", "Search description"),
+  {
+    type: "object", name: "philosophy", label: "Impact philosophy",
+    fields: [
+      text("title", "Heading"),
+      textarea("text", "Text"),
+      text("pillarsIntro", "Pillars intro"),
+      {
+        type: "object", name: "pillars", label: "Pillars", list: true,
+        ui: { itemProps: (item) => ({ label: item?.title || "Pillar" }) },
+        fields: [text("title", "Title"), text("text", "Text")],
+      },
+    ],
+  },
+  {
+    type: "object", name: "team", label: "Team section",
+    fields: [text("heading", "Heading"), text("philosophyTitle", "Philosophy title"), textarea("philosophyText", "Philosophy text")],
+  },
+  body("Introduction"),
+], "md");
+
+const servicesPage = pageCollection("servicesPage", "What We Do page", "services", [
+  text("title", "Page title"), text("subtitle", "Subtitle"),
+  textarea("metaDescription", "Search description"), textarea("intro", "Introduction"),
+  text("readMoreLabel", "Read more button label"), text("focusAreasLabel", "Focus areas label"),
+  text("othersHeading", "Other services heading"),
+]);
+
+const mediaPage = pageCollection("mediaPage", "Media Center page", "media", [
+  text("title", "Page title"), text("heading", "Heading"),
+  textarea("metaDescription", "Search description"),
+  text("allLabel", "All tab label"),
+  { type: "string", name: "categories", label: "Categories", list: true, description: "Must match the Type options on articles." },
+  text("readLabel", "Read article label"), text("relatedHeading", "Related articles heading"), text("backLabel", "Back link label"),
+]);
+
+const contactPage = pageCollection("contact", "Contact page", "contact", [
+  text("title", "Page title"), text("subtitle", "Subtitle"),
+  textarea("metaDescription", "Search description"), textarea("intro", "Introduction"),
+  text("cardsHeading", "Cards heading"),
+  {
+    type: "object", name: "cards", label: "Contact cards", list: true,
+    ui: { itemProps: (item) => ({ label: item?.type || "Card" }) },
+    fields: [
+      text("type", "Inquiry type"), textarea("text", "Text"),
+      text("icon", "Icon", { options: ["question", "microscope", "coins", "mail"] }),
+      text("email", "Email for this inquiry"), text("buttonLabel", "Button label"),
+    ],
+  },
+  text("locationsHeading", "Locations heading"),
+  {
+    type: "object", name: "locations", label: "Locations", list: true,
+    ui: { itemProps: (item) => ({ label: item?.title || "Location" }) },
+    fields: [
+      text("title", "Name"), textarea("text", "Address"), text("popup", "Map popup text"),
+      { type: "number", name: "lat", label: "Latitude" }, { type: "number", name: "lng", label: "Longitude" },
+    ],
+  },
+]);
+
+const faqsPage = pageCollection("faqsPage", "FAQs page", "faqs", [
+  text("title", "Page title"), textarea("metaDescription", "Search description"),
+]);
+
+const siteSettings = {
+  name: "site",
+  label: "Site settings",
+  path: "src/content/settings",
+  format: "json",
+  match: { include: "site" },
+  ui: single,
+  fields: [
+    text("siteName", "Site name"),
+    text("siteUrl", "Site URL", { description: "Used for links in search results and social previews." }),
+    text("tagline", "Tagline (footer)"),
+    textarea("description", "Default search description"),
+    imageField("ogImage", "Default social preview image"),
+    imageField("logo", "Logo"), imageField("logoCompact", "Compact logo (tablet and phone)"),
+    imageField("logoWhite", "White logo (footer)"), imageField("logoWhiteRound", "White round logo"),
+    {
+      type: "object", name: "nav", label: "Navigation", list: true,
+      ui: { itemProps: (item) => ({ label: item?.text || "Link" }) },
+      fields: [text("text", "Label"), link("route", "Link")],
+    },
+    { type: "object", name: "navButton", label: "Navigation button", fields: [text("label", "Label"), link("route", "Link")] },
+    {
+      type: "object", name: "socials", label: "Social links", list: true,
+      ui: { itemProps: (item) => ({ label: item?.network || "Network" }) },
+      fields: [text("network", "Network", { options: ["instagram", "linkedin", "x"] }), text("label", "Accessible label"), text("url", "URL")],
+    },
+    text("contactEmail", "Contact email"),
+    {
+      type: "object", name: "footerSupportLinks", label: "Footer support links", list: true,
+      ui: { itemProps: (item) => ({ label: item?.text || "Link" }) },
+      fields: [text("text", "Label"), link("route", "Link")],
+    },
+    text("sdgHeading", "SDG section heading"),
+    {
+      type: "object", name: "sdgs", label: "SDG badges", list: true,
+      ui: { itemProps: (item) => ({ label: item?.label || "Badge" }) },
+      fields: [text("label", "Name"), imageField("image", "Badge image")],
+    },
+    {
+      type: "object", name: "cta", label: "Site-wide call to action",
+      fields: [text("title", "Heading"), textarea("text", "Text"), text("tagline", "Tagline"), text("buttonLabel", "Button label"), link("buttonRoute", "Button link")],
+    },
+  ],
+};
+
+const banner = {
+  name: "banner",
+  label: "Event banner",
+  path: "src/content/settings",
+  format: "json",
+  match: { include: "banner" },
+  ui: single,
+  fields: [
+    { type: "boolean", name: "enabled", label: "Show the banner" },
+    text("link", "Link"),
+    text("alt", "Image description"),
+    imageField("imageDesktop", "Desktop image"),
+    imageField("imageTablet", "Tablet image"),
+    imageField("imageMobile", "Phone image"),
+    { type: "datetime", name: "expires", label: "Hide automatically after", ui: { dateFormat: "D MMM YYYY", timeFormat: "HH:mm" } },
+  ],
+};
+
+export default defineConfig({
+  branch: process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || "main",
+  clientId: process.env.TINA_PUBLIC_CLIENT_ID,
+  token: process.env.TINA_TOKEN,
+  client: { skip: true },
+  build: { outputFolder: "admin", publicFolder: "public" },
+  media: { tina: { mediaRoot: "uploads", publicFolder: "public" } },
+  schema: {
+    collections: [articles, team, services, faqs, homePage, aboutPage, servicesPage, mediaPage, contactPage, faqsPage, siteSettings, banner],
+  },
+});

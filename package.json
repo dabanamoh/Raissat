@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && node scripts/generate-sitemap.mjs",
+    "dev": "tinacms dev -c \"vite --port 5173 --strictPort\"",
+    "dev:site": "vite --port 5173 --strictPort",
+    "build": "node scripts/build.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "cms": "decap-server",
     "images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
@@ -23,14 +23,16 @@
     "react-router": "^7.8.2",
     "remark-gfm": "^4.0.1",
     "swiper": "^12.0.3",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.12",
+    "tinacms": "^3.14.1",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@tinacms/cli": "^3.1.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
-    "decap-server": "^3.11.3",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",

@@ -25,7 +25,7 @@ const Modal = ({ member, onClose }) => {
           </div>
         </div>
 
-        <Markdown className="sm:w-3/5 font-inter p">{member.bio}</Markdown>
+        <Markdown className="sm:w-3/5 font-inter p">{member.body}</Markdown>
       </div>
     </Dialog>
   );

@@ -1,0 +1,14 @@
+---
+order: 5
+name: Christianah Oki
+role: Senior Compliance and Outreach/Youth Engagement Officer
+image: /assets/Profiles/christiana.webp
+email: oki.christianah@raissat.org
+summary: Christianah Oki is a global health researcher and conservationist leading outreach and youth engagement across Africa. Her work links science, agriculture, and advocacy to drive inclusive research and policy action. Through her leadership, RAISSAT’s programs empower young scientists and communities to participate in building sustainable futures.
+---
+
+Christianah Oki is a parasitologist, conservationist, and global-health researcher whose work sits at the intersection of science, agriculture, and technology. As Senior Compliance and Outreach / Youth Engagement Officer at the Research Applied Institute for Sustainability in Science, Agriculture and Technology (RAISSAT), she leads initiatives that strengthen institutional integrity, expand community partnerships, and mobilize youth participation in sustainable research and innovation.
+
+Her multidisciplinary expertise spans neglected tropical diseases, wildlife conservation, reproductive health, and climate-smart interventions. With a focus on community-based solutions, Christianah has designed and supported programs that advance the Sustainable Development Goals (SDGs) through evidence-based advocacy and education.
+
+Driven by purpose and passion, she works to ensure that science and sustainability remain accessible to the next generation. Through her leadership, RAISSAT’s outreach programs continue to empower young scientists, amplify community voices, and champion inclusive approaches that link environmental health, agricultural advancement, and global development.

@@ -3,30 +3,30 @@
 The public website of the Research Applied Institute for Sustainability in Science, Agriculture and Technology, at [raissat.org](https://raissat.org).
 
 - **Stack:** React 19, Vite 7, Tailwind CSS 4, React Router 7
-- **Content:** JSON files in `src/content`, edited through the built-in content manager at `/admin`
-- **Hosting:** Vercel (static site plus two small functions for CMS login)
+- **Content:** Markdown and JSON files in `src/content`, edited through the content manager at `/admin` (TinaCMS)
+- **Hosting:** Vercel, deploying automatically from the `main` branch
 - **Forms:** Web3Forms
 - **Map:** Leaflet with OpenStreetMap tiles
 
 ## Editing the website (for the RAISSAT team)
 
-Go to **https://raissat.org/admin/** and sign in with GitHub. You need to be a collaborator on the `dabanamoh/Raissat` repository.
+Go to **https://raissat.org/admin/** and sign in with the email address you were invited with. No GitHub account is needed.
 
 What you can edit:
 
 | Section | What it controls |
 |---|---|
-| Articles | Everything in the Media Center. Create new articles, news or resources, upload cover images, mark drafts. |
+| Articles | Everything in the Media Center. Create new articles, news or resources, upload cover images and figures, mark drafts. |
 | Team | People on the Who We Are page: photo, role, summary, full biography, order. |
 | What We Do | The five service areas and their pages: photos, focus areas, button text. |
+| FAQs | Each question and its answer, and the order they appear in. |
 | Pages | The fixed text on Home, Who We Are, What We Do, Media Center, Contact and FAQs. |
-| Site settings | Logo, navigation, social links, contact email, SDG badges, the site-wide call to action, and the event banner. |
+| Site settings | Logo, navigation, social links, contact email, SDG badges, the site-wide call to action. |
+| Event banner | The promotional banner shown under every page, with an automatic end date. |
 
-How publishing works:
+How publishing works: make your change and press **Save**. The change is committed to the website's repository and the site rebuilds automatically. It is live in about two minutes.
 
-1. Make your change and press **Save**. It goes to the *Drafts* column of the Workflow screen.
-2. Move it to **In review** if someone else should check it, or straight to **Ready**.
-3. Press **Publish**. The change is committed to GitHub and the site rebuilds automatically. It is live in about two minutes.
+Writing text: the large editor boxes are rich-text editors. Use the toolbar for headings, bold, lists, links and images, or type Markdown directly. Images placed inside an article appear at that point in the text; an italic line under an image works well as a caption.
 
 Image guidance:
 
@@ -35,58 +35,51 @@ Image guidance:
 - Keep files under 1 MB. JPEG or WebP for photos, SVG or PNG for icons and logos.
 - Uploaded images are stored in `public/uploads`.
 
-Writing text: the larger text boxes accept simple formatting. Use the toolbar for **bold**, lists and links, or type Markdown directly.
-
 ## Local development
 
 ```bash
 npm install
-cp .env.example .env      # then fill in the keys
-npm run dev               # site at http://localhost:5173
+cp .env.example .env      # optional: fill in the keys you have
+npm run dev               # site at http://localhost:5173, editor at http://localhost:5173/admin/
 ```
 
-To use the content manager locally without GitHub login, run the local backend in a second terminal:
-
-```bash
-npm run cms
-```
-
-then open http://localhost:5173/admin/. Saves write straight to the files in `src/content`.
+`npm run dev` starts the site together with a local content backend, so the editor works without signing in and saves straight to the files in `src/content`. Use `npm run dev:site` to run the site alone.
 
 Other scripts:
 
 | Command | Purpose |
 |---|---|
-| `npm run build` | Production build into `dist/`, then writes `dist/sitemap.xml` |
+| `npm run build` | Builds the editor (when TinaCloud keys are set), then the site into `dist/`, then `dist/sitemap.xml` |
 | `npm run preview` | Serve the production build locally |
 | `npm run lint` | ESLint |
 | `npm run images` | Convert any JPEG/PNG under `public/assets` and `public/uploads` to capped-width WebP |
 
 ## Deploying
 
-### Vercel
+The site is a Vercel project linked to this repository. Every push to `main` deploys; every save in the content manager is a push to `main`.
 
-1. Import the GitHub repository into Vercel. Framework preset: Vite. Build command `npm run build`, output `dist`.
-2. Add the environment variables from `.env.example`.
-3. Create a GitHub OAuth App at <https://github.com/settings/developers>:
-   - Homepage URL: the site's domain (currently `https://raissat-delta.vercel.app`)
-   - Authorization callback URL: that domain followed by `/api/callback`
-   - Copy the Client ID and Client Secret into Vercel as `OAUTH_GITHUB_CLIENT_ID` and `OAUTH_GITHUB_CLIENT_SECRET`.
-4. When the site moves to `https://raissat.org`, update the OAuth App URLs above, `base_url` in `public/admin/config.yml`, and the `siteUrl` in Site settings (`src/content/settings/site.json`). The sitemap and canonical links follow `siteUrl`.
+Setting up the content manager's cloud login, once:
 
-Every push to `main` deploys. Every CMS publish is a push to `main`.
+1. Create a free account at <https://app.tina.io> and a project connected to this GitHub repository (branch `main`).
+2. In the TinaCloud project, copy the **Client ID** (Overview) and create a **Content (read only) token** (Tokens).
+3. In Vercel → Project → Settings → Environment Variables, add `TINA_PUBLIC_CLIENT_ID` and `TINA_TOKEN`, then redeploy.
+4. In TinaCloud → Project → Site URLs, add the site's domain so the editor is allowed to run there.
+5. Invite editors by email under TinaCloud → Project → Collaborators.
+
+Without those two variables the website still builds and deploys; only `/admin` is missing.
+
+When the site moves to `https://raissat.org`, add that domain to the TinaCloud site URLs and update `siteUrl` in Site settings (`src/content/settings/site.json`). The sitemap and canonical links follow `siteUrl`.
 
 ## Project layout
 
 ```
-api/                 Vercel functions: GitHub login for the CMS
-public/admin/        The content manager (Decap CMS) and its field definitions
 public/assets/       Images and icons shipped with the site
-public/uploads/      Images uploaded through the CMS
-scripts/             Image conversion and sitemap generation
-src/content/         All editable content (JSON)
+public/uploads/      Images uploaded through the content manager
+scripts/             Build wrapper, image conversion, sitemap generation
+src/content/         All editable content (Markdown with frontmatter, and JSON)
 src/Components/      Shared UI
 src/Pages/           One file per route
+tina/config.js       Content manager schema: which fields each section has
 ```
 
 Content is bundled at build time, so a change to `src/content` always needs a rebuild to appear on the live site. Vercel does this on every push.
