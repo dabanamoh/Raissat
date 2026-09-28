@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    { "source": "/webmail", "destination": "https://webmail.raissat.org/", "permanent": false },
+    { "source": "/webmail/(.*)", "destination": "https://webmail.raissat.org/", "permanent": false },
+    { "source": "/cpanel", "destination": "https://cpanel.raissat.org/", "permanent": false },
+    { "source": "/cpanel/(.*)", "destination": "https://cpanel.raissat.org/", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/admin", "destination": "/admin/index.html" },
     { "source": "/admin/", "destination": "/admin/index.html" },
