@@ -10,7 +10,7 @@ The public website of the Research Applied Institute for Sustainability in Scien
 
 ## Editing the website (for the RAISSAT team)
 
-Go to **https://raissat.org/admin/** and sign in with the email address you were invited with. No GitHub account is needed.
+Go to **https://www.raissat.org/admin/** and sign in with the email address you were invited with. No GitHub account is needed.
 
 What you can edit:
 
@@ -68,7 +68,7 @@ Setting up the content manager's cloud login, once:
 
 Without those two variables the website still builds and deploys; only `/admin` is missing.
 
-When the site moves to `https://raissat.org`, add that domain to the TinaCloud site URLs and update `siteUrl` in Site settings (`src/content/settings/site.json`). The sitemap and canonical links follow `siteUrl`.
+The website's address is `https://www.raissat.org`; the bare `raissat.org` stays on the cPanel server for email and forwards web visitors to www. If that ever changes, add that domain to the TinaCloud site URLs and update `siteUrl` in Site settings (`src/content/settings/site.json`). The sitemap and canonical links follow `siteUrl`.
 
 ## Project layout
 

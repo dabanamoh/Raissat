@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://raissat.org/sitemap.xml
+Sitemap: https://www.raissat.org/sitemap.xml
