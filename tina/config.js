@@ -157,7 +157,7 @@ const homePage = pageCollection("home", "Home page", "home", [
   },
 ]);
 
-const aboutPage = pageCollection("about", "Who We Are page", "about", [
+const aboutPage = pageCollection("about", "About page (Who We Are)", "about", [
   text("title", "Page title"),
   text("metaTitle", "Browser tab title", { description: "Optional. Falls back to the page title." }),
   textarea("metaDescription", "Search description"),
