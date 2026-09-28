@@ -34,7 +34,7 @@ const byDateDesc = (a, b) => new Date(b.date) - new Date(a.date);
 export const team = collect(
   import.meta.glob("./team/*.md", { query: "?raw", import: "default", eager: true }),
   byOrder
-);
+).filter((m) => !m.hidden);
 export const services = collect(
   import.meta.glob("./services/*.md", { query: "?raw", import: "default", eager: true }),
   byOrder

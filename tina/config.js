@@ -54,9 +54,13 @@ const team = {
   label: "Team",
   path: "src/content/team",
   format: "md",
-  ui: { filename: { readonly: true, slugify: (v) => slugify(v?.name) } },
+  ui: {
+    filename: { readonly: true, slugify: (v) => slugify(v?.name) },
+    defaultItem: () => ({ order: 99, hidden: false }),
+  },
   fields: [
     { type: "number", name: "order", label: "Display order", description: "1 appears first.", required: true },
+    { type: "boolean", name: "hidden", label: "Hide from the site", description: "Keeps the profile but removes it from the team page." },
     text("name", "Full name", { isTitle: true, required: true, description: "The first name is shown in capitals automatically." }),
     text("role", "Role / title", { required: true }),
     imageField("image", "Photo", { description: "Portrait orientation, at least 800×1000." }),
