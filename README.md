@@ -33,7 +33,7 @@ Image guidance:
 - Article covers: landscape, at least 1280×720 pixels.
 - Team photos: portrait, at least 800×1000 pixels.
 - Keep files under 1 MB. JPEG or WebP for photos, SVG or PNG for icons and logos.
-- Uploaded images are stored in `public/uploads`.
+- Images uploaded through the content manager are stored under `public/assets`, alongside the existing site images.
 
 ## Local development
 
@@ -74,7 +74,7 @@ The website's address is `https://www.raissat.org`; the bare `raissat.org` stays
 
 ```
 public/assets/       Images and icons shipped with the site
-public/uploads/      Images uploaded through the content manager
+public/assets/       Site images, including uploads from the content manager
 scripts/             Build wrapper, image conversion, sitemap generation
 src/content/         All editable content (Markdown with frontmatter, and JSON)
 src/Components/      Shared UI

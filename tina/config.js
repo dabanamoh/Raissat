@@ -332,7 +332,7 @@ export default defineConfig({
   token: process.env.TINA_TOKEN,
   client: { skip: true },
   build: { outputFolder: "admin", publicFolder: "public" },
-  media: { tina: { mediaRoot: "uploads", publicFolder: "public" } },
+  media: { tina: { mediaRoot: "assets", publicFolder: "public" } },
   schema: {
     collections: [articles, team, services, faqs, homePage, aboutPage, servicesPage, mediaPage, contactPage, faqsPage, notFoundPage, siteSettings, banner],
   },
