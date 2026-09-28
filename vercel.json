@@ -1,23 +1,58 @@
 {
   "redirects": [
-    { "source": "/webmail", "destination": "https://webmail.raissat.org/", "permanent": false },
-    { "source": "/webmail/(.*)", "destination": "https://webmail.raissat.org/", "permanent": false },
-    { "source": "/cpanel", "destination": "https://cpanel.raissat.org/", "permanent": false },
-    { "source": "/cpanel/(.*)", "destination": "https://cpanel.raissat.org/", "permanent": false }
+    {
+      "source": "/webmail",
+      "destination": "https://premium8.web-hosting.com:2096/",
+      "permanent": false
+    },
+    {
+      "source": "/webmail/(.*)",
+      "destination": "https://premium8.web-hosting.com:2096/",
+      "permanent": false
+    },
+    {
+      "source": "/cpanel",
+      "destination": "https://premium8.web-hosting.com:2083/",
+      "permanent": false
+    },
+    {
+      "source": "/cpanel/(.*)",
+      "destination": "https://premium8.web-hosting.com:2083/",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/admin", "destination": "/admin/index.html" },
-    { "source": "/admin/", "destination": "/admin/index.html" },
-    { "source": "/((?!api/|admin|assets/|uploads/|sitemap\\.xml|robots\\.txt).*)", "destination": "/index.html" }
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/((?!api/|admin|assets/|uploads/|sitemap\\.xml|robots\\.txt).*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/admin/(.*)",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     },
     {
       "source": "/(assets|uploads)/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
