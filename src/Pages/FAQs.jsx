@@ -3,9 +3,10 @@ import { useState } from "react";
 import Container from "../Components/Container";
 import PageMeta from "../Components/PageMeta";
 import Accordion from "../Components/Accordion";
-import { faqs, faqsPage } from "../content";
+import { useContent } from "../content/live";
 
 const FAQs = () => {
+  const { faqs, faqsPage } = useContent();
   const [activeIndex, setActiveIndex] = useState(null);
 
   function handleToggle(index) {

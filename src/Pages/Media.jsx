@@ -4,9 +4,10 @@ import CardRow from "../Components/Media/CardRow";
 import EventCard from "../Components/Media/EventCard";
 import Container from "../Components/Container";
 import PageMeta from "../Components/PageMeta";
-import { articles, events, mediaPage } from "../content";
+import { useContent } from "../content/live";
 
 const Media = () => {
+  const { articles, events, mediaPage } = useContent();
   const [active, setActive] = useState(mediaPage.allLabel);
   const categories = (mediaPage.categories || []).filter((c) =>
     articles.some((a) => a.category === c)

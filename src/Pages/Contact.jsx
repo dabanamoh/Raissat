@@ -6,7 +6,7 @@ import MessageBox from "../Components/MessageBox";
 import Container from "../Components/Container";
 import PageMeta from "../Components/PageMeta";
 import Map from "../Components/Map";
-import { contact } from "../content";
+import { useContent } from "../content/live";
 
 const ICONS = {
   question: MessageCircleQuestionMark,
@@ -22,6 +22,7 @@ const ANIMATIONS = [
 ];
 
 const Contact = () => {
+  const { contact } = useContent();
   const [locationIndex, setLocationIndex] = useState(0);
   const [inquiry, setInquiry] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);

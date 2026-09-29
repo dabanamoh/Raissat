@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation, useNavigate } from "react-router";
 
-import { site } from "../content";
+import { useContent } from "../content/live";
 
 const HAMBURGER = "/assets/hamburger.svg";
 const CLOSE = "/assets/close.svg";
 
 const Navbar = () => {
+  const { site } = useContent();
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();

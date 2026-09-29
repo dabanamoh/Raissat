@@ -1,8 +1,9 @@
 import { Check } from "lucide-react";
 import Dialog from "./Dialog";
-import { contact } from "../content";
+import { useContent } from "../content/live";
 
 const MessageBox = ({ onClose }) => {
+  const { contact } = useContent();
   const copy = contact.success || {};
   return (
     <Dialog onClose={onClose} label={copy.heading} className="max-w-md" panelClassName="p-6 sm:p-8">

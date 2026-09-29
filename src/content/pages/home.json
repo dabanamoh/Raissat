@@ -67,6 +67,13 @@
     "buttonLabel": "Partner With Us",
     "buttonRoute": "/contact"
   },
+  "featured": {
+    "title": "From the Media Center",
+    "text": "Articles and publications chosen by the RAISSAT team.",
+    "buttonLabel": "All articles",
+    "buttonRoute": "/media",
+    "count": 3
+  },
   "faqs": {
     "title": "FAQs",
     "text": "Discover answers to your questions about RAISSAT and how we can assist you.",

@@ -6,9 +6,10 @@ import Carousel from "../Components/Carousel";
 import PageMeta from "../Components/PageMeta";
 import Markdown from "../Components/Markdown";
 import PageNotFound from "./PageNotFound";
-import { services, servicesPage } from "../content";
+import { useContent } from "../content/live";
 
 const ServicePage = () => {
+  const { services, servicesPage } = useContent();
   const { serviceId } = useParams();
   const navigate = useNavigate();
 

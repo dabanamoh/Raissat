@@ -1,8 +1,9 @@
 import { Link } from "react-router";
 import PageMeta from "../Components/PageMeta";
-import { notFound } from "../content";
+import { useContent } from "../content/live";
 
 const PageNotFound = () => {
+  const { notFound } = useContent();
   return (
     <div className="text-center bg-bright-gray min-h-[60vh] flex flex-col items-center justify-center py-24 px-5">
       <PageMeta title={notFound.title} />

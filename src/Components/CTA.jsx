@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router";
 
 import Container from "./Container";
-import { site } from "../content";
+import { useContent } from "../content/live";
 
 const CTA = () => {
+  const { site } = useContent();
   const navigate = useNavigate();
   const { cta } = site;
 

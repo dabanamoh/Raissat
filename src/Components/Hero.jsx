@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router";
 
 import Container from "./Container";
-import { home } from "../content";
+import { useContent } from "../content/live";
 
 const Hero = () => {
+  const { home } = useContent();
   const navigate = useNavigate();
   const { hero } = home;
 

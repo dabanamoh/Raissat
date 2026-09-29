@@ -1,7 +1,8 @@
 import Container from "./Container";
-import { banner } from "../content";
+import { useContent } from "../content/live";
 
 const EventAdd = () => {
+  const { banner } = useContent();
   if (!banner.enabled) return null;
   const now = new Date();
   if (banner.starts && now < new Date(banner.starts)) return null;

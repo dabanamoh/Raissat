@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 
 import Container from "./Container";
-import { home } from "../content";
+import { useContent } from "../content/live";
 
 const IconCard = ({ icon, title, text }) => (
   <div className="card">
@@ -12,6 +12,7 @@ const IconCard = ({ icon, title, text }) => (
 );
 
 const Services = () => {
+  const { home } = useContent();
   const navigate = useNavigate();
   const s = home.services;
 

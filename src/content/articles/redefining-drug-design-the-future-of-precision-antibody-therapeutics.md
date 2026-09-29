@@ -3,6 +3,7 @@ title: "Redefining Drug Design: The Future of Precision Antibody Therapeutics"
 date: 2025-05-10
 category: Article
 draft: false
+featured: true
 author: Goshen David Miteu
 authorImage: /assets/Profiles/goshen.webp
 thumbnail: /assets/Media/articles/drugDesign.webp

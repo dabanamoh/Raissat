@@ -40,6 +40,7 @@ const articles = {
     { type: "datetime", name: "date", label: "Publish date", ui: { dateFormat: "D MMM YYYY" }, required: true },
     text("category", "Type", { options: ["Article", "News", "Resource"] }),
     { type: "boolean", name: "draft", label: "Draft (hide from the site)" },
+    { type: "boolean", name: "featured", label: "Feature on the home page", description: "Featured articles appear on the home page above the FAQs, newest first." },
     text("author", "Author", { required: true }),
     imageField("authorImage", "Author photo", { description: "Optional. A square photo works best." }),
     imageField("thumbnail", "Cover image", { description: "Landscape, at least 1280×720. Shown on cards and at the top of the article." }),
@@ -191,6 +192,14 @@ const homePage = pageCollection("home", "Home page", "home", [
         fields: [imageField("icon", "Icon"), text("title", "Title"), textarea("text", "Text")],
       },
       text("buttonLabel", "Button label"), link("buttonRoute", "Button link"),
+    ],
+  },
+  {
+    type: "object", name: "featured", label: "Featured articles section",
+    fields: [
+      text("title", "Heading"), textarea("text", "Text"),
+      text("buttonLabel", "Button label"), link("buttonRoute", "Button link"),
+      { type: "number", name: "count", label: "How many articles to show" },
     ],
   },
   {

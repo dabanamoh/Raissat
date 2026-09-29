@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 
 import ScrollTop from "./Components/ScrollTop";
 import Spinner from "./Components/Spinner";
+import { ContentProvider } from "./content/live";
 
 const Home = lazy(() => import("./Pages/Home"));
 const About = lazy(() => import("./Pages/About"));
@@ -25,6 +26,7 @@ const Fallback = () => (
 function App() {
   return (
     <BrowserRouter>
+      <ContentProvider>
       <ScrollTop />
       <Suspense fallback={<Fallback />}>
         <Routes>
@@ -42,6 +44,7 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
+      </ContentProvider>
     </BrowserRouter>
   );
 }

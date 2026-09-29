@@ -3,9 +3,10 @@ import { useNavigate } from "react-router";
 
 import Accordion from "./Accordion";
 import Container from "./Container";
-import { home, faqs } from "../content";
+import { useContent } from "../content/live";
 
 const FAQS = () => {
+  const { home, faqs } = useContent();
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(null);
   const section = home.faqs;

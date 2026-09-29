@@ -7,12 +7,13 @@ import PageMeta from "../Components/PageMeta";
 import Markdown from "../Components/Markdown";
 import Lightbox from "../Components/Media/Lightbox";
 import PageNotFound from "./PageNotFound";
-import { events, mediaPage } from "../content";
+import { useContent } from "../content/live";
 import { formatDate, videoEmbed } from "../utils";
 
 const BACK_ICON = "/assets/iconBack.svg";
 
 const EventPage = () => {
+  const { events, mediaPage } = useContent();
   const { eventId } = useParams();
   const [open, setOpen] = useState(null);
   const event = events.find((e) => e.id === eventId);

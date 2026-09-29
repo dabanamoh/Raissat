@@ -3,6 +3,7 @@ title: Strengthening Public Health Preparedness through Integrated Biomedical St
 date: 2025-10-30
 category: Article
 draft: false
+featured: true
 author: Goshen David Miteu
 authorImage: /assets/Profiles/goshen.webp
 thumbnail: /assets/Media/articles/bioStrategies.webp

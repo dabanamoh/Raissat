@@ -1,8 +1,9 @@
 import { Link } from "react-router";
 import { formatDate } from "../../utils";
-import { mediaPage } from "../../content";
+import { useContent } from "../../content/live";
 
 const CardRow = ({ article }) => {
+  const { mediaPage } = useContent();
   return (
     <Link
       to={`/articles/${article.id}`}

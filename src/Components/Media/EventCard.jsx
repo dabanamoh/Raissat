@@ -1,9 +1,10 @@
 import { Link } from "react-router";
 import { Images, Video } from "lucide-react";
 import { formatDate, fill } from "../../utils";
-import { mediaPage } from "../../content";
+import { useContent } from "../../content/live";
 
 const EventCard = ({ event }) => {
+  const { mediaPage } = useContent();
   const photos = event.photos?.length || 0;
   const videos = event.videos?.length || 0;
   const cover = event.cover || event.photos?.[0]?.image || mediaPage.defaultThumbnail;

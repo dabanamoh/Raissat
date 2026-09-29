@@ -5,12 +5,13 @@ import PageMeta from "../Components/PageMeta";
 import Markdown from "../Components/Markdown";
 import CardRow from "../Components/Media/CardRow";
 import PageNotFound from "./PageNotFound";
-import { articles, mediaPage } from "../content";
+import { useContent } from "../content/live";
 import { formatDate, fill } from "../utils";
 
 const BACK_ICON = "/assets/iconBack.svg";
 
 const ArticlePage = () => {
+  const { articles, mediaPage } = useContent();
   const { articleId } = useParams();
   const article = articles.find((a) => a.id === articleId);
 

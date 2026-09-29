@@ -3,9 +3,10 @@ import Card from "./Card";
 import Modal from "./Modal";
 import Container from "../Container";
 
-import { about, team } from "../../content";
+import { useContent } from "../../content/live";
 
 const Team = () => {
+  const { about, team } = useContent();
   const [activeId, setActiveId] = useState(null);
   const copy = about.team;
 

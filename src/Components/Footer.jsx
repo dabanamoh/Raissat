@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { site } from "../content";
+import { useContent } from "../content/live";
 import { fill } from "../utils";
 
 const SOCIAL_ICONS = {
@@ -9,6 +9,7 @@ const SOCIAL_ICONS = {
 };
 
 const Footer = () => {
+  const { site } = useContent();
   return (
     <footer className="bg-rich-black font-inter text-white py-12 px-5 sm:px-8">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between gap-10">

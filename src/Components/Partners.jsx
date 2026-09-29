@@ -1,7 +1,8 @@
 import Container from "./Container";
-import { site } from "../content";
+import { useContent } from "../content/live";
 
 const Partners = () => {
+  const { site } = useContent();
   if (!site.sdgs?.length) return null;
 
   return (

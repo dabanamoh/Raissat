@@ -1,8 +1,9 @@
 import Container from "../Container";
 import Markdown from "../Markdown";
-import { about } from "../../content";
+import { useContent } from "../../content/live";
 
 const AboutFull = () => {
+  const { about } = useContent();
   const { philosophy } = about;
 
   return (

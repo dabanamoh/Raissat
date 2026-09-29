@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 import Dialog from "./Dialog";
 import Spinner from "./Spinner";
-import { site, contact } from "../content";
+import { useContent } from "../content/live";
 import { fill } from "../utils";
 
 const accessKey = import.meta.env.VITE_HOOKFORM_ACCESS_KEY;
@@ -32,6 +32,7 @@ const inputClass = (error) =>
   `input ${error ? "focus:ring-red-500 border-red-500" : ""}`;
 
 const Form = ({ inquiry, onClose, onSuccess }) => {
+  const { site, contact } = useContent();
   const copy = contact.form || {};
   const [submitError, setSubmitError] = useState("");
 

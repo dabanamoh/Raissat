@@ -84,6 +84,17 @@ tina/config.js       Content manager schema: which fields each section has
 
 Content is bundled at build time, so a change to `src/content` always needs a rebuild to appear on the live site. Vercel does this on every push.
 
+## Live content
+
+The site is built with the content in `src/content`, but once it loads in the
+browser it asks Tina Cloud for the latest saved content (`src/content/live.jsx`)
+and swaps it in. Edits made in the content manager therefore appear within
+about a minute, before Vercel has finished rebuilding. New images are served
+from Tina's CDN until the next build copies them into `public/assets`. If Tina
+Cloud cannot be reached, the built-in content is shown. The read-only
+credentials come from `TINA_PUBLIC_CLIENT_ID` and `TINA_TOKEN` at build time
+(put them in `.env.local` for local development).
+
 ## Who may change what
 
 Editors invited on the Tina Cloud Collaborators page can open every section of the
