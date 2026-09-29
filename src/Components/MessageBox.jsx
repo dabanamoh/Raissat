@@ -5,7 +5,7 @@ import { contact } from "../content";
 const MessageBox = ({ onClose }) => {
   const copy = contact.success || {};
   return (
-    <Dialog onClose={onClose} label={copy.heading} className="max-w-md p-6 sm:p-8">
+    <Dialog onClose={onClose} label={copy.heading} className="max-w-md" panelClassName="p-6 sm:p-8">
       <div className="flex flex-col items-center text-center gap-5">
         <Check
           aria-hidden="true"

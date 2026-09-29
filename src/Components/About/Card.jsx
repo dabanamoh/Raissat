@@ -1,43 +1,39 @@
-const ARROW = "/assets/Profiles/right-arrow.svg";
+import { ArrowRight } from "lucide-react";
 
-export const MemberName = ({ member }) => {
-  const [first, ...rest] = member.name.split(" ");
+const Card = ({ member, onOpen, readMoreLabel }) => {
   return (
-    <>
-      <span className="uppercase">{first}</span> {rest.join(" ")} -{" "}
-      <span className="font-normal">{member.role}</span>
-    </>
-  );
-};
-
-const Card = ({ member, onOpen }) => {
-  return (
-    <div className="bg-white p-3 rounded-xl shadow-2xl w-full flex flex-col">
-      <div className="mb-3 aspect-[4/5] overflow-hidden rounded-xl">
+    <article className="h-full bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-row sm:flex-col">
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label={`${readMoreLabel}: ${member.name}`}
+        className="block w-2/5 shrink-0 sm:w-full aspect-[4/5] overflow-hidden cursor-pointer bg-bright-gray"
+      >
         <img
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-top transition-transform duration-300 motion-safe:hover:scale-[1.03]"
           src={member.image}
           alt={member.name}
           loading="lazy"
         />
-      </div>
-      <div className="flex flex-col grow">
-        <h3 className="font-semibold mb-3">
-          <MemberName member={member} />
+      </button>
+      <div className="p-4 sm:p-5 flex flex-col grow gap-1.5 min-w-0">
+        <h3 className="font-semibold text-lg leading-snug text-rich-black text-balance mb-0">
+          {member.name}
         </h3>
-        <p className="text-sm leading-6">{member.summary}</p>
-        <div className="flex justify-end mt-auto pt-5">
-          <button
-            type="button"
-            onClick={onOpen}
-            aria-label={`Read ${member.name}'s full profile`}
-            className="p-2 -m-2 cursor-pointer rounded-full hover:bg-bright-gray transition"
-          >
-            <img className="size-8" src={ARROW} alt="" />
-          </button>
-        </div>
+        <p className="text-sm font-medium text-midnight-green leading-snug">{member.role}</p>
+        <p className="text-sm text-slate-600 leading-relaxed line-clamp-3 sm:line-clamp-3 mt-1.5">
+          {member.summary}
+        </p>
+        <button
+          type="button"
+          onClick={onOpen}
+          className="mt-auto pt-4 self-start inline-flex items-center gap-1.5 text-sm font-semibold text-midnight-green hover:text-indian-yellow cursor-pointer"
+        >
+          {readMoreLabel}
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </button>
       </div>
-    </div>
+    </article>
   );
 };
 

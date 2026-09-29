@@ -11,19 +11,23 @@ const Team = () => {
 
   return (
     <Container className="py-12 font-inter">
-      <div className="w-full text-center">
-        <h2 className="bg-midnight-green rounded-xl text-bright-gray font-bold text-center md:w-lg mx-auto py-3">
-          {copy.heading}
-        </h2>
-        <p className="mt-6 p font-bold text-center md:text-left">{copy.philosophyTitle}</p>
-        <p className="mt-4 p text-center md:text-left">{copy.philosophyText}</p>
+      <div className="max-w-[72ch]">
+        <h2 className="h1 text-midnight-green mb-3">{copy.heading}</h2>
+        <p className="p font-bold">{copy.philosophyTitle}</p>
+        <p className="p mt-2">{copy.philosophyText}</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 my-8">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10 list-none m-0 p-0">
         {team.map((member) => (
-          <Card key={member.id} member={member} onOpen={() => setActiveId(member.id)} />
+          <li key={member.id}>
+            <Card
+              member={member}
+              readMoreLabel={copy.readMoreLabel || "Read full profile"}
+              onOpen={() => setActiveId(member.id)}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
 
       {activeId && (
         <Modal

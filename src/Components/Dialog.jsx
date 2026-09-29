@@ -5,9 +5,11 @@ import { X } from "lucide-react";
 /**
  * Shared modal shell: portal to <body>, backdrop, close button, Escape key,
  * click-outside, body scroll lock, dialog semantics, and initial focus.
- * Content scrolls inside the panel when it is taller than the viewport.
+ * `className` sizes the modal (e.g. max-w-2xl); `panelClassName` pads the
+ * scrolling panel. Content scrolls inside the panel when it is taller than
+ * the viewport, while the close button stays put on the corner.
  */
-const Dialog = ({ onClose, label, className = "", children }) => {
+const Dialog = ({ onClose, label, className = "", panelClassName = "p-5 sm:p-6", children }) => {
   const panelRef = useRef(null);
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
@@ -43,13 +45,7 @@ const Dialog = ({ onClose, label, className = "", children }) => {
         if (e.target === e.currentTarget) closeRef.current();
       }}
     >
-      <div
-        ref={panelRef}
-        role="dialog"
-        aria-modal="true"
-        aria-label={label}
-        className={`relative w-full bg-white/90 backdrop-blur-3xl rounded-xl shadow-2xl motion-safe:animate-fadeInScale ${className}`}
-      >
+      <div className={`relative w-full motion-safe:animate-fadeInScale ${className}`}>
         <button
           type="button"
           onClick={() => closeRef.current()}
@@ -58,7 +54,15 @@ const Dialog = ({ onClose, label, className = "", children }) => {
         >
           <X className="size-5 sm:size-6" aria-hidden="true" />
         </button>
-        {children}
+        <div
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={label}
+          className={`bg-white/90 backdrop-blur-3xl rounded-xl shadow-2xl max-h-[88vh] overflow-y-auto ${panelClassName}`}
+        >
+          {children}
+        </div>
       </div>
     </div>,
     document.body

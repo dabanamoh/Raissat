@@ -61,7 +61,7 @@ const team = {
   fields: [
     { type: "number", name: "order", label: "Display order", description: "1 appears first.", required: true },
     { type: "boolean", name: "hidden", label: "Hide from the site", description: "Keeps the profile but removes it from the team page." },
-    text("name", "Full name", { isTitle: true, required: true, description: "The first name is shown in capitals automatically." }),
+    text("name", "Full name", { isTitle: true, required: true }),
     text("role", "Role / title", { required: true }),
     imageField("image", "Photo", { description: "Portrait orientation, at least 800×1000." }),
     text("email", "Email"),
@@ -180,7 +180,7 @@ const aboutPage = pageCollection("about", "About page (Who We Are)", "about", [
   },
   {
     type: "object", name: "team", label: "Team section",
-    fields: [text("heading", "Heading"), text("philosophyTitle", "Philosophy title"), textarea("philosophyText", "Philosophy text")],
+    fields: [text("heading", "Heading"), text("philosophyTitle", "Philosophy title"), textarea("philosophyText", "Philosophy text"), text("readMoreLabel", "Profile link label")],
   },
   body("Introduction"),
 ], "md");

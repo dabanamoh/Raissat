@@ -71,7 +71,8 @@ const Form = ({ inquiry, onClose, onSuccess }) => {
     <Dialog
       onClose={onClose}
       label={copy.heading}
-      className="max-w-2xl max-h-[90vh] overflow-y-auto p-5 sm:p-8"
+      className="max-w-2xl"
+      panelClassName="p-5 sm:p-8"
     >
       <form onSubmit={handleSubmit(handleFormSubmit)} noValidate>
         <h2 className="mb-2 text-midnight-green text-center h1">{copy.heading}</h2>
