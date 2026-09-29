@@ -3,7 +3,9 @@ import { banner } from "../content";
 
 const EventAdd = () => {
   if (!banner.enabled) return null;
-  if (banner.expires && new Date() >= new Date(banner.expires)) return null;
+  const now = new Date();
+  if (banner.starts && now < new Date(banner.starts)) return null;
+  if (banner.expires && now >= new Date(banner.expires)) return null;
 
   const image = (
     <picture className="flex justify-center items-center">
