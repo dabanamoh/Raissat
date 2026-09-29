@@ -5,5 +5,5 @@
   "imageDesktop": "/assets/Media/desktopAd.webp",
   "imageTablet": "/assets/Media/tabletAd.webp",
   "imageMobile": "/assets/Media/mobileAd.webp",
-  "expires": "2025-11-20T18:00:00"
+  "expires": "2025-11-20T18:00:00.000Z"
 }
