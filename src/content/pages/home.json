@@ -72,7 +72,21 @@
     "text": "Articles and publications chosen by the RAISSAT team.",
     "buttonLabel": "All articles",
     "buttonRoute": "/media",
-    "count": 3
+    "count": 4,
+    "articles": [
+      {
+        "article": "src/content/articles/strengthening-public-health-preparedness-through-integrated-biomedical-strategies.md"
+      },
+      {
+        "article": "src/content/articles/redefining-drug-design-the-future-of-precision-antibody-therapeutics.md"
+      },
+      {
+        "article": "src/content/articles/building-trust-and-accountability-in-science-through-ethical-research.md"
+      },
+      {
+        "article": "src/content/articles/guarding-the-last-line-of-defense-tackling-antimicrobial-resistance-through-awareness-and-action.md"
+      }
+    ]
   },
   "faqs": {
     "title": "FAQs",

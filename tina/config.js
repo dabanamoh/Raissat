@@ -40,7 +40,7 @@ const articles = {
     { type: "datetime", name: "date", label: "Publish date", ui: { dateFormat: "D MMM YYYY" }, required: true },
     text("category", "Type", { options: ["Article", "News", "Resource"] }),
     { type: "boolean", name: "draft", label: "Draft (hide from the site)" },
-    { type: "boolean", name: "featured", label: "Feature on the home page", description: "Featured articles appear on the home page above the FAQs, newest first." },
+    { type: "boolean", name: "featured", label: "Feature on the home page", description: "Used when no articles are picked under Home page > Featured articles section." },
     text("author", "Author", { required: true }),
     imageField("authorImage", "Author photo", { description: "Optional. A square photo works best." }),
     imageField("thumbnail", "Cover image", { description: "Landscape, at least 1280×720. Shown on cards and at the top of the article." }),
@@ -200,6 +200,12 @@ const homePage = pageCollection("home", "Home page", "home", [
       text("title", "Heading"), textarea("text", "Text"),
       text("buttonLabel", "Button label"), link("buttonRoute", "Button link"),
       { type: "number", name: "count", label: "How many articles to show" },
+      {
+        type: "object", name: "articles", label: "Articles to show", list: true,
+        description: "Pick the articles in the order they should appear. If this list is empty, articles marked 'Feature on the home page' are shown instead.",
+        ui: { itemProps: (item) => ({ label: item?.article ? item.article.split("/").pop().replace(/\.md$/, "") : "Choose an article" }) },
+        fields: [{ type: "reference", name: "article", label: "Article", collections: ["article"] }],
+      },
     ],
   },
   {

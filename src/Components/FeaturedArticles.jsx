@@ -8,7 +8,13 @@ const FeaturedArticles = () => {
   const { home, articles } = useContent();
   const navigate = useNavigate();
   const section = home.featured || {};
-  const picks = articles.filter((a) => a.featured).slice(0, section.count || 3);
+  const limit = section.count || 4;
+  const chosen = (section.articles || [])
+    .map((item) => item?.article)
+    .filter(Boolean)
+    .map((path) => articles.find((a) => a.id === path.split("/").pop().replace(/\.md$/, "")))
+    .filter(Boolean);
+  const picks = (chosen.length > 0 ? chosen : articles.filter((a) => a.featured)).slice(0, limit);
 
   if (picks.length === 0) return null;
 
@@ -32,7 +38,7 @@ const FeaturedArticles = () => {
             </button>
           )}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {picks.map((article) => (
             <CardRow key={article.id} article={article} />
           ))}
