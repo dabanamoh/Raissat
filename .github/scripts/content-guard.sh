@@ -35,9 +35,20 @@ fi
 violations=()
 report=""
 
+declare -A who
+
 for sha in $commits; do
   email="$(git log -1 --format=%ae "$sha")"
   name="$(git log -1 --format=%an "$sha")"
+  # Tina Cloud commits as its bot and names the editor in a Co-authored-by trailer.
+  if [[ "$email" == *tinacloud-app* ]]; then
+    co="$(git log -1 --format=%B "$sha" | grep -i '^Co-authored-by:' | head -1 || true)"
+    if [[ "$co" =~ \<([^\>]+)\> ]]; then
+      email="${BASH_REMATCH[1]}"
+      name="$(sed -E 's/^[Cc]o-authored-by: *//; s/ *<.*$//' <<<"$co")"
+    fi
+  fi
+  who[$sha]="$name"
   if is_owner "$email"; then
     echo "ok   $sha by $name <$email> (owner)"
     continue
@@ -110,7 +121,7 @@ $report
 The site has been restored automatically. If this change was intended, an owner can make it, or add the person's email to CONTENT_OWNERS in \`.github/workflows/content-guard.yml\`."
 
 gh issue create \
-  --title "Content guard undid a change by $(git log -1 --format=%an "${violations[0]}")" \
+  --title "Content guard undid a change by ${who[${violations[0]}]}" \
   --body "$body" \
   --assignee "${OWNER_LOGIN:-}" \
   || gh issue create --title "Content guard undid an editor's change" --body "$body"
