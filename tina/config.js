@@ -27,7 +27,7 @@ const link = (name, label) => text(name, label, { description: "A path on this s
 
 const articles = {
   name: "article",
-  label: "Articles",
+  label: "Media Center",
   path: "src/content/articles",
   format: "md",
   ui: {
