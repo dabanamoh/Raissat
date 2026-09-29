@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 import CardRow from "../Components/Media/CardRow";
+import EventCard from "../Components/Media/EventCard";
 import Container from "../Components/Container";
 import PageMeta from "../Components/PageMeta";
-import { articles, mediaPage } from "../content";
+import { articles, events, mediaPage } from "../content";
 
 const Media = () => {
   const [active, setActive] = useState(mediaPage.allLabel);
@@ -48,6 +49,20 @@ const Media = () => {
           {visible.map((article) => (
             <CardRow key={article.id} article={article} />
           ))}
+        </section>
+      )}
+
+      {events.length > 0 && (
+        <section className="mt-16">
+          <div className="mb-8 max-w-[70ch]">
+            <h2 className="font-semibold font-inter text-rich-black h1">{mediaPage.eventsHeading}</h2>
+            {mediaPage.eventsIntro && <p className="p mt-2">{mediaPage.eventsIntro}</p>}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {events.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
         </section>
       )}
     </Container>

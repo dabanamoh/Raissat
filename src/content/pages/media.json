@@ -14,5 +14,15 @@
   "emptyText": "Nothing published here yet.",
   "bylineFormat": "Published {date} by {author}",
   "defaultThumbnail": "/assets/Media/articles/thumbnail.webp",
-  "defaultAvatar": "/assets/Media/articles/defaultAvatar.svg"
+  "defaultAvatar": "/assets/Media/articles/defaultAvatar.svg",
+  "eventsHeading": "Past events",
+  "eventsIntro": "Photos and videos from RAISSAT workshops, field visits and public events.",
+  "viewEventLabel": "View event",
+  "photosLabel": "Photos",
+  "videosLabel": "Videos",
+  "photoCountFormat": "{count} photos",
+  "videoCountFormat": "{count} videos",
+  "eventBackLabel": "Back to the Media Center",
+  "photoCountOne": "1 photo",
+  "videoCountOne": "1 video"
 }

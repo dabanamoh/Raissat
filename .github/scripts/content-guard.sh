@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # Paths editors may create, edit and delete freely.
-ALLOWED_PREFIXES=("src/content/articles/" "src/content/team/")
+ALLOWED_PREFIXES=("src/content/articles/" "src/content/events/" "src/content/team/")
 # Editors may ADD files here (image uploads) but not change or delete existing ones.
 UPLOAD_PREFIX="public/assets/"
 

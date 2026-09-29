@@ -48,6 +48,11 @@ export const articles = collect(
   byDateDesc
 ).filter((a) => !a.draft);
 
+export const events = collect(
+  import.meta.glob("./events/*.md", { query: "?raw", import: "default", eager: true }),
+  byDateDesc
+).filter((e) => !e.draft);
+
 export const about = collect(
   import.meta.glob("./pages/about.md", { query: "?raw", import: "default", eager: true }),
   byOrder

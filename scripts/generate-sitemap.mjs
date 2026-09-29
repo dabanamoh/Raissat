@@ -40,6 +40,9 @@ const urls = [
   ...docs("src/content/articles")
     .filter((a) => a.draft !== "true")
     .map((a) => ({ loc: `/articles/${a.slug}`, priority: "0.6", lastmod: (a.date || today).slice(0, 10) })),
+  ...docs("src/content/events")
+    .filter((e) => e.draft !== "true")
+    .map((e) => ({ loc: `/events/${e.slug}`, priority: "0.5", lastmod: (e.date || today).slice(0, 10) })),
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

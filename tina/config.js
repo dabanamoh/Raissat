@@ -1,4 +1,5 @@
 import { defineConfig } from "tinacms";
+import { PhotoField, MAX_BYTES } from "./photo-field";
 
 // Content schema for the RAISSAT content manager (TinaCMS).
 // The site reads the same files at build time via src/content/index.js.
@@ -46,6 +47,47 @@ const articles = {
     text("publisher", "Publisher / journal"),
     text("reference", "Link to the paper (DOI or URL)"),
     body("Article"),
+  ],
+};
+
+const events = {
+  name: "event",
+  label: "Media Center: Events",
+  path: "src/content/events",
+  format: "md",
+  ui: {
+    filename: { readonly: true, slugify: (v) => slugify(v?.title) },
+    defaultItem: () => ({ date: new Date().toISOString(), draft: false, photos: [], videos: [] }),
+  },
+  fields: [
+    text("title", "Event name", { isTitle: true, required: true }),
+    { type: "datetime", name: "date", label: "Event date", ui: { dateFormat: "D MMM YYYY" }, required: true },
+    text("location", "Location", { description: "City and country, e.g. Lagos, Nigeria" }),
+    { type: "boolean", name: "draft", label: "Draft (hide from the site)" },
+    textarea("summary", "Short description", { description: "One or two sentences shown on the event card." }),
+    { type: "image", name: "cover", label: "Cover photo", description: "Landscape photo shown on the Media Center page. Up to 5 MB.", ui: { component: PhotoField } },
+    {
+      type: "object", name: "photos", label: "Photos", list: true,
+      description: "JPEG, PNG or WebP, up to 5 MB each. The width and height are shown under each photo.",
+      ui: { itemProps: (item) => ({ label: item?.caption || (item?.image ? item.image.split("/").pop() : "Photo") }) },
+      fields: [
+        { type: "image", name: "image", label: "Photo", ui: { component: PhotoField } },
+        text("caption", "Caption"),
+      ],
+    },
+    {
+      type: "object", name: "videos", label: "Videos", list: true,
+      description: "Paste links to videos on YouTube or Vimeo. Videos are not uploaded here.",
+      ui: { itemProps: (item) => ({ label: item?.title || item?.url || "Video" }) },
+      fields: [
+        text("title", "Title"),
+        text("url", "Video link", {
+          description: "A YouTube or Vimeo page address.",
+          ui: { validate: (v) => (v && !/(youtube\.com|youtu\.be|vimeo\.com)/i.test(v) ? "Use a YouTube or Vimeo link." : undefined) },
+        }),
+      ],
+    },
+    body("About the event"),
   ],
 };
 
@@ -202,6 +244,11 @@ const mediaPage = pageCollection("mediaPage", "Media Center page", "media", [
   text("bylineFormat", "Article byline", { description: "Use {date} and {author} where they should appear." }),
   imageField("defaultThumbnail", "Fallback cover image", { description: "Used when an article has no cover image." }),
   imageField("defaultAvatar", "Fallback author photo"),
+  text("eventsHeading", "Events heading"), textarea("eventsIntro", "Events intro"),
+  text("viewEventLabel", "View event label"), text("photosLabel", "Photos heading"), text("videosLabel", "Videos heading"),
+  text("photoCountFormat", "Photo count", { description: "Use {count} for the number." }), text("photoCountOne", "Photo count (single)"),
+  text("videoCountFormat", "Video count", { description: "Use {count} for the number." }), text("videoCountOne", "Video count (single)"),
+  text("eventBackLabel", "Back link label on an event"),
 ]);
 
 const contactPage = pageCollection("contact", "Contact page", "contact", [
@@ -333,7 +380,15 @@ export default defineConfig({
   client: { skip: true },
   build: { outputFolder: "admin", publicFolder: "public" },
   media: { tina: { mediaRoot: "assets", publicFolder: "public" } },
+  // The media manager only takes images, and refuses uploads above MAX_BYTES.
+  cmsCallback: (cms) => {
+    if (cms.media?.store) {
+      cms.media.store.maxSize = MAX_BYTES;
+      cms.media.store.accept = "image/jpeg,image/png,image/webp,image/gif,image/svg+xml";
+    }
+    return cms;
+  },
   schema: {
-    collections: [articles, team, services, faqs, homePage, aboutPage, servicesPage, mediaPage, contactPage, faqsPage, notFoundPage, siteSettings, banner],
+    collections: [articles, events, team, services, faqs, homePage, aboutPage, servicesPage, mediaPage, contactPage, faqsPage, notFoundPage, siteSettings, banner],
   },
 });

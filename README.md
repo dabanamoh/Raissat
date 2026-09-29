@@ -90,7 +90,8 @@ Editors invited on the Tina Cloud Collaborators page can open every section of t
 content manager, but a GitHub Action (`.github/workflows/content-guard.yml`) undoes
 any save by a non-owner outside these areas:
 
-- `src/content/articles/` (Articles: create, edit, delete, mark as draft)
+- `src/content/articles/` (Media Center articles: create, edit, delete, mark as draft)
+- `src/content/events/` (Media Center events: photo galleries and video links)
 - `src/content/team/` (Team: create, edit, delete, hide)
 - new image uploads under `public/assets/` (existing images cannot be changed or deleted)
 
