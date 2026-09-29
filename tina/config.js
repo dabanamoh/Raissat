@@ -363,13 +363,13 @@ const banner = {
   match: { include: "banner" },
   ui: single,
   fields: [
-    { type: "boolean", name: "enabled", label: "Show the banner" },
+    { type: "boolean", name: "enabled", label: "Show the banner", description: "The banner also stays hidden after the date in 'Hide automatically after'." },
     text("link", "Link"),
     text("alt", "Image description"),
     imageField("imageDesktop", "Desktop image"),
     imageField("imageTablet", "Tablet image"),
     imageField("imageMobile", "Phone image"),
-    { type: "datetime", name: "expires", label: "Hide automatically after", ui: { dateFormat: "D MMM YYYY", timeFormat: "HH:mm" } },
+    { type: "datetime", name: "expires", label: "Hide automatically after", description: "Usually the event date. Clear it to keep the banner up until you switch it off.", ui: { dateFormat: "D MMM YYYY", timeFormat: "HH:mm" } },
   ],
 };
 
