@@ -2,7 +2,7 @@
 title: 'Capacity-building workshop, Lagos'
 date: 2025-03-14T09:00:00.000Z
 location: 'Lagos, Nigeria'
-draft: false
+draft: true
 summary: Two days of hands-on training for early-career researchers on turning study findings into policy briefs and community programmes.
 cover: /assets/About/capacity/capacity1.webp
 photos:
