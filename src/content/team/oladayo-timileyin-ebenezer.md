@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 5
 name: Oladayo Timileyin Ebenezer
 role: Media Resource Officer
 image: /assets/Profiles/oladayo.webp
