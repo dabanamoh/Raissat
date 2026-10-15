@@ -1,10 +1,10 @@
 ---
-order: 7
+order: 6
 name: Oladayo Timileyin Ebenezer
 role: Media Resource Officer
 image: /assets/Profiles/oladayo.webp
 email: oladayo.timileyin@raissat.org
-summary: Oladayo Timileyin Ebenezer is a creative storyteller and media strategist passionate about transforming science into stories that inspire change. With a background in Food Technology (B.Sc. & M.Sc., University of Ibadan), he combines scientific insight with creative communication to spotlight RAISSAT’s research and community impact. His work bridges science, sustainability, and storytelling, shaping how RAISSAT’s mission connects with the world.
+summary: 'Oladayo Timileyin Ebenezer is a creative storyteller and media strategist passionate about transforming science into stories that inspire change. With a background in Food Technology (B.Sc. & M.Sc., University of Ibadan), he combines scientific insight with creative communication to spotlight RAISSAT’s research and community impact. His work bridges science, sustainability, and storytelling, shaping how RAISSAT’s mission connects with the world.'
 ---
 
 Oladayo Timileyin Ebenezer is a creative storyteller, researcher, and media strategist dedicated to amplifying the voice and impact of sustainability through powerful communication. As the Media Resource Officer at the Research Applied Institute for Sustainability in Science, Agriculture, and Technology (RAISSAT), he leads the development of compelling narratives, visual content, and digital strategies that highlight the institute’s research breakthroughs, community impact, and global collaborations.
