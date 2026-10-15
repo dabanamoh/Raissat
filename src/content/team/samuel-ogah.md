@@ -1,10 +1,10 @@
 ---
 order: 2
-name: Samuel Ogah
-role: Lead Executive, Corporate Communications & Business Development
+name: Samuel I. Ogah
+role: 'Lead Executive, Corporate Communications & Business Development'
 image: /assets/Profiles/samuel.webp
 email: ogah.samuel@raissat.org
-summary: A tenured academic and development strategist, Samuel Ogah brings over a decade of expertise in aquaculture, agricultural systems, and institutional growth to RAISSAT. He leads initiatives that strengthen partnerships, drive communications, and position the institute as a hub of sustainable innovation. Samuel’s leadership has helped secure over $150,000 in development grants, advancing RAISSAT’s mission to turn scientific research into measurable impact across Africa and beyond.
+summary: 'A tenured academic and development strategist, Samuel Ogah brings over a decade of expertise in aquaculture, agricultural systems, and institutional growth to RAISSAT. He leads initiatives that strengthen partnerships, drive communications, and position the institute as a hub of sustainable innovation. Samuel’s leadership has helped secure over $150,000 in development grants, advancing RAISSAT’s mission to turn scientific research into measurable impact across Africa and beyond.'
 ---
 
 Samuel Ogah is the Lead Executive for Corporate Communications and Business Development at the Research Applied Institute for Sustainability in Science, Agriculture, and Technology (RAISSAT). With over a decade of expertise in aquaculture, sustainable agriculture, and research innovation, Samuel bridges the gap between academic excellence and practical impact. His leadership focuses on fostering collaboration, driving institutional partnerships, and amplifying RAISSAT’s mission to turn evidence into sustainable action.
